@@ -1,14 +1,13 @@
 let g:deoplete#enable_at_startup = 1
 let g:startify_custom_header = []
 let g:python_host_prog='/usr/bin/python'
+let g:jedi#use_splits_not_buffers = "right"
 
 let g:startify_lists = [
       \ { 'type': 'files',     'header': ['   MRU']            },
       \ { 'type': 'sessions',  'header': ['   Sessions']       },
       \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
       \ ]
-
-
 
 " Enable folding
 set foldmethod=indent
@@ -37,15 +36,19 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
+" Main Vundle Plugin
 Plugin 'gmarik/Vundle.vim'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
+
+" Vim Bling
 Plugin 'itchyny/lightline.vim'
-Plugin 'vifm/vifm.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'dracula/vim', { 'name': 'dracula' }
+" Utilises
+Plugin 'vifm/vifm.vim'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'ycm-core/YouCompleteMe'
+Plugin 'tpope/vim-fugitive'
+Plugin 'TaDaa/vimade'
 "Xpl
 " ...
 
@@ -56,20 +59,29 @@ filetype plugin indent on    " required
 
 
 call plug#begin('~/.vim/plugged')
+" All PLUGins 
+" markdown
 Plug 'junegunn/goyo.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Vim Bling
 Plug 'mhinz/vim-startify'
+" Utilises
 Plug 'mbbill/undotree'
+" Python things
+Plug 'zchee/deoplete-jedi'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'davidhalter/jedi-vim'
 "xpl
 call plug#end()
 
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+
 " Persistent Undo
 
-set undodir=$HOME"/.undodir"
+set undodir="$HOME/.undodir"
 set undofile
-
 
 syntax on
 """"""""""
@@ -91,16 +103,19 @@ let g:lightline = {
 """"""""""
 call deoplete#custom#option('ignore_case', v:true)
 
+" Settings for search
 set incsearch
 set hlsearch
+set smartcase
+set ignorecase
+set inccommand=nosplit
 
-
-"inoremap [ []
-"inoremap { {}
-"inoremap < <>
-"inoremap ( ()
-"inoremap ' ''
-"inoremap " ""
+inoremap [ []
+inoremap { {}
+inoremap < <>
+inoremap ( ()
+inoremap ' ''
+inoremap " ""
 "
 
 " f2 for vifm
@@ -151,36 +166,11 @@ nmap <F5> ;UndotreeToggle<cr>
 inoremap {<CR> {<CR>}<Esc>ko<tab>
 inoremap [<CR> [<CR>]<Esc>ko<tab>
 inoremap (<CR> (<CR>)<Esc>ko<tab>
+
+" Mapping for spell check 
+nmap <F6> ;setlocal spell! spelllang=en<CR>
 " Keyboards remaps
 
-""""""""""swapline""""""""""
-function! s:swap_lines(n1, n2)
-    let line1 = getline(a:n1)
-    let line2 = getline(a:n2)
-    call setline(a:n1, line2)
-    call setline(a:n2, line1)
-endfunction
+" swapLine Plugin
+source ~/.vim/autoload/swapLine.vim
 
-function! s:swap_up()
-    let n = line('.')
-    if n == 1
-        return
-    endif
-
-    call s:swap_lines(n, n - 1)
-    exec n - 1
-endfunction
-
-function! s:swap_down()
-    let n = line('.')
-    if n == line('$')
-        return
-    endif
-
-    call s:swap_lines(n, n + 1)
-    exec n + 1
-endfunction
-
-noremap <silent> <c-s-up> :call <SID>swap_up()<CR>
-noremap <silent> <c-s-down> :call <SID>swap_down()<CR>
-""""""""""swapline""""""""""

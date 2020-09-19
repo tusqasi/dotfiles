@@ -66,8 +66,8 @@ font:
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
   offset:
-    x: 1
-    y: 1
+    x: 0
+    y: 0
 
   # Glyph offset determines the locations of the glyphs within their cells with
   # the default being at the bottom. Increasing `x` moves the glyph to the right,
@@ -132,5 +132,5 @@ colors:
     white:   '0xe6e6d1'
     
 
-background_opacity: 0.92
+background_opacity: 0.94
 

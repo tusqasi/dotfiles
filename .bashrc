@@ -3,7 +3,7 @@
 #
 
 [[ $- != *i* ]] && return
-export PATH=$PATH:~/Downloads/node-v12.16.3-linux-x64/bin/
+export PATH=$PATH:~/Downloads/node-v12.16.3-linux-x64/bin
 colors() {
 	local fgc bgc vals seq0
 
@@ -138,3 +138,4 @@ ex ()
   fi
 }
 alias config='/usr/bin/git --git-dir=/home/tusqasi/dotfiles/ --work-tree=/home/tusqasi'
+
