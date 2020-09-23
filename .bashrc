@@ -139,3 +139,5 @@ ex ()
 }
 alias config='/usr/bin/git --git-dir=/home/tusqasi/dotfiles/ --work-tree=/home/tusqasi'
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

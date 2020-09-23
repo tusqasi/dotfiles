@@ -8,7 +8,6 @@ set -x PATH $PATH ~/.cargo/bin
 set -x PATH $PATH ~/Downloads/chromewebdriver_linux64/
 set -x PATH $PATH ~/clones/flutter/bin
 set -x PATH $PATH ~/clones/android-studio/bin/
-set -x PATH $PATH ~/Downloads/vb_phone_stuff/platform-tools/
 
 # ENV variables
 
@@ -17,9 +16,12 @@ set EDITOR /usr/bin/nvim
 set GEM_HOME ~/gems
 set webs ~/Documents/websites
 set pyst ~/Documents/python_stuff/
-
-# No greeting 
+set FZF_DEFAULT_OPTS "--extended"
+	
+# No greeting setting
 set fish_greeting  
+
+# Helper functions
 
 function mkcd -d "Create a directory and set CWD"
     mkdir $argv
@@ -34,11 +36,8 @@ function mkcd -d "Create a directory and set CWD"
     end
 end
 
-function tmx -d "warp tmux"
+function tmx -d "Warp Tmux in a more useful way"
     if not tmux a
 	tmux 
     end
 end
-
-	
-

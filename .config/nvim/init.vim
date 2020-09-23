@@ -1,13 +1,27 @@
 let g:deoplete#enable_at_startup = 1
 let g:startify_custom_header = []
-let g:python_host_prog='/usr/bin/python'
+let g:python_host_prog='/usr/bin/python3'
+let g:deoplete#sources#jedi#python_path='/usr/bin/python3'
 let g:jedi#use_splits_not_buffers = "right"
-
 let g:startify_lists = [
-      \ { 'type': 'files',     'header': ['   MRU']            },
-      \ { 'type': 'sessions',  'header': ['   Sessions']       },
-      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+      \ { 'type': 'bookmarks',  'header': ['   Bookmarks']    },
+      \ { 'type': 'files',      'header': ['   MRU']          },
       \ ]
+
+colorscheme rakr
+let g:startify_bookmarks = [
+    \ {'PY_STUFF': '~/Documents/python_stuff/'},
+    \ {'VIMRC': '~/.config/nvim/init.vim'},
+    \]
+
+set hidden
+if !empty($TMUX)
+    au BufEnter * :OneStatus
+    set ls=0
+    au ExitPre * :!tmux source ~/onestatus.conf
+endif
+
+set rtp+=~/.fzf
 
 " Enable folding
 set foldmethod=indent
@@ -24,13 +38,14 @@ set encoding=utf-8
 set softtabstop=4
 set shiftwidth=4
 
-
 set nocompatible              " required
 filetype off                  " required
 
+" plugins start here
+
 " set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+set rtp+=~/.config/nvim/bundle/Vundle.vim
+call vundle#begin('~/.config/nvim/Bundle')
 
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
@@ -47,9 +62,10 @@ Plugin 'dracula/vim', { 'name': 'dracula' }
 " Utilises
 Plugin 'vifm/vifm.vim'
 Plugin 'easymotion/vim-easymotion'
-Plugin 'tpope/vim-fugitive'
 Plugin 'TaDaa/vimade'
-"Xpl
+Plugin 'tpope/vim-commentary'
+Plugin 'itchyny/vim-gitbranch'
+"Xlp
 " ...
 
 " All of your Plugins must be added before the following line
@@ -58,7 +74,7 @@ filetype plugin indent on    " required
 
 
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 " All PLUGins 
 " markdown
 Plug 'junegunn/goyo.vim'
@@ -66,22 +82,33 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 "Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
 " Vim Bling
 Plug 'mhinz/vim-startify'
+Plug 'narajaon/onestatus'
 " Utilises
-Plug 'mbbill/undotree'
+" Plug 'mbbill/undotree'
 " Python things
-Plug 'zchee/deoplete-jedi'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'davidhalter/jedi-vim'
-"xpl
+" Plug 'davidhalter/jedi-vim'
+Plug 'zchee/deoplete-jedi'
+""
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+"xlp
 call plug#end()
+
+
+" plugins end here
+
+call deoplete#custom#option('ignore_case', v:true)
 
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
-
 " Persistent Undo
-
-set undodir="$HOME/.undodir"
+set undodir=~/.config/nvim/undodir/
 set undofile
+
+" Set swap directory
+set directory=~/.config/nvim/swapfiles/
+" Set backup directory
+set backupdir=~/.config/nvim/backupdir/
 
 syntax on
 """"""""""
@@ -101,7 +128,6 @@ let g:lightline = {
 
 
 """"""""""
-call deoplete#custom#option('ignore_case', v:true)
 
 " Settings for search
 set incsearch
@@ -169,8 +195,9 @@ inoremap (<CR> (<CR>)<Esc>ko<tab>
 
 " Mapping for spell check 
 nmap <F6> ;setlocal spell! spelllang=en<CR>
-" Keyboards remaps
 
 " swapLine Plugin
-source ~/.vim/autoload/swapLine.vim
+source ~/.config/nvim/autoload/swapLine.vim
+
+" Keyboards remaps
 
