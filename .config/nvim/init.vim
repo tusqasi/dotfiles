@@ -1,14 +1,24 @@
 let g:deoplete#enable_at_startup = 1
-let g:startify_custom_header = []
-let g:python_host_prog='/usr/bin/python3'
-let g:deoplete#sources#jedi#python_path='/usr/bin/python3'
+let g:python_host_prog='python3'
+let g:deoplete#sources#jedi#python_path='python3'
 let g:jedi#use_splits_not_buffers = "right"
+let g:jedi#goto_stubs_command = "<leader>q"
+
+let g:startify_custom_header = []
 let g:startify_lists = [
       \ { 'type': 'bookmarks',  'header': ['   Bookmarks']    },
       \ { 'type': 'files',      'header': ['   MRU']          },
-      \ ]
+      \ { 'type': 'sessions',   'header': ['   Sessions']},
+      \]
+
+vmap  <expr>  <LEFT>   DVB_Drag('left')                         
+vmap  <expr>  <RIGHT>  DVB_Drag('right')                        
+vmap  <expr>  <DOWN>   DVB_Drag('down')                         
+vmap  <expr>  <UP>     DVB_Drag('up')                           
+vmap  <expr>  D        DVB_Duplicate()                          
 
 colorscheme rakr
+set tgc
 let g:startify_bookmarks = [
     \ {'PY_STUFF': '~/Documents/python_stuff/'},
     \ {'VIMRC': '~/.config/nvim/init.vim'},
@@ -28,8 +38,8 @@ set foldmethod=indent
 set foldlevel=99
 
 " Hybrid numbers
-set number relativenumber
-set nu rnu
+" set number relativenumber
+" set nu rnu
 
 " Encoding
 set encoding=utf-8
@@ -38,44 +48,13 @@ set encoding=utf-8
 set softtabstop=4
 set shiftwidth=4
 
+
 set nocompatible              " required
 filetype off                  " required
 
 " plugins start here
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/Bundle')
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-" Main Vundle Plugin
-Plugin 'gmarik/Vundle.vim'
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
-
-" Vim Bling
-Plugin 'itchyny/lightline.vim'
-Plugin 'dracula/vim', { 'name': 'dracula' }
-" Utilises
-Plugin 'vifm/vifm.vim'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'TaDaa/vimade'
-Plugin 'tpope/vim-commentary'
-Plugin 'itchyny/vim-gitbranch'
-"Xlp
-" ...
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-
-
-
 call plug#begin('~/.config/nvim/plugged')
-" All PLUGins 
 " markdown
 Plug 'junegunn/goyo.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
@@ -90,8 +69,15 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " Plug 'davidhalter/jedi-vim'
 Plug 'zchee/deoplete-jedi'
 ""
+Plug 'itchyny/lightline.vim'
+Plug 'dracula/vim', { 'name': 'dracula' }
+" Utilises
+Plug 'vifm/vifm.vim'
+Plug 'easymotion/vim-easymotion'
+Plug 'TaDaa/vimade'
+Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-"xlp
+Plug 'itchyny/vim-gitbranch'
 call plug#end()
 
 
@@ -127,7 +113,8 @@ let g:lightline = {
 
 
 
-""""""""""
+" Light line end
+
 
 " Settings for search
 set incsearch
@@ -135,14 +122,11 @@ set hlsearch
 set smartcase
 set ignorecase
 set inccommand=nosplit
-
-inoremap [ []
-inoremap { {}
-inoremap < <>
-inoremap ( ()
-inoremap ' ''
-inoremap " ""
 "
+
+
+set updatetime=100
+
 
 " f2 for vifm
 nmap <F2> ;Vifm<Cr>
@@ -188,16 +172,13 @@ nmap <F4> ;MarkdownPreview<Cr>
 " Undotree key
 nmap <F5> ;UndotreeToggle<cr>
 
-" Automatically closing braces
-inoremap {<CR> {<CR>}<Esc>ko<tab>
-inoremap [<CR> [<CR>]<Esc>ko<tab>
-inoremap (<CR> (<CR>)<Esc>ko<tab>
-
 " Mapping for spell check 
 nmap <F6> ;setlocal spell! spelllang=en<CR>
 
 " swapLine Plugin
 source ~/.config/nvim/autoload/swapLine.vim
 
-" Keyboards remaps
+" drag visuals.vim
+source ~/.config/nvim/autoload/dragvisuals.vim
 
+" keyboards remaps end

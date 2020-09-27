@@ -17,9 +17,11 @@ set GEM_HOME ~/gems
 set webs ~/Documents/websites
 set pyst ~/Documents/python_stuff/
 set FZF_DEFAULT_OPTS "--extended"
-	
+set MANPAGER nvim
+
 # No greeting setting
 set fish_greeting  
+
 
 # Helper functions
 
@@ -40,4 +42,12 @@ function tmx -d "Warp Tmux in a more useful way"
     if not tmux a
 	tmux 
     end
+end
+
+function q -d "Warpper for exit in different situtation"
+    if test -n "$TMUX"
+	echo 'Yo in teakmcs'
+    else 
+	exit
+    end 
 end
