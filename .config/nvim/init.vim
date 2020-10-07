@@ -31,6 +31,9 @@ if !empty($TMUX)
     au ExitPre * :!tmux source ~/onestatus.conf
 endif
 
+fun CurFileType()
+    return expand('%:e')
+endfun
 set rtp+=~/.fzf
 
 " Enable folding
@@ -55,33 +58,28 @@ filetype off                  " required
 " plugins start here
 
 call plug#begin('~/.config/nvim/plugged')
-" markdown
+
 Plug 'junegunn/goyo.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-"Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install'  }
-" Vim Bling
 Plug 'mhinz/vim-startify'
 Plug 'narajaon/onestatus'
-" Utilises
-" Plug 'mbbill/undotree'
-" Python things
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'davidhalter/jedi-vim'
 Plug 'zchee/deoplete-jedi'
-""
 Plug 'itchyny/lightline.vim'
 Plug 'dracula/vim', { 'name': 'dracula' }
-" Utilises
 Plug 'vifm/vifm.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'TaDaa/vimade'
 Plug 'tpope/vim-commentary'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'itchyny/vim-gitbranch'
+Plug 'machakann/vim-sandwich'
+Plug 'airblade/vim-gitgutter'
+" xlp
 call plug#end()
 
 
-" plugins end here
+"  plugins end here
 
 call deoplete#custom#option('ignore_case', v:true)
 
@@ -147,11 +145,10 @@ au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 "au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 "
 
-" <ctrl s>  to save
-noremap <silent> <C-S>          :update<CR>
-vnoremap <silent> <C-S>         <C-C>:update<CR>
-inoremap <silent> <C-S>         <C-O>:update<CR>
+"  <Leader>l  to save
+noremap <silent><Leader>l               :update<CR>
 "
+
 
 " Easymotion Keys
 map <Space> <Leader>
@@ -180,5 +177,6 @@ source ~/.config/nvim/autoload/swapLine.vim
 
 " drag visuals.vim
 source ~/.config/nvim/autoload/dragvisuals.vim
+
 
 " keyboards remaps end
