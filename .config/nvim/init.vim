@@ -1,8 +1,9 @@
 let g:deoplete#enable_at_startup = 1
-let g:python_host_prog='python3'
-let g:deoplete#sources#jedi#python_path='python3'
+let g:python_host_prog='python'
+let g:deoplete#sources#jedi#python_path='python'
 let g:jedi#use_splits_not_buffers = "right"
 let g:jedi#goto_stubs_command = "<leader>q"
+
 
 let g:startify_custom_header = []
 let g:startify_lists = [
@@ -42,7 +43,7 @@ set foldlevel=99
 
 " Hybrid numbers
 " set number relativenumber
-" set nu rnu
+set nu 
 
 " Encoding
 set encoding=utf-8
@@ -75,8 +76,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'itchyny/vim-gitbranch'
 Plug 'machakann/vim-sandwich'
 Plug 'airblade/vim-gitgutter'
+Plug 'dense-analysis/ale'
 " xlp
 call plug#end()
+
 
 
 "  plugins end here
@@ -162,12 +165,6 @@ let g:EasyMotion_smartcase = 1
 
 " Distraction Free
 nmap <F3> ;Goyo<Cr>
-
-" MarkDown key
-nmap <F4> ;MarkdownPreview<Cr>
-
-" Undotree key
-nmap <F5> ;UndotreeToggle<cr>
 
 " Mapping for spell check 
 nmap <F6> ;setlocal spell! spelllang=en<CR>

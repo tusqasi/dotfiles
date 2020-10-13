@@ -18,7 +18,7 @@ set webs ~/Documents/websites
 set pyst ~/Documents/python_stuff/
 set FZF_DEFAULT_OPTS "--extended"
 set MANPAGER nvim
-
+source ~/.config/fish/keys.fish 
 # No greeting setting
 set fish_greeting  
 
