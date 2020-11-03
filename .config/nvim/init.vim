@@ -3,7 +3,7 @@ let g:python_host_prog='python'
 let g:deoplete#sources#jedi#python_path='python'
 let g:jedi#use_splits_not_buffers = "right"
 let g:jedi#goto_stubs_command = "<leader>q"
-
+let $VIM='~/.config/nvim/'
 
 let g:startify_custom_header = []
 let g:startify_lists = [
@@ -67,16 +67,15 @@ Plug 'narajaon/onestatus'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'itchyny/lightline.vim'
-Plug 'dracula/vim', { 'name': 'dracula' }
 Plug 'vifm/vifm.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'TaDaa/vimade'
 Plug 'tpope/vim-commentary'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'itchyny/vim-gitbranch'
-Plug 'machakann/vim-sandwich'
+Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'dense-analysis/ale'
+Plug 'mattn/emmet-vim'
 " xlp
 call plug#end()
 
@@ -175,5 +174,9 @@ source ~/.config/nvim/autoload/swapLine.vim
 " drag visuals.vim
 source ~/.config/nvim/autoload/dragvisuals.vim
 
+" Emmet keys
+
+" Emmet leader key
+let g:user_emmet_leader_key=','
 
 " keyboards remaps end
