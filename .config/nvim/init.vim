@@ -5,12 +5,12 @@ let g:jedi#use_splits_not_buffers = "right"
 let g:jedi#goto_stubs_command = "<leader>q"
 let $VIM='~/.config/nvim/'
 
-let g:startify_custom_header = []
-let g:startify_lists = [
-      \ { 'type': 'bookmarks',  'header': ['   Bookmarks']    },
-      \ { 'type': 'files',      'header': ['   MRU']          },
-      \ { 'type': 'sessions',   'header': ['   Sessions']},
-      \]
+" let g:startify_custom_header = []
+" let g:startify_lists = [
+"       \ { 'type': 'bookmarks',  'header': ['   Bookmarks']    },
+"       \ { 'type': 'files',      'header': ['   MRU']          },
+"       \ { 'type': 'sessions',   'header': ['   Sessions']},
+"       \]
 
 vmap  <expr>  <LEFT>   DVB_Drag('left')                         
 vmap  <expr>  <RIGHT>  DVB_Drag('right')                        
@@ -20,10 +20,10 @@ vmap  <expr>  D        DVB_Duplicate()
 
 colorscheme rakr
 set tgc
-let g:startify_bookmarks = [
-    \ {'PY_STUFF': '~/Documents/python_stuff/'},
-    \ {'VIMRC': '~/.config/nvim/init.vim'},
-    \]
+" let g:startify_bookmarks = [
+"     \ {'PY_STUFF': '~/Documents/python_stuff/'},
+"     \ {'VIMRC': '~/.config/nvim/init.vim'},
+"     \]
 
 set hidden
 if !empty($TMUX)
@@ -35,7 +35,6 @@ endif
 fun CurFileType()
     return expand('%:e')
 endfun
-set rtp+=~/.fzf
 
 " Enable folding
 set foldmethod=indent
@@ -62,7 +61,7 @@ call plug#begin('~/.config/nvim/plugged')
 
 Plug 'junegunn/goyo.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'mhinz/vim-startify'
+" Plug 'mhinz/vim-startify'
 Plug 'narajaon/onestatus'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'

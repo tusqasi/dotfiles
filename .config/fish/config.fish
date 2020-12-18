@@ -8,7 +8,7 @@ set -x PATH $PATH ~/.cargo/bin
 set -x PATH $PATH ~/Downloads/chromewebdriver_linux64/
 set -x PATH $PATH ~/clones/flutter/bin
 set -x PATH $PATH ~/clones/android-studio/bin/
-
+set -x PATH $PATH ~/go/bin
 # ENV variables
 
 set -e EDITOR
@@ -16,8 +16,8 @@ set EDITOR /usr/bin/nvim
 set GEM_HOME ~/gems
 set webs ~/Documents/websites
 set pyst ~/Documents/python_stuff/
+set NVIM_DIR ~/.config/nvim/
 set FZF_DEFAULT_OPTS "--extended"
-set MANPAGER nvim
 source ~/.config/fish/keys.fish 
 # No greeting setting
 set fish_greeting  
@@ -51,3 +51,8 @@ function q -d "Warpper for exit in different situtation"
 	exit
     end 
 end
+
+function envsource -d "Source the requisite env"
+    source ./$argv/bin/activate.fish
+end
+
