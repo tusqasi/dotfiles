@@ -1,8 +1,9 @@
 let g:deoplete#enable_at_startup = 1
-let g:python_host_prog='python'
 let g:deoplete#sources#jedi#python_path='python'
-let g:jedi#use_splits_not_buffers = "right"
 let g:jedi#goto_stubs_command = "<leader>q"
+let g:jedi#use_splits_not_buffers = "right"
+let g:python_host_prog='python'
+let g:user_emmet_install_global = 0
 let $VIM='~/.config/nvim/'
 
 " let g:startify_custom_header = []
@@ -12,41 +13,48 @@ let $VIM='~/.config/nvim/'
 "       \ { 'type': 'sessions',   'header': ['   Sessions']},
 "       \]
 
+"Emmet"
+autocmd FileType html,css EmmetInstall
+"
+
+"visual drag
 vmap  <expr>  <LEFT>   DVB_Drag('left')                         
 vmap  <expr>  <RIGHT>  DVB_Drag('right')                        
 vmap  <expr>  <DOWN>   DVB_Drag('down')                         
 vmap  <expr>  <UP>     DVB_Drag('up')                           
 vmap  <expr>  D        DVB_Duplicate()                          
+"
 
+"Colors
 colorscheme rakr
 set tgc
+"
+
 " let g:startify_bookmarks = [
 "     \ {'PY_STUFF': '~/Documents/python_stuff/'},
 "     \ {'VIMRC': '~/.config/nvim/init.vim'},
 "     \]
 
+" OneStatus 
 set hidden
 if !empty($TMUX)
     au BufEnter * :OneStatus
     set ls=0
     au ExitPre * :!tmux source ~/onestatus.conf
 endif
-
 fun CurFileType()
     return expand('%:e')
 endfun
+"
 
 " Enable folding
 set foldmethod=indent
 set foldlevel=99
-
 " Hybrid numbers
 " set number relativenumber
 set nu 
-
 " Encoding
 set encoding=utf-8
-
 " Tab to 4
 set softtabstop=4
 set shiftwidth=4
@@ -75,6 +83,7 @@ Plug 'tpope/vim-surround'
 Plug 'airblade/vim-gitgutter'
 Plug 'dense-analysis/ale'
 Plug 'mattn/emmet-vim'
+Plug 'floobits/floobits-neovim'
 " xlp
 call plug#end()
 
@@ -150,6 +159,18 @@ au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 noremap <silent><Leader>l               :update<CR>
 "
 
+" <Leader>Q to save and quit
+noremap <silent><Leader><M-q>		:wq<CR>
+"
+
+" <Leader>Q to quit
+noremap <silent><Leader>Q		:q<CR>
+"
+
+" <Leader>S to save and source
+noremap <silent><Leader>S		:w<CR>:source $MYVIMRC<CR>
+
+"
 
 " Easymotion Keys
 map <Space> <Leader>
@@ -173,9 +194,13 @@ source ~/.config/nvim/autoload/swapLine.vim
 " drag visuals.vim
 source ~/.config/nvim/autoload/dragvisuals.vim
 
-" Emmet keys
-
 " Emmet leader key
 let g:user_emmet_leader_key=','
+"
+
+" Diable Help for F1
+noremap <F1> <NOP>
+"
+
 
 " keyboards remaps end
