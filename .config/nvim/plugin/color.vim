@@ -1,4 +1,5 @@
 "Colors
-colorscheme rakr
+colorscheme gruvbox
 set tgc
+set background=dark
 "

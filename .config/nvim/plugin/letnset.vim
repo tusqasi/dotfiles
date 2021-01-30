@@ -2,9 +2,10 @@
 " let g:deoplete#sources#jedi#python_path='python'
 let g:jedi#goto_stubs_command = "<leader>q"
 let g:jedi#use_splits_not_buffers = "right"
-let g:python_host_prog='python2'
+let g:deoplete#sources#jedi#show_docstring=0
+let g:python_host_prog='python3'
 let g:user_emmet_install_global = 0
-let $VIM='~/.config/nvim/'
+let $VIM='~/.config/nvim'
 
 
 " Enable folding
@@ -34,7 +35,6 @@ set backupdir=~/.config/nvim/backupdir/
 
 syntax on
 
-
 " Settings for search
 set incsearch
 set hlsearch
@@ -42,6 +42,5 @@ set smartcase
 set ignorecase
 set inccommand=nosplit
 "
-
-
-set updatetime=100
+set updatetime=90
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.gz*

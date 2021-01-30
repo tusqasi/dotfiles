@@ -92,10 +92,18 @@ fi
 unset use_color safe_term match_lhs sh
 
 alias cp="cp -i"                          # confirm before overwriting something
+alias mv='mv -i'
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias more=less
+alias c=clear
+alias q=exit
+alias p='ping www.google.com'
+alias py='python'
+alias ls='exa -l'
+alias lsa='exa -la'
+alias config='/usr/bin/git --git-dir=/home/tusqasi/dotfiles/ --work-tree=/home/tusqasi'
 
 xhost +local:root > /dev/null 2>&1
 
@@ -138,7 +146,5 @@ ex ()
     echo "'$1' is not a valid file"
   fi
 }
-alias config='/usr/bin/git --git-dir=/home/tusqasi/dotfiles/ --work-tree=/home/tusqasi'
-
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
