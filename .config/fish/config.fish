@@ -1,31 +1,36 @@
 
 # paths
-set -x PATH $PATH ~/.config/rofi/bin
-set -x PATH $PATH ~/gems/bin
-set -x PATH $PATH ~/.gem/ruby/2.7.0/bin
-set -x PATH $PATH ~/.cargo/bin
+set -x PATH $PATH ~/.config/rofi/bin/
+set -x PATH $PATH ~/gems/bin/
+set -x PATH $PATH ~/.gem/ruby/2.7.0/bin/
+set -x PATH $PATH ~/.cargo/bin/
 set -x PATH $PATH ~/Downloads/chromewebdriver_linux64/
-set -x PATH $PATH ~/clones/flutter/bin
-set -x PATH $PATH ~/go/bin
+set -x PATH $PATH ~/clones/flutter/bin/
+set -x PATH $PATH ~/go/bin/
+set -x PATH $PATH ~/bin/
+set -x PATH $PATH ~/scripts/
 
 # ENV variables
 set -e EDITOR
 set EDITOR /usr/bin/nvim
-set GEM_HOME ~/gems
-set webs ~/Documents/websites
-set pyst ~/Documents/python_stuff/
+set GEM_HOME ~/gems/
 set NVIM_DIR ~/.config/nvim/
 set FZF_DEFAULT_OPTS "--extended"
-source ~/.config/fish/keys.fish 
+set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 # set -Ux TERM xterm-256color
 
-# No greeting setting
-set fish_greeting  
+# fzf key bindings
+source ~/.config/fish/keys.fish
 
+# No greeting setting
+set fish_greeting 
+
+# start starship prompt
+starship init fish | source
 
 # Helper functions
 function mkcd -d "Create a directory and set CWD"
-    mkdir $argv
+    mkdir -pv $argv
     if test $status = 0
         switch $argv[(count $argv)]
             case '-*'
@@ -37,25 +42,19 @@ function mkcd -d "Create a directory and set CWD"
     end
 end
 
-function tmx -d "Warp Tmux in a more useful way"
-    if not tmux a
-	tmux 
-    end
-end
-
 function q -d "Warpper for exit in different situtation"
     if test -n "$TMUX"
 	echo 'Yo in teakmcs'
-    else 
+    else
 	exit
-    end 
+    end
 end
 
 function envsource -d "Source the requisite env"
     source ./$argv/bin/activate.fish;
 end
 
-function rn -d "Run c code "
+function rn -d "Run linked c code"
    if test -n "$argv"
        gcc ./$argv -lm
        ./a.out;

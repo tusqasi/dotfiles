@@ -6,7 +6,7 @@
 export PATH=$PATH:~/Downloads/node-v12.16.3-linux-x64/bin
  
 colors() {
-	local fgc bgc vals seq0
+	local fgc bgc vals seq1
 
 	printf "Color escapes are %s\n" '\e[${value};...;${value}m'
 	printf "Values 30..37 are \e[33mforeground colors\e[m\n"
@@ -23,8 +23,8 @@ colors() {
 			vals="${fgc:+$fgc;}${bgc}"
 			vals=${vals%%;}
 
-			seq0="${vals:+\e[${vals}m}"
-			printf "  %-9s" "${seq0:-(default)}"
+			seq1="${vals:+\e[${vals}m}"
+			printf "  %-9s" "${seq1:-(default)}"
 			printf " ${seq0}TEXT\e[m"
 			printf " \e[${vals:+${vals+$vals;}}1mBOLD\e[m"
 		done
@@ -76,7 +76,6 @@ if ${use_color} ; then
 		PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\$\[\033[00m\] '
 	fi
 
-	alias ls='ls --color=auto'
 	alias grep='grep --colour=auto'
 	alias egrep='egrep --colour=auto'
 	alias fgrep='fgrep --colour=auto'
@@ -96,14 +95,47 @@ alias mv='mv -i'
 alias df='df -h'                          # human-readable sizes
 alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
-alias more=less
-alias c=clear
-alias q=exit
-alias p='ping www.google.com'
-alias py='python'
+alias more='less'
+
+alias actenv='source ./venv/bin/actinvate.fish'
+alias bkp='sudo timeshift-gtk'
+alias bpy='bpython'
+alias c='clear'
+alias config='/usr/bin/git --git-dir=/home/tusqasi/dotfiles/ --work-tree=/home/tusqasi'
+alias cp='cp -i'
+alias df='df -h'
+alias du='du -h'
+alias exbl='chmod +x'
+alias gcmt='git commit'
+alias ginit='git init'
+alias gip='git push'
+alias gpl='git pull'
 alias ls='exa -l'
 alias lsa='exa -la'
-alias config='/usr/bin/git --git-dir=/home/tusqasi/dotfiles/ --work-tree=/home/tusqasi'
+alias m='man'
+alias mkdir='mkdir -pv'
+alias mkenv='python -m venv ./venv'
+alias mv='mv -i'
+alias n='nvim'
+alias nn="/home/tusqasi/appimages/nvim.appimage"
+alias p='ping duckduckgo.com'
+alias pac='sudo pacman -'
+alias pacr='sudo pacman -R'
+alias pacs='sudo pacman -S'
+alias pacsy='sudo pacman -Syu'
+alias pacy='sudo pacman -Syu'
+alias pcs='sudo pacman -S'
+alias pcy='sudo pacman -Syu'
+alias py='python'
+alias rm='rm -I --preserve-root'
+alias rmdb='rm /var/lib/pacman/db.lck'
+alias s='sudo'
+alias untar='tar -zxvf='
+alias vf='vifm'
+alias vim='nvim'
+alias webs="/home/tusqasi/Documents/websites/"
+alias wget='wget -c'
+alias ys='yay -S'
 
 xhost +local:root > /dev/null 2>&1
 
@@ -147,4 +179,25 @@ ex ()
   fi
 }
 
+tmx ()
+{
+    if [ -z "$TMUX"] ; then
+	tmux
+    else
+	tmux a
+    fi
+}
+
+q ()
+{
+    if [ -z "$TMUX" ] ; then
+	exit
+    else
+	echo yo In TmUX Bruv 
+	echo Wanna go!
+    fi
+}
+
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+eval "$(starship init bash)"

@@ -1,13 +1,14 @@
 " OneStatus 
-set hidden
+if has("nvim")
 if !empty($TMUX)
     augroup onestatus
 	au!
-	au BufEnter * :OneStatus
+	au BufEnter,VimEnter * :OneStatus
+	au VimLeave * :OneStatusClean
 	set ls=0
-	" au ExitPre * :!tmux source ~/onestatus.conf
+    augroup END
 endif
 fun CurFileType()
     return expand('%:e')
 endfun
-"
+endif

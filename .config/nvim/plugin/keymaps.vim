@@ -5,11 +5,23 @@ vmap  <expr>  <DOWN>   DVB_Drag('down')
 vmap  <expr>  <UP>     DVB_Drag('up')                           
 vmap  <expr>  D        DVB_Duplicate()                          
 "
+if has('nvim')
+    " f2 for vifm
+    nmap <F2> ;Vifm<Cr>
+    "
+    " <Leader>S to save and source
+    noremap <silent><Leader>S		:w<CR>:source $MYVIMRC<CR>
+    "
 
-" f2 for vifm
-nmap <F2> ;Vifm<Cr>
-"
-
+    " Easymotion Keys
+    map <Space> <Leader>
+    map <Leader> <Plug>(easymotion-prefix)
+    nmap <Leader>s <Plug>(easymotion-overwin-f2)
+    let g:EasyMotion_smartcase = 1
+    "
+    " Distraction Free
+    nmap <F3> ;Goyo<Cr>
+endif
 
 " Does what it says
 nnoremap ; :
@@ -23,7 +35,6 @@ nnoremap : ;
 "caps = esc
 " au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 "au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
-"
 
 "  <Leader>l  to save
 noremap <silent><Leader>l               :update<CR>
@@ -33,18 +44,9 @@ noremap <silent><Leader>l               :update<CR>
 noremap <silent><Leader><M-q>		:wq<CR>
 "
 
-" <Leader>S to save and source
-noremap <silent><Leader>S		:w<CR>:source $MYVIMRC<CR>
+" <Leader>P to save, source, and plugInstall 
+noremap <silent><Leader><M-P>		:wq<CR>:source $MYVIMRC<CR>:PlugInstall<CR>
 "
-
-" Easymotion Keys
-map <Space> <Leader>
-map <Leader> <Plug>(easymotion-prefix)
-nmap <Leader>s <Plug>(easymotion-overwin-f2)
-let g:EasyMotion_smartcase = 1
-"
-" Distraction Free
-nmap <F3> ;Goyo<Cr>
 
 " Mapping for spell check 
 nmap <F6> ;setlocal spell! spelllang=en<CR>
@@ -56,10 +58,6 @@ let g:user_emmet_leader_key=','
 " Diable Help for F1
 noremap <F1> <NOP>
 "
-
-" Ctrlp
-nnoremap <leader>p :CtrlP 
-
 
 " Map <tab> to trigger completion and navigate to the next item: >
 function! s:check_back_space() abort

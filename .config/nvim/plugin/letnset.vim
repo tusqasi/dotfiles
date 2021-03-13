@@ -1,12 +1,8 @@
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#sources#jedi#python_path='python'
-let g:jedi#goto_stubs_command = "<leader>q"
-let g:jedi#use_splits_not_buffers = "right"
-let g:deoplete#sources#jedi#show_docstring=0
-let g:python_host_prog='python3'
 let g:user_emmet_install_global = 0
 let $VIM='~/.config/nvim'
 
+" no netrw_banner 
+let g:netrw_banner = 0
 
 " Enable folding
 
@@ -23,6 +19,9 @@ set shiftwidth=4
 
 set nocompatible              " required
 filetype off                  " required
+
+" don't close exited buffer
+set hidden
 
 " Persistent Undo
 set undodir=~/.config/nvim/undodir/
@@ -44,3 +43,4 @@ set inccommand=nosplit
 "
 set updatetime=90
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.gz*
+

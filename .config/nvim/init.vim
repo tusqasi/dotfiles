@@ -1,10 +1,9 @@
 call plug#begin('~/.config/nvim/plugged')
-
 " Plug 'junegunn/goyo.vim'
 " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'narajaon/onestatus'
-Plug 'zchee/deoplete-jedi'
-Plug 'Shougo/deoplete.nvim'
+" Plug 'zchee/deoplete-jedi'
+" Plug 'Shougo/deoplete.nvim'
 Plug 'itchyny/lightline.vim'
 Plug 'vifm/vifm.vim'
 " Plug 'TaDaa/vimade'
@@ -16,6 +15,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'dag/vim-fish'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'gruvbox-community/gruvbox'
+Plug 'jpalardy/vim-slime'
+Plug 'hugolgst/vimsence'
 " xlp
 call plug#end()
-packadd! dracula
+" packadd! dracula
