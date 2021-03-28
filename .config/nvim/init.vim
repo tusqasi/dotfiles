@@ -16,7 +16,11 @@ Plug 'dag/vim-fish'
 Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
 Plug 'gruvbox-community/gruvbox'
 Plug 'jpalardy/vim-slime'
-Plug 'hugolgst/vimsence'
+" Plug 'hugolgst/vimsence'
 " xlp
 call plug#end()
 " packadd! dracula
+
+if exists('g:vscode')
+    source ~/.config/nvim/plugin/keymaps.vim
+endif
