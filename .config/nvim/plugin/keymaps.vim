@@ -5,10 +5,7 @@ nnoremap : ;
 map <Space> <Leader>
 
 if exists('g:vscode')
-    function! s:saveAndClose() abort
-        call VSCodeCall('workbench.action.files.save')
-    endfunction
-    nmap <silent><Leader>l ;call s:saveAndClose()
+    nmap <silent><Leader>l ;call VSCodeCall("workbench.action.files.save")<CR>
 elseif has('nvim')
     " f2 for vifm
     nmap <F2> ;Vifm<Cr>
