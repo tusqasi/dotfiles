@@ -28,27 +28,25 @@ set_from_resource $ws9  i3-wm.workspace.09.name "9"
 ## Launch // Terminal // <> Enter ##
 bindsym $mod+Return exec alacritty
 
-## Launch // tmx // <> Enter ##
-##bindsym $mod+$alt+Return exec alacritty -e "tm"
-
 ## Launch // Browser // <><Ctrl> o ##
 bindsym $mod+o exec firefox 
 
-## Launch // Editor ( GUI) // <alt>s ##
+## Launch // Editor (GUI) // <alt>s ##
 # bindsym $alt+s exec code
 
 
-## Launch // Sublime // < +alt>l ##
+## Launch // Spotify // < +alt>l ##
 bindsym $mod+$alt+l exec spotify
 
 ## Launch // Application // <> Space ##
-set_from_resource $i3-wm.program.launcher.app i3-wm.program.launcher.app rofi -show drun -theme $rofiTheme
-bindsym $mod+space exec $i3-wm.program.launcher.app
+# set_from_resource $i3-wm.program.launcher.app i3-wm.program.launcher.app rofi -show drun -theme $rofiTheme
+# bindsym $mod+space exec $i3-wm.program.launcher.app
 
 ## Launch Tmux session chooser // < +p >
 bindsym $mod+p  exec ~/scripts/rofi_tmux.sh
+
 ## Launch // Application // <> Space ##
-bindsym $mod+d exec dmenu_run -h 29 -fn 'Source code pro:regular:pixelsize=15' -nb '#282a36' -nf '#bbbbbb' -sf '#f8f8f2' -sb "#6272a4"  
+# bindsym $mod+d exec dmenu_run -h 29 -fn 'Source code pro:regular:pixelsize=15' -nb '#282a36' -nf '#bbbbbb' -sf '#f8f8f2' -sb "#6272a4"  
 
 ## Launch // Command // <><Shift> Space ##
 set_from_resource $i3-wm.program.launcher.cmd i3-wm.program.launcher.cmd rofi -show run -theme $rofiTheme
@@ -111,8 +109,8 @@ bindsym XF86AudioNext  exec playerctl next
 bindsym XF86AudioPrev  exec playerctl previous
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp   exec xbacklight -steps 1 -inc 05 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -steps 1 -dec 05 # decrease screen brightness
+# bindsym XF86MonBrightnessUp   exec xbacklight -steps 1 -inc 05 # increase screen brightness
+# bindsym XF86MonBrightnessDown exec xbacklight -steps 1 -dec 05 # decrease screen brightness
 
 # Screen shot <win F12>
 # bindsym $mod+F12 exec flameshot gui
@@ -203,9 +201,6 @@ bindsym $mod+Shift+r exec --no-startup-id $i3-wm.program.refresh_ui
 
 ## Session // Restart i3 // <><Ctrl> r ##
 bindsym $mod+Ctrl+r restart
-
-## Session // PowerMenu // <><Alt> p ##
-bindsym $mod+$alt+p exec ~/.config/rofi/bin/powermenu.sh 
 
 ## Bar Toogle // < > b ##
 bindsym $mod+b exec polybar-msg cmd toggle

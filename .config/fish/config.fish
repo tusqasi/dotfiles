@@ -1,11 +1,7 @@
 
 # paths
 set -x PATH $PATH ~/.config/rofi/bin/
-set -x PATH $PATH ~/gems/bin/
-set -x PATH $PATH ~/.gem/ruby/2.7.0/bin/
 set -x PATH $PATH ~/.cargo/bin/
-set -x PATH $PATH ~/Downloads/chromewebdriver_linux64/
-set -x PATH $PATH ~/clones/flutter/bin/
 set -x PATH $PATH ~/go/bin/
 set -x PATH $PATH ~/bin/
 set -x PATH $PATH ~/scripts/
@@ -13,14 +9,11 @@ set -x PATH $PATH ~/scripts/
 # ENV variables
 set -e EDITOR
 set EDITOR /usr/bin/nvim
-set GEM_HOME ~/gems/
 set NVIM_DIR ~/.config/nvim/
 set FZF_DEFAULT_OPTS "--extended"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 # set -Ux TERM xterm-256color
 
-# fzf key bindings
-source ~/.config/fish/keys.fish
 
 # No greeting setting
 set fish_greeting 

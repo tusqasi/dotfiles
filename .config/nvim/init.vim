@@ -25,7 +25,7 @@ elseif has('nvim')
     " xlp
     " packadd! dracula
 endif
-    Plug 'tpope/vim-commentary'
-    Plug 'mattn/emmet-vim'
-    Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'mattn/emmet-vim'
+Plug 'tpope/vim-surround'
 call plug#end()

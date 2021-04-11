@@ -1,6 +1,4 @@
-#
 # ~/.bashrc
-#
 
 [[ $- != *i* ]] && return
 export PATH=$PATH:~/Downloads/node-v12.16.3-linux-x64/bin
@@ -200,4 +198,5 @@ q ()
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+exec fish
 eval "$(starship init bash)"
