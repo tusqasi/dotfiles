@@ -56,6 +56,9 @@ bindsym $mod+Shift+space exec $i3-wm.program.launcher.cmd
 set_from_resource $i3-wm.program.launcher.window i3-wm.program.launcher.window rofi -show window -theme $rofiTheme
 bindsym $mod+Ctrl+space exec $i3-wm.program.launcher.window
 
+## Launch Discord // < + alt + d>##
+bindsym $mod+$alt+d exec discord
+
 ###############################################################################
 # Window and Workspace Navigation
 ###############################################################################
@@ -103,10 +106,10 @@ bindsym XF86AudioLowerVolume exec pactl -- set-sink-volume 0 -5% #decrease sound
 bindsym XF86AudioMute        exec  pactl set-sink-mute 0 toggle # mute sound
 
 # Media Control
-bindsym XF86AudioPlay  exec playerctl play-pause
-bindsym XF86AudioPause exec playerctl play-pause
-bindsym XF86AudioNext  exec playerctl next
-bindsym XF86AudioPrev  exec playerctl previous
+# bindsym XF86AudioPlay  exec playerctl play-pause
+# bindsym XF86AudioPause exec playerctl play-pause
+# bindsym XF86AudioNext  exec playerctl next
+# bindsym XF86AudioPrev  exec playerctl previous
 
 # Sreen brightness controls
 # bindsym XF86MonBrightnessUp   exec xbacklight -steps 1 -inc 05 # increase screen brightness

@@ -1,8 +1,5 @@
 
 # paths
-set -x PATH $PATH ~/.config/rofi/bin/
-set -x PATH $PATH ~/.cargo/bin/
-set -x PATH $PATH ~/go/bin/
 set -x PATH $PATH ~/bin/
 set -x PATH $PATH ~/scripts/
 
@@ -10,13 +7,13 @@ set -x PATH $PATH ~/scripts/
 set -e EDITOR
 set EDITOR /usr/bin/nvim
 set NVIM_DIR ~/.config/nvim/
-set FZF_DEFAULT_OPTS "--extended"
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 # set -Ux TERM xterm-256color
 
 
 # No greeting setting
 set fish_greeting 
+set fish_command_not_found
 
 # start starship prompt
 starship init fish | source

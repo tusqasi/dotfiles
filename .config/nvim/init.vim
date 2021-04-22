@@ -18,7 +18,6 @@ elseif has('nvim')
     Plug 'itchyny/vim-gitbranch'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'dag/vim-fish'
-    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
     Plug 'gruvbox-community/gruvbox'
     Plug 'jpalardy/vim-slime'
     " Plug 'hugolgst/vimsence'

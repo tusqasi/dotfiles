@@ -1,7 +1,8 @@
 # ~/.bashrc
 
+export PATH=$PATH:~/.bin/
+
 [[ $- != *i* ]] && return
-export PATH=$PATH:~/Downloads/node-v12.16.3-linux-x64/bin
  
 colors() {
 	local fgc bgc vals seq1
@@ -95,45 +96,29 @@ alias free='free -m'                      # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias more='less'
 
-alias actenv='source ./venv/bin/actinvate.fish'
-alias bkp='sudo timeshift-gtk'
 alias bpy='bpython'
 alias c='clear'
 alias config='/usr/bin/git --git-dir=/home/tusqasi/dotfiles/ --work-tree=/home/tusqasi'
 alias cp='cp -i'
 alias df='df -h'
 alias du='du -h'
-alias exbl='chmod +x'
-alias gcmt='git commit'
-alias ginit='git init'
-alias gip='git push'
-alias gpl='git pull'
 alias ls='exa -l'
 alias lsa='exa -la'
-alias m='man'
 alias mkdir='mkdir -pv'
-alias mkenv='python -m venv ./venv'
 alias mv='mv -i'
 alias n='nvim'
-alias nn="/home/tusqasi/appimages/nvim.appimage"
-alias p='ping duckduckgo.com'
+alias p='ping google.com'
 alias pac='sudo pacman -'
 alias pacr='sudo pacman -R'
 alias pacs='sudo pacman -S'
-alias pacsy='sudo pacman -Syu'
 alias pacy='sudo pacman -Syu'
-alias pcs='sudo pacman -S'
-alias pcy='sudo pacman -Syu'
 alias py='python'
 alias rm='rm -I --preserve-root'
 alias rmdb='rm /var/lib/pacman/db.lck'
 alias s='sudo'
-alias untar='tar -zxvf='
-alias vf='vifm'
+alias vf='vifm ./'
 alias vim='nvim'
-alias webs="/home/tusqasi/Documents/websites/"
 alias wget='wget -c'
-alias ys='yay -S'
 
 xhost +local:root > /dev/null 2>&1
 
@@ -177,15 +162,6 @@ ex ()
   fi
 }
 
-tmx ()
-{
-    if [ -z "$TMUX"] ; then
-	tmux
-    else
-	tmux a
-    fi
-}
-
 q ()
 {
     if [ -z "$TMUX" ] ; then
@@ -197,6 +173,5 @@ q ()
 }
 
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 exec fish
 eval "$(starship init bash)"

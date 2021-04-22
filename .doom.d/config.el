@@ -54,15 +54,13 @@
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
 (after! evil
+
   (evil-define-key* 'motion 'global
   ";" #'evil-ex
   ":" #'evil-repeat-find-char)
 
- (global-set-key (kbd "SPC SPC") nil)
- (global-unset-key (kbd "SPC SPC"))
-
  (map! :leader
-      :desc "Save buffer"       "l"   #'basic-save-buffer)
+       :desc "Save buffer"       "l"   #'basic-save-buffer)
 
  (map! :leader "SPC" (cmd! (set-transient-map evilem-map)))
  ;; optional, if you want to see the which key popup
