@@ -29,7 +29,7 @@ set_from_resource $ws9  i3-wm.workspace.09.name "9"
 bindsym $mod+Return exec alacritty
 
 ## Launch // Browser // <><Ctrl> o ##
-bindsym $mod+o exec firefox 
+bindsym $mod+o exec brave
 
 ## Launch // Editor (GUI) // <alt>s ##
 # bindsym $alt+s exec code

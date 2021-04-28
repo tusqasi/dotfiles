@@ -34,7 +34,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -55,13 +55,18 @@
 ;; they are implemented.
 (after! evil
 
-  (evil-define-key* 'motion 'global
-  ";" #'evil-ex
-  ":" #'evil-repeat-find-char)
-
+  ;; (evil-define-key* 'motion 'global
+  ;; ";" #'evil-ex
+  ;; ":" #'evil-repeat-find-char)
+(map! :m ";" #'evil-ex
+      :m ":" #'evil-repeat-find-char)
+(setq evil-snipe-override-evil-repeat-keys nil)
  (map! :leader
        :desc "Save buffer"       "l"   #'basic-save-buffer)
 
  (map! :leader "SPC" (cmd! (set-transient-map evilem-map)))
  ;; optional, if you want to see the which key popup
  (setq which-key-show-transient-maps t))
+;; (map! :after evil-easymotion
+;;       :map evilem-map
+;;       "key3" nil)
