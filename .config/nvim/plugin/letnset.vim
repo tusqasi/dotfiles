@@ -23,16 +23,28 @@ filetype off                  " required
 
 " don't close exited buffer
 set hidden
+" Backups and swap and such
 
+set backup
+set swapfile
+set undofile
 " Persistent Undo
 set undodir=~/.config/nvim/undodir/
-set undofile
-
 " Set swap directory
 set directory=~/.config/nvim/swapfiles/
 " Set backup directory
 set backupdir=~/.config/nvim/backupdir/
 
+" Make those folders automatically if they don't already exist.
+if !isdirectory(expand(&undodir))
+    call mkdir(expand(&undodir), "p")
+endif
+if !isdirectory(expand(&backupdir))
+    call mkdir(expand(&backupdir), "p")
+endif
+if !isdirectory(expand(&directory))
+    call mkdir(expand(&directory), "p")
+endif
 syntax on
 
 " Settings for search
