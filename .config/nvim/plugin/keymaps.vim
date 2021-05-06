@@ -2,7 +2,10 @@
 nnoremap ; :
 nnoremap : ;
 "
-map <Space> <Leader>
+nnoremap <SPACE> <Nop>
+let mapleader=" "
+" map <Space> <Leader>
+
 
 if exists('g:vscode')
     nmap <silent><Leader>l ;call VSCodeCall("workbench.action.files.save")<CR>
