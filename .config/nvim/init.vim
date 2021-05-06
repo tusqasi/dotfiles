@@ -23,5 +23,8 @@ elseif has('nvim')
 endif
 Plug 'tpope/vim-commentary'
 Plug 'mattn/emmet-vim'
+Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
+Plug 'wellle/targets.vim'
+Plug 'tpope/vim-repeat'
 call plug#end()
