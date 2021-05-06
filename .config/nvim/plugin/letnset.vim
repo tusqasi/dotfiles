@@ -54,6 +54,6 @@ set smartcase
 set ignorecase
 set inccommand=nosplit
 "
-set updatetime=90
+set updatetime=80
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.gz*
 
