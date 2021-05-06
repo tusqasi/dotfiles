@@ -57,3 +57,5 @@ set inccommand=nosplit
 set updatetime=80
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.gz*
 
+" Easy motion
+"
