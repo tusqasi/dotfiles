@@ -12,6 +12,9 @@ nnoremap Y y$
 if exists('g:vscode')
     nmap <silent><Leader>l ;call VSCodeCall("workbench.action.files.save")<CR>
 elseif has('nvim')
+    "open vimrc in new tab
+    nnoremap <leader>ve :execute "tab sp" resolve(expand("~/.config/nvim/init.vim"))<CR>
+
     " f2 for vifm
     nmap <F2> ;Vifm<Cr>
     "
