@@ -6,6 +6,8 @@ nnoremap <SPACE> <Nop>
 let mapleader=" "
 " map <Space> <Leader>
 
+"make Y behave more like C and D
+nnoremap Y y$
 
 if exists('g:vscode')
     nmap <silent><Leader>l ;call VSCodeCall("workbench.action.files.save")<CR>
