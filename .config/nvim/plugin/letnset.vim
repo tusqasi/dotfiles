@@ -7,9 +7,11 @@ let g:netrw_banner = 0
 
 set foldmethod=indent
 set foldlevel=99
+" Numberline settings
 " Hybrid numbers
-" set number relativenumber
-set nu 
+set number relativenumber
+" set nu 
+
 " Encoding
 set encoding=utf-8
 " Tab to 4
