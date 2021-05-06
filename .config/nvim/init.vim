@@ -1,9 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 if exists('g:vscode')
-    echo "VScode"
 elseif has('nvim')
-    "
-    echo "NeoVim"
 
     " Plug 'junegunn/goyo.vim'
     " Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
