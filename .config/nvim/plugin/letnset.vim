@@ -1,5 +1,4 @@
 let g:user_emmet_install_global = 0
-let $VIM="~/.config/nvim/"
 
 " no netrw_banner 
 let g:netrw_banner = 0
