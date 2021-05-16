@@ -35,27 +35,27 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: Victor mono
+    family: Cascadia Code
 
     style: Regular
 
   # Bold font face
   bold:
-    family: Victor mono
+    family: Cascadia Code
 
     # The `style` can be specified to pick a specific face.
     style: Bold
 
   # Italic font face
   italic:
-    family: Victor mono
+    family: Cascadia Code
 
     # The `style` can be specified to pick a specific face.
     style: Italic
 
   # Bold italic font face
   bold_italic:
-    family: Victor mono
+    family: Cascadia Code
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
