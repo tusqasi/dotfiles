@@ -63,3 +63,4 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.gz*
 
 " Easy motion
 "
+

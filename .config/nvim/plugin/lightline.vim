@@ -21,7 +21,6 @@ let g:lightline.inactive = {
     \            [ 'percent' ] ] }
 let g:lightline.tabline = {
     \ 'left': [ [ 'tabs' ] ],
-    \ 'right': [ [ 'close' ] ]
     \}
 
 
