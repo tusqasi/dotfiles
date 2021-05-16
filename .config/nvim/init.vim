@@ -11,12 +11,17 @@ elseif has('nvim')
     " Plug 'Shougo/deoplete.nvim'
     Plug 'itchyny/lightline.vim'
     Plug 'vifm/vifm.vim'
-    " Plug 'TaDaa/vimade'
     Plug 'itchyny/vim-gitbranch'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'dag/vim-fish'
     Plug 'gruvbox-community/gruvbox'
     Plug 'jpalardy/vim-slime'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
+    " telescope
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
     " Plug 'hugolgst/vimsence'
     " xlp
     " packadd! dracula
