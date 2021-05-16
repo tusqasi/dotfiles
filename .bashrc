@@ -173,5 +173,4 @@ q ()
 }
 
 
-exec fish
-eval "$(starship init bash)"
+# eval "$(starship init bash)"

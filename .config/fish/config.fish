@@ -16,7 +16,7 @@ set fish_greeting
 set fish_command_not_found
 
 # start starship prompt
-starship init fish | source
+# starship init fish | source
 
 # Helper functions
 function mkcd -d "Create a directory and set CWD"
