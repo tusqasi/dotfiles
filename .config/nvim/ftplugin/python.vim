@@ -1,6 +1,7 @@
 if exists('g:vscode')
     echo "vsc"
 else
+    nnoremap <CR> :w<CR>:!python %<CR>
     setlocal shiftwidth=4
     setlocal tabstop=4
     setlocal expandtab
