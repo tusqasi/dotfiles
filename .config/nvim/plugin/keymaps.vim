@@ -1,3 +1,4 @@
+" my keymaps
 " Does what it says
 nnoremap ; :
 nnoremap : ;
@@ -12,10 +13,18 @@ nnoremap Y y$
 if exists('g:vscode')
     nmap <silent><Leader>l ;call VSCodeCall("workbench.action.files.save")<CR>
 elseif has('nvim')
-    "open vimrc in new tab
-    nnoremap <leader>ve :execute "tab sp" resolve(expand("~/.config/nvim/init.vim"))<CR>
+    nnoremap <Leader>b :Buffers<CR>
+    nnoremap <Leader>/ :Lines<CR> 
+    function! ND_files(query, fullscreen)
+      let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+      let initial_command = printf(command_fmt, shellescape(a:query))
+      let reload_command = printf(command_fmt, '{q}')
+      let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command], 'dir': '/home/tusqasi/.config/nvim/'}
+      call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+    endfunction
 
-    " f2 for vifm
+    command! -nargs=* -bang Neof call ND_files(<q-args>, <bang>0)
+    nnoremap <leader>ve :tabedit<CR>:Neof<CR>
     nmap <F2> ;Vifm<Cr>
     "
 
@@ -98,5 +107,7 @@ elseif has('nvim')
     
     " Use <leader>x for convert visual selected code to snippet
     xmap <leader>x  <Plug>(coc-convert-snippet)
-    endif
+
+    let g:user_emmet_leader_key = ','
+endif
 
