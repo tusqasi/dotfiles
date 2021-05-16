@@ -1,4 +1,8 @@
 let g:user_emmet_install_global = 0
+augroup emmt
+  autocmd!
+  au BufEnter *.html,*.css EmmetInstall
+augroup END
 
 " no netrw_banner 
 let g:netrw_banner = 0
