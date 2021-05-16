@@ -26,7 +26,7 @@ set_from_resource $ws9  i3-wm.workspace.09.name "9"
 ###############################################################################
 
 ## Launch // Terminal // <> Enter ##
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec alacritty -e fish
 
 ## Launch // Browser // <><Ctrl> o ##
 bindsym $mod+o exec brave
@@ -58,6 +58,9 @@ bindsym $mod+Ctrl+space exec $i3-wm.program.launcher.window
 
 ## Launch Discord // < + alt + d>##
 bindsym $mod+$alt+d exec discord
+
+## Emoji  // < + alt + e>##
+bindsym $mod+$alt+e exec rofimoji
 
 ###############################################################################
 # Window and Workspace Navigation
@@ -109,7 +112,7 @@ bindsym XF86AudioMute        exec  pactl set-sink-mute 0 toggle # mute sound
 # bindsym XF86AudioPlay  exec playerctl play-pause
 # bindsym XF86AudioPause exec playerctl play-pause
 # bindsym XF86AudioNext  exec playerctl next
-# bindsym XF86AudioPrev  exec playerctl previous
+# bindsym XF87AudioPrev  exec playerctl previous
 
 # Sreen brightness controls
 # bindsym XF86MonBrightnessUp   exec xbacklight -steps 1 -inc 05 # increase screen brightness
