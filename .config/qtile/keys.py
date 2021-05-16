@@ -1,7 +1,7 @@
 from libqtile.config import Key
 from libqtile.command import lazy
 from group import groups
-from variables import mod, alt, terminal, browser, launcher
+from variables import mod, alt, terminal, browser, launcher, home
 
 keys = [
     # Switch between windows
@@ -49,7 +49,8 @@ keys = [
     Key([], "Print", lazy.spawn("flameshot gui"), desc="Launch flameshot"),
     Key(["shift"], "Print", lazy.spawn("gcolor3"), desc="Launch gcolor3 picker"),
     Key([mod, alt],"d", lazy.spawn("discord"), desc="Launch Discord"),
-    Key([mod, "shift"],"space", lazy.spawn(launcher), desc="Launch launcher"),
+    Key([mod],"space", lazy.spawn(launcher), desc="Launch launcher"),
+    Key([mod],"p", lazy.spawn(f"{home}/scripts/rofi_tmux.sh"), desc="Launch tmux launcher"),
 
     # Launch stuff end #
     # Toggle between different layouts as defined below
