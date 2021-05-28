@@ -25,6 +25,7 @@ elseif has('nvim')
 
     command! -nargs=* -bang Neof call ND_files(<q-args>, <bang>0)
     nnoremap <leader>ve :tabedit<CR>:Neof<CR>
+
     nmap <F2> ;Vifm<Cr>
     "
 

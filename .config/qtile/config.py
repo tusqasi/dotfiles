@@ -8,11 +8,13 @@ from keys import keys
 from color import colors
 from layout import layouts
 from variables import home
+from group import groups
 
 widget_defaults = dict(
     font="Cascadia Code",
     fontsize=13,
-    padding=3,
+    padding=2,
+    background=colors["bar_bg"],
 )
 extension_defaults = widget_defaults.copy()
 
@@ -43,8 +45,9 @@ screens = [
                     padding=10,
                 ),
                 widget.Sep(
-                    linewidth=7,
-                    foreground="#000000"),
+                    linewidth=8,
+                    foreground=colors["bar_bg"],
+                    ),
                 widget.BatteryIcon(),
                 widget.Battery(format='{percent:.0%}'),
                 # widget.QuickExit(
@@ -53,7 +56,7 @@ screens = [
                 #     # padding=5,
                 # ),
             ],
-            24,
+            20,
         ),
     ),
 ]
@@ -90,6 +93,12 @@ auto_minimize = True
 def start_up():
     subprocess.Popen(f"{home}scripts/startup.fish")
 
+@hook.subscribe.client_new
+def dialog(window):
+    windowtype = window.window.get_wm_class()[1]
+    browsers = ['firefox',"brave"]
+    if windowtype == 'firefox':
+        window.togroup('WWW')
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the

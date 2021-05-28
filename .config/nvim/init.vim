@@ -15,13 +15,13 @@ elseif has('nvim')
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
     Plug 'dag/vim-fish'
     Plug 'gruvbox-community/gruvbox'
-    Plug 'jpalardy/vim-slime'
+    " Plug 'jpalardy/vim-slime'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     " telescope
-    Plug 'nvim-lua/popup.nvim'
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
+    " Plug 'nvim-lua/popup.nvim'
+    " Plug 'nvim-lua/plenary.nvim'
+    " Plug 'nvim-telescope/telescope.nvim'
     " Plug 'hugolgst/vimsence'
     " xlp
     " packadd! dracula

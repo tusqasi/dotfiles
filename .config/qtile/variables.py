@@ -2,6 +2,6 @@ mod = "mod4"
 alt = "mod1"
 
 terminal = "alacritty"
-browser = "brave"
+browser = "firefox"
 home = "/home/tusqasi/"
 launcher = "rofi -show drun"
