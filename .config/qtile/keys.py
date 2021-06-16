@@ -1,7 +1,7 @@
 from libqtile.config import Group
 from libqtile.config import Key
 from libqtile.command import lazy
-from variables import mod, alt, terminal, browser, launcher, home
+from variables import mod, alt, terminal, browser, launcher, home, file_manager
 from group import groups, group_names
 
 keys = [
@@ -133,7 +133,7 @@ keys = [
     ),
     Key(
         [mod], "e",
-        lazy.spawn("thunar")
+        lazy.spawn(file_manager)
     ),
     # Launch stuff end #
     # Toggle between different layouts as defined below

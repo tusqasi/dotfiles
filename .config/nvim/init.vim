@@ -18,6 +18,8 @@ elseif has('nvim')
     " Plug 'jpalardy/vim-slime'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'tpope/vim-surround'
+    Plug 'mattn/emmet-vim'
     " telescope
     " Plug 'nvim-lua/popup.nvim'
     " Plug 'nvim-lua/plenary.nvim'
@@ -27,9 +29,7 @@ elseif has('nvim')
     " packadd! dracula
 endif
 Plug 'tpope/vim-commentary'
-Plug 'mattn/emmet-vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-surround'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-repeat'
 call plug#end()

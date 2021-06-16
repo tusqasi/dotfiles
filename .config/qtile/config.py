@@ -22,11 +22,15 @@ screens = [
     Screen(
         top=bar.Bar(
             [
+                widget.Image(
+                    filename="~/.config/qtile/py_logo.png",
+                    scale="False",
+                ),
                 widget.CurrentLayoutIcon(),
                 widget.GroupBox(
                     background=colors["bg"],
-                    highlight_method='line',
-                    highlight_color= colors["highlight"],
+                    highlight_method="line",
+                    highlight_color=colors["highlight"],
                     this_current_screen_border=colors["line"],
                     hide_unused=True,
                     disable_drag=True,
@@ -47,9 +51,9 @@ screens = [
                 widget.Sep(
                     linewidth=8,
                     foreground=colors["bar_bg"],
-                    ),
+                ),
                 widget.BatteryIcon(),
-                widget.Battery(format='{percent:.0%}'),
+                widget.Battery(format="{percent:.0%}"),
                 # widget.QuickExit(
                 #     default_text="Shutdown",
                 #     background=colors["red"],
@@ -93,12 +97,14 @@ auto_minimize = True
 def start_up():
     subprocess.Popen(f"{home}scripts/startup.fish")
 
+
 @hook.subscribe.client_new
 def dialog(window):
     windowtype = window.window.get_wm_class()[1]
-    browsers = ['firefox',"brave"]
-    if windowtype == 'firefox':
-        window.togroup('WWW')
+    browsers = ["firefox", "brave"]
+    if windowtype == "firefox":
+        window.togroup("WWW")
+
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
 # string besides java UI toolkits; you can see several discussions on the

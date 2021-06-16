@@ -229,7 +229,7 @@ schemes:
         cyan: '#5A8887'
         white: '#ae4814'
 
-colors: *dracula
+colors: *gruvbox
 
 background_opacity: 0.9
 

@@ -1,28 +1,18 @@
 from libqtile import layout
 from libqtile.config import Match
 
-
+layout_default = {
+    "border_focus": "#504945",
+    "border_normal": "#282828",
+    "margin": 10,
+}
 layouts = [
-    layout.MonadTall(
-        border_focus="#675d55",
-        # border_normal="#fe4cbb3", # don't use this
-        margin=15,
-    ),
-    layout.MonadWide(
-        border_focus="#675d55",
-        margin=10,
-    ),
+    layout.MonadTall(**layout_default),
+    layout.MonadWide(**layout_default),
     layout.Max(),
-    # layout.VerticalTile(
-    #     border_focus="#675d55",
-    #     margin=10,
-    #     ),
     # Try more layouts by unleashing below layouts.
-    # layout.Tile(
-    #     border_focus="#675d55",
-    #     margin=10,
-    #     add_on_top=False,
-    #     ),
+    # layout.VerticalTile(),
+    # layout.Tile(),
     # layout.Stack(num_stacks=2),
     # layout.Bsp(),
     # layout.Matrix(),

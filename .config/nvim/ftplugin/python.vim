@@ -1,10 +1,12 @@
 if exists('g:vscode')
-    echo "vsc"
+    nmap <Leader><CR> ;call VSCodeCall("editor.action.formatDocument")<CR>
+    nmap <CR> ;call VSCodeCall("python.execInTerminal")<CR>
+
 else
-    nnoremap <CR> :w<CR>:!python %<CR>
     setlocal shiftwidth=4
     setlocal tabstop=4
     setlocal expandtab
     setlocal softtabstop
-    let g:jedi#auto_initialization = 0
+    let g:python3_host_prog = '/usr/bin/python3.9'
+    let g:jedi#auto_initialization = 1
 endif
