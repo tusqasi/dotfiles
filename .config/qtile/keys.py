@@ -135,57 +135,61 @@ keys = [
         [mod], "e",
         lazy.spawn(file_manager)
     ),
+    Key(
+        [mod, alt], "e",
+        lazy.spawn("rofimoji"),
+        desc="select emoji"),
     # Launch stuff end #
     # Toggle between different layouts as defined below
     Key(
-		[mod], "Tab",
-		lazy.next_layout(), 
-		desc="Toggle between layouts"),
+        [mod], "Tab",
+        lazy.next_layout(), 
+        desc="Toggle between layouts"),
     Key(
-		[mod], "w",
-		lazy.window.kill(), 
-		desc="Kill focused window"),
+        [mod], "w",
+        lazy.window.kill(), 
+        desc="Kill focused window"),
     # Make floating
     Key(
-		[mod, "shift"], "f",
-		lazy.window.toggle_floating()),
+        [mod, "shift"], "f",
+        lazy.window.toggle_floating()),
     Key(
-		[mod, "control"], "r",
-		lazy.restart(), 
-		desc="Restart Qtile"),
+        [mod, "control"], "r",
+        lazy.restart(), 
+        desc="Restart Qtile"),
     Key(
-		[mod], "r",
-		lazy.spawncmd(), 
-		desc="Spawn a command using a prompt widget"),
+        [mod], "r",
+        lazy.spawncmd(), 
+        desc="Spawn a command using a prompt widget"),
     # Volume and media
     Key(
-		[], "XF86AudioRaiseVolume",
-		lazy.spawn("pactl -- set-sink-volume 0 +5%")
-		),
+        [], "XF86AudioRaiseVolume",
+        lazy.spawn("pactl -- set-sink-volume 0 +5%")
+        ),
     Key(
-		[], "XF86AudioLowerVolume",
-		lazy.spawn("pactl -- set-sink-volume 0 -5%")
-		),
+        [], "XF86AudioLowerVolume",
+        lazy.spawn("pactl -- set-sink-volume 0 -5%")
+        ),
     Key(
-		[], "XF86AudioMute",
-		lazy.spawn("pactl set-sink-mute 0 toggle")
-		),
+        [], "XF86AudioMute",
+        lazy.spawn("pactl set-sink-mute 0 toggle")
+        ),
     Key(
-		[], "XF86AudioPlay",
-		lazy.spawn("playerctl play-pause")
-		),
+        [], "XF86AudioPlay",
+        lazy.spawn("playerctl play-pause")
+        ),
     Key(
-		[], "XF86AudioPause",
-		lazy.spawn("playerctl play-pause")
-		),
+        [], "XF86AudioPause",
+        lazy.spawn("playerctl play-pause")
+        ),
     Key(
-		[], "XF86AudioNext",
-		lazy.spawn("playerctl next")
-		),
+        [], "XF86AudioNext",
+        lazy.spawn("playerctl next")
+        ),
     Key(
-		[], "XF86AudioPrev",
-		lazy.spawn("playerctl previous")
-		),
+        [], "XF86AudioPrev",
+        lazy.spawn("playerctl previous")
+        ),
     # Volume and media end
 ]
 
