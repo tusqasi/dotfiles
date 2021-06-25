@@ -4,6 +4,7 @@ augroup emmt
   au BufEnter *.html,*.css EmmetInstall
 augroup END
 
+set scrolloff=999
 " no netrw_banner 
 let g:netrw_banner = 0
 
