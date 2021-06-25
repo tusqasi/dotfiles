@@ -4,7 +4,7 @@ from libqtile.config import Match
 layout_default = {
     "border_focus": "#504945",
     "border_normal": "#282828",
-    "margin": 10,
+    # "margin": 10,
 }
 layouts = [
     layout.MonadTall(**layout_default),

@@ -2,6 +2,7 @@ import subprocess
 from typing import List  # noqa: F401
 
 from libqtile import bar, hook, layout, widget
+from libqtile import qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from keys import keys
@@ -96,6 +97,7 @@ auto_minimize = True
 @hook.subscribe.startup_once
 def start_up():
     subprocess.Popen(f"{home}scripts/startup.fish")
+    lazy.group["WWW"].toscreen()
 
 
 @hook.subscribe.client_new
