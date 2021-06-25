@@ -174,3 +174,4 @@ q ()
 
 
 # eval "$(starship init bash)"
+source ~/envs.sh

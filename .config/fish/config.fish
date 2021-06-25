@@ -4,6 +4,7 @@ set -x PATH $PATH ~/bin/
 set -x PATH $PATH ~/scripts/
 
 # ENV variables
+source ~/.config/fish/env-vars.fish
 set -e EDITOR
 set EDITOR /usr/bin/nvim
 set NVIM_DIR ~/.config/nvim/
