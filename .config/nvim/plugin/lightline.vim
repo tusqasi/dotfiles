@@ -1,5 +1,4 @@
-""""""""""
-"Light line
+" lightline.vim
 
 set noshowmode
 

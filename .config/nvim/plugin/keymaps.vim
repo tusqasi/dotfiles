@@ -1,4 +1,4 @@
-" my keymaps
+" keymaps.vim
 " Does what it says
 nnoremap ; :
 nnoremap : ;

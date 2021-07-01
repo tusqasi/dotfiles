@@ -1,4 +1,4 @@
-" OneStatus 
+" onestatus.vim
 if has("nvim")
 if !empty($TMUX)
     augroup onestatus

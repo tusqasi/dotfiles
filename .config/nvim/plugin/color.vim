@@ -1,3 +1,4 @@
+" color.vim
 if has('nvim')
     if exists('g:vscode')
 	

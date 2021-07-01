@@ -1,3 +1,4 @@
+" init.vim
 call plug#begin('~/.config/nvim/plugged')
 if exists('g:vscode')
 elseif has('nvim')
