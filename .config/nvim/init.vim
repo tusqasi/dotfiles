@@ -14,6 +14,7 @@ elseif has('nvim')
     Plug 'tpope/vim-surround'
     Plug 'mattn/emmet-vim'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
+    Plug 'christoomey/vim-tmux-navigator'
 endif
 Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
