@@ -12,8 +12,8 @@ from variables import home
 from group import groups
 
 widget_defaults = dict(
-    font="Cascadia Code",
-    fontsize=13,
+    font="CozetteVector",
+    fontsize=14,
     padding=2,
     background=colors["bar_bg"],
 )

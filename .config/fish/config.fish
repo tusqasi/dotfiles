@@ -20,7 +20,7 @@ set fish_command_not_found
 # starship init fish | source
 
 # Helper functions
-function mkcd -d "Create a directory and set CWD"
+function mc -d "Create a directory and set CWD"
     mkdir -pv $argv
     if test $status = 0
         switch $argv[(count $argv)]
@@ -45,11 +45,3 @@ function envsource -d "Source the requisite env"
     source ./$argv/bin/activate.fish;
 end
 
-function rn -d "Run linked c code"
-   if test -n "$argv"
-       gcc ./$argv -lm
-       ./a.out;
-   else
-       echo "No file specified"
-   end
-end
