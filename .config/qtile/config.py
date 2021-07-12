@@ -13,8 +13,8 @@ from group import groups
 
 widget_defaults = dict(
     font="CozetteVector",
-    fontsize=14,
-    padding=2,
+    fontsize=20,
+    padding=1,
     background=colors["bar_bg"],
 )
 extension_defaults = widget_defaults.copy()
@@ -23,10 +23,10 @@ screens = [
     Screen(
         top=bar.Bar(
             [
-                widget.Image(
-                    filename="~/.config/qtile/py_logo.png",
-                    scale="False",
-                ),
+               # widget.Image(
+               #     filename="~/.config/qtile/py_logo.png",
+               #     scale="False",
+               # ),
                 widget.CurrentLayoutIcon(),
                 widget.GroupBox(
                     background=colors["bg"],
@@ -61,7 +61,7 @@ screens = [
                 #     # padding=5,
                 # ),
             ],
-            20,
+            22,
         ),
     ),
 ]
