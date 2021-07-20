@@ -1,27 +1,32 @@
-alias _='sudo '
+ealias _="sudo "
 
-alias c='clear'
+ealias c="clear"
 
-alias q='quit'
-alias sz='source ~/.zshrc'
+ealias q="exit"
+ealias sz="source ~/.zshrc"
 
-alias l='exa -lah'
-alias la='exa -lAh'
-alias ll='exa -lh'
-alias ls='exa'
-alias lsa='exa -lah'
+ealias s="sudo"
 
-alias md='mkdir -p'
+ealias l="exa --icons -1"
+ealias la="exa --icons -lah"
+ealias ll="exa --icons -1lh"
+ealias ls="exa --icons"
 
-alias py=python
+ealias md="mkdir -p"
 
-alias nz='nvim ~/.zshrc'
-alias n='nvim'
-alias nn='nvim ~/.config/nvim/init.vim'
-alias sn='sudo nvim'
+ealias v="vifm"
+ealias v.="vifm ."
 
-alias pacs='sudo pacman -S'
-alias pacy='sudo pacman -Syu'
-alias paq='sudo pacman -Q|grep'
+ealias py="python"
 
-alias config='/usr/bin/git --git-dir=/home/tusqasi/.cfg/ --work-tree=/home/tusqasi'
+ealias nz="nvim ~/.zshrc"
+ealias n="nvim"
+ealias nn="nvim ~/.config/nvim/init.vim"
+ealias nq="nvim ~/.config/qtile/"
+ealias sn="sudo nvim"
+
+ealias pacs="sudo pacman -S"
+ealias pacy="sudo pacman -Syu"
+ealias paq="sudo pacman -Q|grep"
+
+ealias config="/usr/bin/git --git-dir=/home/tusqasi/.cfg/ --work-tree=/home/tusqasi"

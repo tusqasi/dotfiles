@@ -1,8 +1,10 @@
 mod = "mod4"
 alt = "mod1"
 
+shell = "zsh"
 terminal = "alacritty"
 browser = "firefox"
 home = "/home/tusqasi/"
 launcher = "rofi -show drun"
+startup_script = "/home/tusqasi/scripts/startup.sh"
 file_manager = "pcmanfm"

@@ -1,7 +1,7 @@
 from libqtile.config import Group
 from libqtile.config import Key
 from libqtile.command import lazy
-from variables import mod, alt, terminal, browser, launcher, home, file_manager
+from variables import *
 from group import groups, group_names
 
 keys = [
@@ -76,6 +76,18 @@ keys = [
     # Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down",),
     # Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up",),
     Key(
+        [mod,"control"],
+        "l",
+        lazy.screen.next_group(),
+        desc="switch to group on right",
+    ),
+    Key(
+        [mod,"control"],
+        "h",
+        lazy.screen.prev_group(),
+        desc="switch to group on left",
+    ),
+    Key(
         [mod],
         "n",
         lazy.layout.normalize(),
@@ -102,7 +114,7 @@ keys = [
     Key(
         [mod],
         "Return",
-        lazy.spawn(f"{terminal} -e fish"),
+        lazy.spawn(f"{terminal} -e {shell}"),
         desc="Launch terminal",
     ),
     Key(
@@ -162,6 +174,12 @@ keys = [
         [mod, alt],
         "e",
         lazy.spawn("rofimoji"),
+        desc="select emoji",
+    ),
+    Key(
+        [mod, alt],
+        "o",
+        lazy.spawn("/home/tusqasi/scripts/ocr"),
         desc="select emoji",
     ),
     # Launch stuff end #

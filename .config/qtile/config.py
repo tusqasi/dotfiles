@@ -8,7 +8,7 @@ from libqtile.lazy import lazy
 from keys import keys
 from color import colors
 from layout import layouts
-from variables import home
+from variables import startup_script, home
 from group import groups
 
 widget_defaults = dict(
@@ -96,7 +96,7 @@ auto_minimize = True
 
 @hook.subscribe.startup_once
 def start_up():
-    subprocess.Popen(f"{home}scripts/startup.fish")
+    subprocess.Popen(f"{startup_script}")
     lazy.group["WWW"].toscreen()
 
 

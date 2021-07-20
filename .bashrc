@@ -99,7 +99,7 @@ alias more='less'
 
 alias bpy='bpython'
 alias c='clear'
-alias config='/usr/bin/git --git-dir=/home/tusqasi/dotfiles/ --work-tree=/home/tusqasi'
+alias config='/usr/bin/git --git-dir=/home/tusqasi/.cfg/ --work-tree=/home/tusqasi'
 alias cp='cp -i'
 alias df='df -h'
 alias du='du -h'
@@ -163,16 +163,11 @@ ex ()
   fi
 }
 
-q ()
-{
-    if [ -z "$TMUX" ] ; then
-	exit
-    else
-	echo yo In TmUX Bruv 
-	echo Wanna go!
-    fi
-}
-
+alias q='exit'
 
 # eval "$(starship init bash)"
 source ~/envs.sh
+
+# Generated for envman. Do not edit.
+[ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+

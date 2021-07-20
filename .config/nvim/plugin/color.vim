@@ -4,10 +4,10 @@ if has('nvim')
 	
     else
 	"Colors
-	set background=dark
-	autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE
-	let g:gruvbox_transperent_bg=0
-	colorscheme gruvbox
-	set termguicolors 
+	" set background=dark
+	" autocmd VimEnter * hi Normal ctermbg=NONE guibg=NONE
+	" let g:gruvbox_transperent_bg=0
+	" colorscheme gruvbox
+	" set termguicolors 
     endif
 endif

@@ -8,6 +8,6 @@ else
     setlocal expandtab
     setlocal softtabstop
     let g:python3_host_prog = '/usr/bin/python3.9'
-    nnoremap <CR> :w<CR>:!python %<CR>
-    nnoremap <Leader><CR> :w<CR>:!black %<CR>:e!<CR>
+    autocmd FileType python nnoremap <buffer> <CR> :w<CR>:!python %<CR>
+    autocmd FileType python nnoremap <buffer> <Leader><CR> :w<CR>:!black %<CR>:e!<CR>
 endif
