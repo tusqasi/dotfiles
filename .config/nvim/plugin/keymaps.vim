@@ -9,6 +9,7 @@ let mapleader=" "
 
 "make Y behave more like C and D
 nnoremap Y y$
+nnoremap <Leader>c :norm ggVG"+y<CR>
 
 if exists('g:vscode')
     nmap <silent><Leader>l ;call VSCodeCall("workbench.action.files.save")<CR>
@@ -42,28 +43,9 @@ elseif has('nvim')
     vmap  <expr>  <UP>     DVB_Drag('up')                           
     vmap  <expr>  D        DVB_Duplicate()                          
     "
+
     " Distraction Free
     nmap <F3> ;Goyo<Cr>
-
-
-
-    " Remap for deoplete
-    " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
-    "
-
-    "caps = esc
-    " au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-    "au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
-
-    "
-
-    " <Leader>Q to save and quit
-    noremap <silent><Leader><M-q>		:wq<CR>
-    "
-
-    " <Leader>P to save, source, and plugInstall 
-    noremap <silent><Leader><M-P>		:w<CR>:source $MYVIMRC<CR>:PlugInstall<CR>
-    "
 
     " Mapping for spell check 
     nmap <F6> ;setlocal spell! spelllang=en<CR>

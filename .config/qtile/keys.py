@@ -1,8 +1,9 @@
 from libqtile.config import Group
-from libqtile.config import Key
+from libqtile.config import Key, KeyChord
 from libqtile.command import lazy
 from variables import *
 from group import groups, group_names
+
 
 keys = [
     # Layout keybinds #
@@ -154,12 +155,6 @@ keys = [
         desc="Launch launcher",
     ),
     Key(
-        [mod, "shift"],
-        "space",
-        lazy.spawn("rofi -show run"),
-        desc="Launch launcher",
-    ),
-    Key(
         [mod],
         "p",
         lazy.spawn(f"{home}/scripts/rofi_tmux.sh"),
@@ -180,9 +175,21 @@ keys = [
         [mod, alt],
         "o",
         lazy.spawn("/home/tusqasi/scripts/ocr"),
-        desc="select emoji",
+        desc="run ocr on screen",
     ),
+    # chords launcher
+    # KeyChord([mod, alt], "o", [
+    #     Key([], "s", lazy.spawn("shutdown")),
+    #     ]),
     # Launch stuff end #
+    # power stuff
+    KeyChord(
+        [mod, alt], "p", [
+        Key([],
+            "h", lazy.spawn("systemctl hibernate")),
+        Key([], "r", lazy.spawn("systemctl reboot")),
+        Key([], "s", lazy.spawn("shutdown now")),
+        ]),
     # Toggle between different layouts as defined below
     Key(
         [mod],

@@ -30,3 +30,7 @@ ealias pacy="sudo pacman -Syu"
 ealias paq="sudo pacman -Q|grep"
 
 ealias config="/usr/bin/git --git-dir=/home/tusqasi/.cfg/ --work-tree=/home/tusqasi"
+
+function mc
+    mkdir -p $1;
+    cd $1;

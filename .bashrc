@@ -2,6 +2,7 @@
 
 export PATH=$PATH:~/.bin/
 export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.cargo/bin
 
 [[ $- != *i* ]] && return
  

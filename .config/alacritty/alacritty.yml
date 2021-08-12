@@ -35,33 +35,33 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: TerminessTTF Nerd Font
+    family: CozetteVector
 
     style: Regular
 
   # Bold font face
   bold:
-    family: TerminessTTF Nerd Font
+    family: CozetteVector
 
     # The `style` can be specified to pick a specific face.
     style: Bold
 
   # Italic font face
   italic:
-    family: TerminessTTF Nerd Font
+    family: CozetteVector
 
     # The `style` can be specified to pick a specific face.
     style: Italic
 
   # Bold italic font face
   bold_italic:
-    family: TerminessTTF Nerd Font
+    family: CozetteVector
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
 
   # Point size
-  size: 14.0
+  size: 13.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.

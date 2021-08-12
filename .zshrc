@@ -2,7 +2,6 @@ HISTFILE=~/.histfile
 HISTSIZE=5000
 SAVEHIST=5000
 setopt autocd extendedglob
-# setopt completealiases
 unsetopt beep
 bindkey -e
 zstyle :compinstall filename "/home/tusqasi/.zshrc"

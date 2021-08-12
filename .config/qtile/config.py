@@ -18,9 +18,7 @@ widget_defaults = dict(
     background=colors["bar_bg"],
 )
 extension_defaults = widget_defaults.copy()
-
-screens = [
-    Screen(
+main_screen = Screen(
         top=bar.Bar(
             [
                # widget.Image(
@@ -44,13 +42,30 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
+                widget.TextBox(
+                    text=''
+                    ),
+                widget.CPUGraph(
+                    graph_color='689d6a',
+                    fill_color='689d6a'
+                    ),
+                widget.TextBox(
+                    text='﬙'
+                    ),
+                widget.MemoryGraph(
+                    graph_color='d65d0e',
+                    fill_color='d65d0e'
+                    ),
+                widget.TextBox(
+                    text='   '
+                    ),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 # widget.Wlan(), # TODO: Make this work
                 widget.Systray(
                     padding=10,
                 ),
                 widget.Sep(
-                    linewidth=8,
+                    linewidth=5,
                     foreground=colors["bar_bg"],
                 ),
                 widget.BatteryIcon(),
@@ -63,8 +78,39 @@ screens = [
             ],
             22,
         ),
-    ),
-]
+        x=0,
+        y=0,
+        width=1920,
+        height=1080
+    )
+second_screen = Screen(
+        top=bar.Bar(
+            [
+                widget.GroupBox(
+                    background=colors["bg"],
+                    highlight_method="line",
+                    highlight_color=colors["highlight"],
+                    this_current_screen_border=colors["line"],
+                    hide_unused=True,
+                    disable_drag=True,
+                ),
+                widget.WindowName(),
+                widget.TextBox(
+                    text='   '
+                    ),
+                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+            ],
+            18,
+        ),
+        x=1920,
+        y=0,
+        width=1368,
+        height=768
+    )
+
+screens = [ main_screen]
+
+# fake_screens = [main_screen, second_screen]
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
