@@ -37,10 +37,6 @@ main_screen = Screen(
                 widget.Prompt(),
                 widget.WindowName(),
                 widget.Chord(
-                    chords_colors={
-                        "launch": ("#ff0000", "#ffffff"),
-                    },
-                    name_transform=lambda name: name.upper(),
                 ),
                 widget.TextBox(
                     text=''

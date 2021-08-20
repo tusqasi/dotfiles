@@ -77,13 +77,13 @@ keys = [
     # Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down",),
     # Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up",),
     Key(
-        [mod,"control"],
+        [mod, "control"],
         "l",
         lazy.screen.next_group(),
         desc="switch to group on right",
     ),
     Key(
-        [mod,"control"],
+        [mod, "control"],
         "h",
         lazy.screen.prev_group(),
         desc="switch to group on left",
@@ -184,12 +184,14 @@ keys = [
     # Launch stuff end #
     # power stuff
     KeyChord(
-        [mod, alt], "p", [
-        Key([],
-            "h", lazy.spawn("systemctl hibernate")),
-        Key([], "r", lazy.spawn("systemctl reboot")),
-        Key([], "s", lazy.spawn("shutdown now")),
-        ]),
+        [mod, alt],
+        "p",
+        [
+            Key([], "h", lazy.spawn("systemctl hibernate")),
+            Key([], "r", lazy.spawn("systemctl reboot")),
+            Key([], "s", lazy.spawn("shutdown now")),
+        ],
+    ),
     # Toggle between different layouts as defined below
     Key(
         [mod],
