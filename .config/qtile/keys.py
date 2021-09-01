@@ -104,12 +104,12 @@ keys = [
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
-    Key(
-        [mod, "shift"],
-        "Return",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
-    ),
+    # Key(
+    #     [mod, "shift"],
+    #     "Return",
+    #     lazy.layout.toggle_split(),
+    #     desc="Toggle between split and unsplit sides of stack",
+    # ),
     # Layout keybinds end #
     # Launch stuff #
     Key(
@@ -157,13 +157,14 @@ keys = [
     Key(
         [mod],
         "p",
-        lazy.spawn(f"{home}/scripts/rofi_tmux.sh"),
+        lazy.spawn(f"{home}/scripts/rofi_tmux.py"),
         desc="Launch tmux launcher",
     ),
     Key(
         [mod],
         "e",
         lazy.spawn(file_manager),
+        desc="open file_manager"
     ),
     Key(
         [mod, alt],
@@ -177,10 +178,18 @@ keys = [
         lazy.spawn("/home/tusqasi/scripts/ocr"),
         desc="run ocr on screen",
     ),
-    # chords launcher
-    # KeyChord([mod, alt], "o", [
-    #     Key([], "s", lazy.spawn("shutdown")),
-    #     ]),
+    Key(
+        [],
+        "XF86Calculator",
+        lazy.spawn("qalculate-gtk"),
+        desc="calculator",
+    ),
+    Key(
+        ["control", "shift"],
+        "Escape",
+        lazy.spawn(f"{terminal} -e bpytop"),
+        desc="task manager",
+    ),
     # Launch stuff end #
     # power stuff
     KeyChord(
@@ -207,7 +216,7 @@ keys = [
     ),
     # Make floating
     Key(
-        [mod, "shift"],
+        [mod, "control"],
         "f",
         lazy.window.toggle_floating(),
     ),

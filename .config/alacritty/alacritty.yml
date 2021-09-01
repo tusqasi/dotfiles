@@ -260,7 +260,7 @@ schemes:
         cyan: '#5A8887'
         white: '#ae4814'
 
-colors: *gruvbox-dark
+colors: *gruvbox-light
 
-background_opacity: 0.9
+background_opacity: 0.85
 

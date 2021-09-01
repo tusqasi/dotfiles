@@ -20,6 +20,7 @@ fpath+=$HOME/.zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
 # source /home/tusqasi/.zsh/prompt.zsh # my prompt
+source /home/tusqasi/.bin
 source /home/tusqasi/.zsh/env.zsh
 source /home/tusqasi/.zsh/ssh-agent.zsh
 source /home/tusqasi/.zsh/paths.zsh
@@ -30,3 +31,4 @@ source /home/tusqasi/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /home/tusqasi/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source /home/tusqasi/.config/broot/launcher/bash/br
+ssh-add -q ~/.ssh/new_key

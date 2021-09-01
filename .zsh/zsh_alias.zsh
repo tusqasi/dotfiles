@@ -23,7 +23,7 @@ ealias nz="nvim ~/.zshrc"
 ealias n="nvim"
 ealias nn="nvim ~/.config/nvim/init.vim"
 ealias nq="nvim ~/.config/qtile/"
-ealias sn="sudo nvim"
+ealias sn="sudoedit"
 
 ealias pacs="sudo pacman -S"
 ealias pacy="sudo pacman -Syu"
@@ -31,6 +31,7 @@ ealias paq="sudo pacman -Q|grep"
 
 ealias config="/usr/bin/git --git-dir=/home/tusqasi/.cfg/ --work-tree=/home/tusqasi"
 
-function mc
+function mc(){
     mkdir -p $1;
     cd $1;
+}
