@@ -262,5 +262,5 @@ schemes:
 
 colors: *gruvbox-light
 
-background_opacity: 0.85
+# background_opacity: 1
 

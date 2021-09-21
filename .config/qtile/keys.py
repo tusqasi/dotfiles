@@ -100,6 +100,25 @@ keys = [
         lazy.window.toggle_fullscreen(),
         desc="Fullscreen",
     ),
+    Key(
+        [mod],
+        "m",
+        lazy.layout.maximize(),
+        desc="maximize",
+    ),
+    # Switch focus of monitors #
+    Key(
+        [mod],
+        "period",
+        lazy.next_screen(),
+        desc="Move focus to next monitor",
+    ),
+    Key(
+        [mod],
+        "comma",
+        lazy.prev_screen(),
+        desc="Move focus to prev monitor",
+    ),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
@@ -160,12 +179,7 @@ keys = [
         lazy.spawn(f"{home}/scripts/rofi_tmux.py"),
         desc="Launch tmux launcher",
     ),
-    Key(
-        [mod],
-        "e",
-        lazy.spawn(file_manager),
-        desc="open file_manager"
-    ),
+    Key([mod], "e", lazy.spawn(file_manager), desc="open file_manager"),
     Key(
         [mod, alt],
         "e",
