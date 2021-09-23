@@ -96,7 +96,7 @@ auto_minimize = True
 
 @hook.subscribe.startup_once
 def start_up():
-    subprocess.Popen(f"{home}scripts/startup.fish")
+    subprocess.Popen(f"{home}scripts/startup.sh")
     lazy.group["WWW"].toscreen()
 
 
