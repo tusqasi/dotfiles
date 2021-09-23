@@ -120,6 +120,10 @@ alias vf='vifm ./'
 alias vim='nvim'
 alias wget='wget -c'
 
+SUDO_EDITOR=/bin/nvim
+EDITOR=/bin/nvim
+
+
 xhost +local:root > /dev/null 2>&1
 
 complete -cf sudo
