@@ -100,6 +100,25 @@ keys = [
         lazy.window.toggle_fullscreen(),
         desc="Fullscreen",
     ),
+    Key(
+        [mod],
+        "m",
+        lazy.layout.maximize(),
+        desc="maximize",
+    ),
+    # Switch focus of monitors #
+    Key(
+        [mod],
+        "period",
+        lazy.next_screen(),
+        desc="Move focus to next monitor",
+    ),
+    Key(
+        [mod],
+        "comma",
+        lazy.prev_screen(),
+        desc="Move focus to prev monitor",
+    ),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
@@ -164,7 +183,7 @@ keys = [
         [mod],
         "e",
         lazy.spawn(file_manager),
-        desc="open file_manager"
+        desc="open file_manager",
     ),
     Key(
         [mod, alt],
@@ -201,12 +220,18 @@ keys = [
             Key([], "s", lazy.spawn("shutdown now")),
         ],
     ),
-    # Toggle between different layouts as defined below
+    # Layout
     Key(
         [mod],
         "Tab",
         lazy.next_layout(),
         desc="Toggle between layouts",
+    ),
+    Key(
+        [mod],
+        "t",
+        lazy.layout.previous(),
+        desc="Toggle focus between tiling and floating windows",
     ),
     Key(
         [mod],
@@ -269,6 +294,17 @@ keys = [
         lazy.spawn("playerctl previous"),
     ),
     # Volume and media end
+    # Backlight control
+    Key(
+        [],
+        "XF86MonBrightnessUp",
+        lazy.spawn("light -A 10"),
+    ),
+    Key(
+        [],
+        "XF86MonBrightnessDown",
+        lazy.spawn("light -U 10"),
+    ),
 ]
 
 for i, (name, kwargs) in enumerate(group_names, 1):

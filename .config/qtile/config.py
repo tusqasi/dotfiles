@@ -13,98 +13,169 @@ from group import groups
 
 widget_defaults = dict(
     font="CozetteVector",
+    foreground=colors["fg"],
     fontsize=20,
-    padding=1,
-    background=colors["bar_bg"],
+    padding=0,
+    background=colors["bg"],
 )
 extension_defaults = widget_defaults.copy()
+common_left = [
+    widget.GroupBox(
+        background=colors["bg_light"],
+        block_highlight_text_color=colors["visible_groups_text"],
+        active=colors["group_not_visible"],
+        other_screen_border=colors["other_scr_unfocused_bg"],
+        other_current_screen_border=colors["other_scr_focused_bg"],
+        highlight_color=colors["current_scr_bg"],
+        this_current_screen_border=colors["line"],
+        this_screen_border="a3571b",
+        highlight_method="block",
+        hide_unused=True,
+        disable_drag=True,
+    ),
+    widget.TextBox(
+        text="",
+        foreground=colors["bg_light"],
+        # background=colors["bg_dark"],
+        # padding=0,
+    ),
+]
+common_right = [
+    widget.TextBox(
+        text="",
+        foreground="#2f8ccd",
+        background=colors["bg_dark"],
+        padding=3,
+    ),
+    widget.Clock(
+        format="%Y-%m-%d %a %I:%M %p ",
+        background=colors["bg_dark"],
+        foreground=colors["fg_on_dark"],
+    ),
+]
 main_screen = Screen(
-        top=bar.Bar(
-            [
-               # widget.Image(
-               #     filename="~/.config/qtile/py_logo.png",
-               #     scale="False",
-               # ),
-                widget.CurrentLayoutIcon(),
-                widget.GroupBox(
-                    background=colors["bg"],
-                    highlight_method="line",
-                    highlight_color=colors["highlight"],
-                    this_current_screen_border=colors["line"],
-                    hide_unused=True,
-                    disable_drag=True,
-                ),
-                widget.Prompt(),
-                widget.WindowName(),
-                widget.Chord(
-                ),
-                widget.TextBox(
-                    text=''
-                    ),
-                widget.CPUGraph(
-                    graph_color='689d6a',
-                    fill_color='689d6a'
-                    ),
-                widget.TextBox(
-                    text='﬙'
-                    ),
-                widget.MemoryGraph(
-                    graph_color='d65d0e',
-                    fill_color='d65d0e'
-                    ),
-                widget.TextBox(
-                    text='   '
-                    ),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                # widget.Wlan(), # TODO: Make this work
-                widget.Systray(
-                    padding=10,
-                ),
-                widget.Sep(
-                    linewidth=5,
-                    foreground=colors["bar_bg"],
-                ),
-                widget.BatteryIcon(),
-                widget.Battery(format="{percent:.0%}"),
-                # widget.QuickExit(
-                #     default_text="Shutdown",
-                #     background=colors["red"],
-                #     # padding=5,
-                # ),
-            ],
-            22,
-        ),
-        x=0,
-        y=0,
-        width=1920,
-        height=1080
-    )
+    top=bar.Bar(
+        [
+            widget.Image(
+                filename="~/.config/qtile/images/py.ico",
+                scale="False",
+            ),
+            widget.CurrentLayoutIcon(),
+            *common_left,
+            widget.Prompt(
+                padding=5,
+            ),
+            widget.WindowName(
+                padding=5,
+                # background=colors["bg_dark"],
+                # max_chars=10,
+                # padding=0,
+            ),
+            widget.Chord(),
+            # widget.TextBox(
+            #     text="",
+            #     foreground=colors["bg_dark"],
+            #     # padding=0,
+            # ),
+            widget.Spacer(),
+            widget.TextBox(
+                text="",
+                foreground=colors["bg_dark"],
+            ),
+            widget.TextBox(
+                text="",
+                foreground="#689d6a",
+                background=colors["bg_dark"],
+            ),
+            widget.CPUGraph(
+                graph_color="689d6a",
+                fill_color="689d6a",
+                background=colors["bg_dark"],
+            ),
+            widget.TextBox(
+                text="﬙",
+                foreground="#d65d0e",
+                background=colors["bg_dark"],
+            ),
+            widget.MemoryGraph(
+                graph_color="d65d0e",
+                fill_color="d65d0e",
+                background=colors["bg_dark"],
+            ),
+            *common_right,
+            # widget.Wlan(), # TODO: Make this work
+            widget.TextBox(
+                text="",
+                foreground=colors["bg_light"],
+                background=colors["bg_dark"],
+                padding=1,
+            ),
+            widget.Systray(
+                padding=4,
+                background=colors["bg_light"],
+            ),
+            widget.Sep(
+                linewidth=5,
+                foreground=colors["bg_light"],
+                background=colors["bg_light"],
+            ),
+            widget.BatteryIcon(
+                background=colors["bg_light"],
+            ),
+            widget.Battery(
+                format="{percent:.0%}",
+                background=colors["bg_light"],
+                foreground="000000",
+            ),
+            # widget.QuickExit(
+            #     default_text="Shutdown",
+            #     background=colors["red"],
+            #     # padding=5,
+            # ),
+        ],
+        22,
+    ),
+    x=0,
+    y=0,
+    width=1920,
+    height=1080,
+)
 second_screen = Screen(
-        top=bar.Bar(
-            [
-                widget.GroupBox(
-                    background=colors["bg"],
-                    highlight_method="line",
-                    highlight_color=colors["highlight"],
-                    this_current_screen_border=colors["line"],
-                    hide_unused=True,
-                    disable_drag=True,
-                ),
-                widget.WindowName(),
-                widget.TextBox(
-                    text='   '
-                    ),
-                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-            ],
-            18,
-        ),
-        x=1920,
-        y=0,
-        width=1368,
-        height=768
-    )
+    top=bar.Bar(
+        [
+            widget.Image(
+                filename="~/.config/qtile/images/py.ico",
+                scale="False",
+            ),
+            widget.CurrentLayoutIcon(),
+            *common_left,
+            widget.WindowName(),
+            widget.TextBox(
+                text="",
+                foreground=colors["bg_dark"],
+                background=colors["bg"],
+                padding=1,
+            ),
+            widget.TextBox(
+                text="",
+                foreground="#2f8ccd",
+                background=colors["bg_dark"],
+            ),
+            widget.Clock(
+                format="%Y-%m-%d %a %I:%M %p ",
+                background=colors["bg_dark"],
+                foreground=colors["fg_on_dark"],
+            ),
+        ],
+        22,
+    ),
+    x=1920,
+    y=0,
+    width=1366,
+    height=768,
+)
 
-screens = [ main_screen]
+screens = [main_screen]
 
 # fake_screens = [main_screen, second_screen]
 
@@ -146,7 +217,7 @@ def start_up():
 def dialog(window):
     windowtype = window.window.get_wm_class()[1]
     browsers = ["firefox", "brave"]
-    if windowtype == "firefox":
+    if windowtype.lower() in browsers:
         window.togroup("WWW")
 
 

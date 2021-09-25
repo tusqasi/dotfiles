@@ -1,8 +1,5 @@
 # ~/.bashrc
 
-export PATH=$PATH:~/.bin/
-export PATH=$PATH:~/.local/bin
-export PATH=$PATH:~/.cargo/bin
 
 [[ $- != *i* ]] && return
  
@@ -91,6 +88,29 @@ fi
 
 unset use_color safe_term match_lhs sh
 
+# check distro
+arch=$(uname -m)
+kernel=$(uname -r)
+if [ -n "$(command -v lsb_release)" ]; then
+	distroname=$(lsb_release -s -d)
+elif [ -f "/etc/os-release" ]; then
+	distroname=$(grep PRETTY_NAME /etc/os-release | sed 's/PRETTY_NAME=//g' | tr -d '="')
+elif [ -f "/etc/debian_version" ]; then
+	distroname="Debian $(cat /etc/debian_version)"
+else
+	distroname="$(uname -s) $(uname -r)"
+fi
+if [[ $distroname =~ "buntu" ]]; then
+    echo "Ubuntu type"
+    alias inst="sudo apt install" 
+    alias update="sudo apt update; sudo apt upgrade"
+    alias pkq="sudo apt list| grep"
+else
+    echo "Probably arch"
+    alias pacr='sudo pacman -R'
+    alias inst='sudo pacman -S'
+    alias update='sudo pacman -Syu'
+fi
 alias cp="cp -i"                          # confirm before overwriting something
 alias mv='mv -i'
 alias df='df -h'                          # human-readable sizes
@@ -110,10 +130,6 @@ alias mkdir='mkdir -pv'
 alias mv='mv -i'
 alias n='nvim'
 alias p='ping google.com'
-alias pac='sudo pacman -'
-alias pacr='sudo pacman -R'
-alias pacs='sudo pacman -S'
-alias pacy='sudo pacman -Syu'
 alias py='python'
 alias rm='rm -I --preserve-root'
 alias rmdb='rm /var/lib/pacman/db.lck'

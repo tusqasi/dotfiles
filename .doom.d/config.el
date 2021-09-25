@@ -6,9 +6,9 @@
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets.
-(setq user-full-name "tusqasi harisora"
-      user-mail-address "2002.tushar.kuntawar@gmail.com")
-;;
+(setq user-full-name "John Doe"
+      user-mail-address "john@doe.com")
+
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -22,11 +22,10 @@
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
-(setq doom-font (font-spec :family "Cascadia Mono" :size 19 ))
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-gruvbox)
+(setq doom-theme 'doom-one)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
@@ -34,7 +33,7 @@
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-type t)
 
 
 ;; Here are some additional functions/macros that could help you configure Doom:
@@ -53,21 +52,3 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
-(after! evil
-
-  ;; (evil-define-key* 'motion 'global
-  ;; ";" #'evil-ex
-  ;; ":" #'evil-repeat-find-char)
-(map! :m ";" #'evil-ex
-      :m ":" #'evil-repeat-find-char)
-(setq evil-snipe-override-evil-repeat-keys nil)
- (map! :leader
-       :desc "Save buffer"       "l"   #'basic-save-buffer)
-
- (map! :leader "SPC" (cmd! (set-transient-map evilem-map)))
- ;; optional, if you want to see the which key popup
- (setq which-key-show-transient-maps t))
-;; (map! :after evil-easymotion
-;;       :map evilem-map
-;;       "key3" nil)
- twittering-mode.el i

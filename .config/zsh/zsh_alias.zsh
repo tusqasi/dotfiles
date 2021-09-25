@@ -1,3 +1,12 @@
+if [[ $distroname =~ "buntu" ]]; then
+    ealias inst="sudo apt install" 
+    ealias update="sudo apt update; sudo apt upgrade"
+    ealias pkq="sudo apt list| grep"
+else
+    ealias pacr='sudo pacman -R'
+    ealias inst='sudo pacman -S'
+    ealias update='sudo pacman -Syu'
+fi
 ealias _="sudo "
 
 ealias c="clear"
@@ -9,8 +18,7 @@ ealias s="sudo"
 
 ealias l="exa --icons -1"
 ealias la="exa --icons -lah"
-ealias ll="exa --icons -1lh"
-ealias ls="exa --icons"
+ealias ls="exa --icons -1"
 
 ealias md="mkdir -p"
 
@@ -20,14 +28,11 @@ ealias v.="vifm ."
 ealias py="python"
 
 ealias nz="nvim ~/.zshrc"
+ealias na="nvim ~/.zsh/zsh_alias.zsh"
 ealias n="nvim"
 ealias nn="nvim ~/.config/nvim/init.vim"
-ealias nq="nvim ~/.config/qtile/"
+ealias nq="~/scripts/qtile_config.sh"
 ealias sn="sudoedit"
-
-ealias pacs="sudo pacman -S"
-ealias pacy="sudo pacman -Syu"
-ealias paq="sudo pacman -Q|grep"
 
 ealias config="/usr/bin/git --git-dir=/home/tusqasi/.cfg/ --work-tree=/home/tusqasi"
 

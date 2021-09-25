@@ -48,19 +48,3 @@
 ;(unpin! pinned-package another-pinned-package)
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
-;; (package! evil-easymotion
-;;  :recipe (:host github :repo "PythonNut/evil-easymotion"
-;;           :files ("evil-easymotion.el")))
-;; (package! el-patch
-;;  :recipe (:host github :repo "raxod502/el-patch"
-;;           :files ("el-patch.el")))
-(use-package lsp-python-ms
-  :ensure t
-  :init (setq lsp-python-ms-auto-install-server t)
-  :hook (python-mode . (lambda ()
-                          (require 'lsp-python-ms)
-                          (lsp))))
-
-(use-package python-black
-  :demand t
-  :after python)
