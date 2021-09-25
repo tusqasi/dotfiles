@@ -4,8 +4,8 @@ SAVEHIST=5000
 setopt autocd extendedglob
 unsetopt beep
 bindkey -e
-zstyle :compinstall filename "~/.zshrc"
-zstyle ':completion:*' menu select
+# zstyle :compinstall filename "/home/tusqasi/.zshrc"
+# zstyle ':completion:*' menu select
 
 autoload -Uz compinit
 compinit
@@ -28,22 +28,20 @@ fi
 
 # start zoxide
 eval "$(zoxide init zsh)"
-fpath+=$HOME/.zsh/pure
+fpath+=$HOME/.config/zsh/pure
 autoload -U promptinit; promptinit
 prompt pure
-# source ~/.zsh/prompt.zsh # my prompt
-source ~/.zsh/env.zsh
-source ~/.zsh/ssh-agent.zsh
-source ~/.zsh/paths.zsh
-source ~/.zsh/expand-ealias.plugin.zsh
-source ~/.zsh/zsh_alias.zsh
-source ~/.zsh/zsh-autoswitch-virtualenv/autoswitch_virtualenv.plugin.zsh
-source ~/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
-source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ~/.zsh/fzf-tab/fzf-tab.plugin.zsh
+# source /home/tusqasi/.zsh/prompt.zsh # my prompt
+source /home/tusqasi/.bin
+source /home/tusqasi/.zsh/env.zsh
+source /home/tusqasi/.zsh/ssh-agent.zsh
+source /home/tusqasi/.zsh/paths.zsh
+source /home/tusqasi/.zsh/expand-ealias.plugin.zsh
+source /home/tusqasi/.zsh/zsh_alias.zsh
+source /home/tusqasi/.zsh/zsh-autoswitch-virtualenv/autoswitch_virtualenv.plugin.zsh
+source /home/tusqasi/.zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+source /home/tusqasi/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /home/tusqasi/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-source ~/.config/broot/launcher/bash/br
-
+source /home/tusqasi/.config/broot/launcher/bash/br
 ssh-add -q ~/.ssh/new_key
-fpath+=${ZDOTDIR:-~}/.zsh_functions
