@@ -27,10 +27,11 @@ ealias v.="vifm ."
 
 ealias py="python"
 
-ealias nz="nvim ~/.zshrc"
+ealias e="~/scripts/edit_configs.sh"
+ealias nz="~/scripts/zsh_config.sh"
 ealias na="nvim ~/.zsh/zsh_alias.zsh"
 ealias n="nvim"
-ealias nn="nvim ~/.config/nvim/init.vim"
+ealias nn="~/scripts/nvim_configs.sh"
 ealias nq="~/scripts/qtile_config.sh"
 ealias sn="sudoedit"
 
