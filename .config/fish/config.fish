@@ -5,7 +5,7 @@ set -x PATH $PATH ~/scripts/
 set -x PATH $PATH ~/.local/bin/
 
 # ENV variables
-source ~/.config/fish/env-vars.fish
+# source ~/.config/fish/env-vars.fish
 set -e EDITOR
 set EDITOR /usr/bin/nvim
 set NVIM_DIR ~/.config/nvim/
@@ -14,7 +14,7 @@ set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
 
 # Aliases
-abbr -a config '/usr/bin/git --git-dir=/home/tusqasi/.cfg/ --work-tree=/home/tusqasi'
+abbr -a cfg '/usr/bin/git --git-dir=/home/tus/.cfg/ --work-tree=/home/tus'
 
 abbr -a -U -- s "sudo"  
 abbr -a -U -- c clear
@@ -22,9 +22,8 @@ abbr -a -U -- q exit
 
 abbr -a -U -- n nvim
 abbr -a -U -- sn 'sudo nvim'
-abbr -a -U -- nf 'nvim /home/tusqasi/.config/fish/config.fish'
-abbr -a -U -- nn 'nvim /home/tusqasi/.config/nvim/init.vim'
-abbr -a -U -- nq 'nvim /home/tusqasi/.config/qtile/'
+abbr -a -U -- nf 'nvim /home/tus/.config/fish/config.fish'
+abbr -a -U -- nn 'nvim /home/tus/.config/nvim/init.vim'
 
 abbr -a -U -- pacs 'sudo pacman -S'
 
@@ -62,5 +61,5 @@ function pacq -d "Search in isntalled pacman packages"
 end
 
 # Generated for envman. Do not edit.
-test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
+# test -s "$HOME/.config/envman/load.fish"; and source "$HOME/.config/envman/load.fish"
 
