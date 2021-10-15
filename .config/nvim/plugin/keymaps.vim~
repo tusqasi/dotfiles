@@ -14,7 +14,7 @@ nnoremap Y y$
 if exists('g:vscode')
     " <Leader> l to save
     nmap <silent><Leader>l ;call VSCodeCall("workbench.action.files.save")<CR>
-elseif has('nvim')
+else if has('nvim')
     " search for open buffers
     nnoremap <Leader>b :Buffers<CR>
 
@@ -54,18 +54,6 @@ elseif has('nvim')
 
     " Use K to show documentation in preview window.
     nnoremap <silent> K :call <SID>show_documentation()<CR>
-    " nnoremap <silent> <leader>K :call <SID>show_documentation_window()<CR>
-    function! s:show_documentation_window()
-      if (index(['vim','help'], &filetype) >= 0)
-	execute 'h '.expand('<cword>')
-      elseif (coc#rpc#ready())
-	let a:docstr = call CocAction('getHover')
-	vs
-	put =a:docstr
-      else
-	execute '!' . &keywordprg . " " . expand('<cword>')
-      endif
-    endfunction
     function! s:show_documentation()
       if (index(['vim','help'], &filetype) >= 0)
 	execute 'h '.expand('<cword>')

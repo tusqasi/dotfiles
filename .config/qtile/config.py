@@ -175,15 +175,50 @@ second_screen = Screen(
     height=768,
 )
 
+tv = Screen(
+    top=bar.Bar(
+        [
+            widget.Image(
+                filename="~/.config/qtile/images/py.ico",
+                scale="False",
+            ),
+            widget.CurrentLayoutIcon(),
+            *common_left,
+            widget.WindowName(),
+            widget.TextBox(
+                text="",
+                foreground=colors["bg_dark"],
+                background=colors["bg"],
+                padding=1,
+            ),
+            widget.TextBox(
+                text="",
+                foreground="#2f8ccd",
+                background=colors["bg_dark"],
+            ),
+            widget.Clock(
+                format="%Y-%m-%d %a %I:%M %p ",
+                background=colors["bg_dark"],
+                foreground=colors["fg_on_dark"],
+            ),
+        ],
+        22,
+    ),
+    x=0,
+    y=1080,
+    width=1920,
+    height=1080,
+)
 screens = [main_screen]
 
 # fake_screens = [main_screen, second_screen]
+# fake_screens = [main_screen, tv]
 
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 follow_mouse_focus = True
 bring_front_click = "floating_only"
-cursor_warp = True
+cursor_warp = False
 auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
@@ -214,9 +249,9 @@ def start_up():
 
 
 @hook.subscribe.client_new
-def dialog(window):
+def send_to_www(window):
     windowtype = window.window.get_wm_class()[1]
-    browsers = ["firefox", "brave"]
+    browsers = ["firefox", "brave","chromium", "qutebrowser"]
     if windowtype.lower() in browsers:
         window.togroup("WWW")
 

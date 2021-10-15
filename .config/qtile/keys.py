@@ -1,8 +1,47 @@
-from libqtile.config import Group
-from libqtile.config import Key, KeyChord
+from libqtile.config import Key, KeyChord, hook
 from libqtile.command import lazy
 from variables import *
 from group import groups, group_names
+
+
+def window_to_previous_screen(qtile):
+    i = qtile.screens.index(qtile.current_screen)
+    if i != 0:
+        group = qtile.screens[i - 1].group.name
+        qtile.current_window.togroup(group)
+
+
+def window_to_next_screen(qtile):
+    i = qtile.screens.index(qtile.current_screen)
+    if i + 1 != len(qtile.screens):
+        group = qtile.screens[i + 1].group.name
+        qtile.current_window.togroup(group)
+
+
+def toggle_focus_floating():
+    """Toggle focus between floating window and other windows in group"""
+
+    @lazy.function
+    def _toggle_focus_floating(qtile):
+        group = qtile.current_group
+        switch = "non-float" if qtile.current_window.floating else "float"
+        logger.debug(
+            f"toggle_focus_floating: switch = {switch}\t current_window: {qtile.current_window}"
+        )
+        logger.debug(f"focus_history: {group.focus_history}")
+
+        for win in reversed(group.focus_history):
+            logger.debug(f"{win}: {win.floating}")
+            if switch == "float" and win.floating:
+                # win.focus(warp=False)
+                group.focus(win)
+                return
+            if switch == "non-float" and not win.floating:
+                # win.focus(warp=False)
+                group.focus(win)
+                return
+
+    return _toggle_focus_floating
 
 
 keys = [
@@ -62,13 +101,13 @@ keys = [
     # will be to screen edge - window would shrink.
     Key(
         [mod, "control"],
-        "j",
+        "k",
         lazy.layout.grow(),
         desc="increase size",
     ),
     Key(
         [mod, "control"],
-        "k",
+        "j",
         lazy.layout.shrink(),
         desc="decrease size",
     ),
@@ -90,6 +129,18 @@ keys = [
     ),
     Key(
         [mod],
+        "bracketleft",
+        lazy.function(window_to_next_screen),
+        desc="send window to next screen",
+    ),
+    Key(
+        [mod],
+        "bracketleft",
+        lazy.function(window_to_previous_screen),
+        desc="send window to previous screen",
+    ),
+    Key(
+        [mod],
         "n",
         lazy.layout.normalize(),
         desc="Reset all window sizes",
@@ -106,7 +157,18 @@ keys = [
         lazy.layout.maximize(),
         desc="maximize",
     ),
+    # Key(
+    #     [mod],
+    #     "s",
+    #     ,
+    #     desc="make window sticky",
+    # ),
     # Switch focus of monitors #
+    Key(
+        [mod],
+        "t",
+        lazy.function(toggle_focus_floating),
+    ),
     Key(
         [mod],
         "period",
@@ -181,6 +243,12 @@ keys = [
     ),
     Key(
         [mod],
+        "s",
+        lazy.spawn("scrcpy"),
+        desc="Spawn scrcpy",
+    ),
+    Key(
+        [mod],
         "e",
         lazy.spawn(file_manager),
         desc="open file_manager",
@@ -209,6 +277,12 @@ keys = [
         lazy.spawn(f"{terminal} -e bpytop"),
         desc="task manager",
     ),
+    Key(
+        [mod, alt],
+        "y",
+        lazy.spawn(f"xclip -o| grep 'you'| mpv --ytdl-format='18'"),
+        desc="task manager",
+    ),
     # Launch stuff end #
     # power stuff
     KeyChord(
@@ -226,12 +300,6 @@ keys = [
         "Tab",
         lazy.next_layout(),
         desc="Toggle between layouts",
-    ),
-    Key(
-        [mod],
-        "t",
-        lazy.layout.previous(),
-        desc="Toggle focus between tiling and floating windows",
     ),
     Key(
         [mod],

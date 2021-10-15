@@ -2,8 +2,9 @@ from libqtile import layout
 from libqtile.config import Match
 
 layout_default = {
-    "border_focus": "#504945",
-    "border_normal": "#282828",
+    "border_focus": "50d450",
+    "border_normal": "000000",
+    "border_width": 3,
     # "margin": 50,
 }
 layouts = [

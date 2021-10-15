@@ -313,5 +313,5 @@ client.urgent           #2f343a #ff5555 #444444 #900000   #900000
 # External programs launched with i3
 ###############################################################################
 
-exec --no-startup-id exec ~/scripts/startup.fish
+# exec --no-startup-id exec ~/scripts/startup.sh
 
