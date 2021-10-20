@@ -1,7 +1,7 @@
 mod = "mod4"
 alt = "mod1"
 
-shell = "zsh"
+shell = "fish"
 terminal = "alacritty"
 browser = "firefox"
 home = "/home/tusqasi/"

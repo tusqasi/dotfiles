@@ -280,8 +280,8 @@ keys = [
     Key(
         [mod, alt],
         "y",
-        lazy.spawn(f"xclip -o| grep 'you'| mpv --ytdl-format='18'"),
-        desc="task manager",
+        lazy.spawn("/home/tusqasi/scripts/play_clipboard_youtube.sh"),
+        desc="run mpv with current clipboadr youtube link",
     ),
     # Launch stuff end #
     # power stuff

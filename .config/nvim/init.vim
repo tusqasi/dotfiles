@@ -19,7 +19,7 @@ function PlugUse()
 	Plug 'MaxMEllon/vim-jsx-pretty'
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 	Plug 'neovim/nvim-lspconfig'
-	Plug 'williamboman/nvim-lsp-installer'
+	Plug 'hrsh7th/nvim-cmp'
 
 	"Dart/Flutter
 	Plug 'dart-lang/dart-vim-plugin'

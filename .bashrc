@@ -88,56 +88,6 @@ fi
 
 unset use_color safe_term match_lhs sh
 
-# check distro
-arch=$(uname -m)
-kernel=$(uname -r)
-if [ -n "$(command -v lsb_release)" ]; then
-	distroname=$(lsb_release -s -d)
-elif [ -f "/etc/os-release" ]; then
-	distroname=$(grep PRETTY_NAME /etc/os-release | sed 's/PRETTY_NAME=//g' | tr -d '="')
-elif [ -f "/etc/debian_version" ]; then
-	distroname="Debian $(cat /etc/debian_version)"
-else
-	distroname="$(uname -s) $(uname -r)"
-fi
-if [[ $distroname =~ "buntu" ]]; then
-    echo "Ubuntu type"
-    alias inst="sudo apt install" 
-    alias update="sudo apt update; sudo apt upgrade"
-    alias pkq="sudo apt list| grep"
-else
-    echo "Probably arch"
-    alias pacr='sudo pacman -R'
-    alias inst='sudo pacman -S'
-    alias update='sudo pacman -Syu'
-fi
-alias cp="cp -i"                          # confirm before overwriting something
-alias mv='mv -i'
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
-alias np='nano -w PKGBUILD'
-alias more='less'
-
-alias bpy='bpython'
-alias c='clear'
-alias config='/usr/bin/git --git-dir=/home/tusqasi/.cfg/ --work-tree=/home/tusqasi'
-alias cp='cp -i'
-alias df='df -h'
-alias du='du -h'
-alias ls='exa -l'
-alias lsa='exa -la'
-alias mkdir='mkdir -pv'
-alias mv='mv -i'
-alias n='nvim'
-alias p='ping google.com'
-alias py='python'
-alias rm='rm -I --preserve-root'
-alias rmdb='rm /var/lib/pacman/db.lck'
-alias s='sudo'
-alias vf='vifm ./'
-alias vim='nvim'
-alias wget='wget -c'
-
 xhost +local:root > /dev/null 2>&1
 
 complete -cf sudo
@@ -180,10 +130,15 @@ ex ()
   fi
 }
 
-alias q='exit'
 
 # eval "$(starship init bash)"
-source ~/envs.sh
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+if [ -f ~/.envs.sh ]; then
+    . ~/.envs.sh
+fi
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"

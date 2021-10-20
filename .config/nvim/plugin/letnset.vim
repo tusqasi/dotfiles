@@ -10,13 +10,14 @@ let g:coc_global_extensions = [
     \'coc-flutter', 
     \'coc-flutter-tools', 
     \'coc-clangd',
-    \'coc-rls',
     \'coc-snippets',
     \'coc-prettier',
     \'coc-git',
-    \'coc-tsserver',
-    \'coc-vimlsp',]
+    \]
 " \'coc-jedi',
+" \'coc-tsserver',
+" \'coc-vimlsp',
+" \'coc-rls',
 set scrolloff=999
 " no netrw_banner 
 let g:netrw_banner = 0
