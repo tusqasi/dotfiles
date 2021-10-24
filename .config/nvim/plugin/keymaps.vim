@@ -53,41 +53,41 @@ elseif has('nvim')
     " coc configs
 
     " Use K to show documentation in preview window.
-    nnoremap <silent> K :call <SID>show_documentation()<CR>
-    " nnoremap <silent> <leader>K :call <SID>show_documentation_window()<CR>
-    function! s:show_documentation_window()
-      if (index(['vim','help'], &filetype) >= 0)
-	execute 'h '.expand('<cword>')
-      elseif (coc#rpc#ready())
-	let a:docstr = call CocAction('getHover')
-	vs
-	put =a:docstr
-      else
-	execute '!' . &keywordprg . " " . expand('<cword>')
-      endif
-    endfunction
-    function! s:show_documentation()
-      if (index(['vim','help'], &filetype) >= 0)
-	execute 'h '.expand('<cword>')
-      elseif (coc#rpc#ready())
-	call CocActionAsync('doHover')
-      else
-	execute '!' . &keywordprg . " " . expand('<cword>')
-      endif
-    endfunction
+    " nnoremap <silent> K :call <SID>show_documentation()<CR>
+    " " nnoremap <silent> <leader>K :call <SID>show_documentation_window()<CR>
+    " function! s:show_documentation_window()
+    "   if (index(['vim','help'], &filetype) >= 0)
+	" execute 'h '.expand('<cword>')
+    "   elseif (coc#rpc#ready())
+	" let a:docstr = call CocAction('getHover')
+	" vs
+	" put =a:docstr
+    "   else
+	" execute '!' . &keywordprg . " " . expand('<cword>')
+    "   endif
+    " endfunction
+    " function! s:show_documentation()
+    "   if (index(['vim','help'], &filetype) >= 0)
+	" execute 'h '.expand('<cword>')
+    "   elseif (coc#rpc#ready())
+	" call CocActionAsync('doHover')
+    "   else
+	" execute '!' . &keywordprg . " " . expand('<cword>')
+    "   endif
+    " endfunction
 
-    " Make autocomplete work with tab
-    function! s:check_back_space() abort
-      let col = col('.') - 1
-      return !col || getline('.')[col - 1]  =~# '\s'
-    endfunction
+    " " Make autocomplete work with tab
+    " function! s:check_back_space() abort
+    "   let col = col('.') - 1
+    "   return !col || getline('.')[col - 1]  =~# '\s'
+    " endfunction
 
-    inoremap <silent><expr> <TAB>
-	  \ pumvisible() ? "\<C-n>" :
-	  \ <SID>check_back_space() ? "\<TAB>" :
-	  \ coc#refresh()
-    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-    inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
+    " inoremap <silent><expr> <TAB>
+	  " \ pumvisible() ? "\<C-n>" :
+	  " \ <SID>check_back_space() ? "\<TAB>" :
+	  " \ coc#refresh()
+    " inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+    " inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : 
 					       \"\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
     " coc end
     let g:user_emmet_leader_key = ','

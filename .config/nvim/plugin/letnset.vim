@@ -6,19 +6,19 @@ augroup emmt
 augroup END
 set mouse=a
 let g:coc_global_extensions = [
-    \'coc-json',
-    \'coc-flutter', 
-    \'coc-flutter-tools', 
     \'coc-clangd',
     \'coc-snippets',
     \'coc-prettier',
     \'coc-git',
     \]
+" \'coc-json',
+\'coc-flutter', 
+" \'coc-flutter-tools', 
 " \'coc-jedi',
 " \'coc-tsserver',
 " \'coc-vimlsp',
 " \'coc-rls',
-set scrolloff=999
+set scrolloff=10
 " no netrw_banner 
 let g:netrw_banner = 0
 
@@ -58,15 +58,16 @@ endif
 if !isdirectory(expand(&directory))
     call mkdir(expand(&directory), "p")
 endif
+
 syntax on
 
 " Settings for search
 set incsearch
-set hlsearch
-set smartcase
+set nohlsearch
 set ignorecase
+set smartcase
 set inccommand=nosplit
 "
-set updatetime=80
+set updatetime=10
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.gz*
 
