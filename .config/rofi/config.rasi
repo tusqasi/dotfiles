@@ -1,0 +1,7 @@
+configuration {
+	show-icons: true;
+	dpi: 200;
+	theme:"/home/tusqasi/.config/rofi/gruvbox-dark.rasi";
+	modi:"combi,window,run,dmenu";
+	/* width: 1000; */
+}
