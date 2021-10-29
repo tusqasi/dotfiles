@@ -1,0 +1,32 @@
+-- run formatting stuff on save
+
+-- fomatter from https://github.com/mhartington/formatter.nvim
+require("formatter").setup(
+  {
+    filetype = {
+      lua = {
+        -- luafmt
+        function()
+          return {
+            exe = "luafmt",
+            args = {"--indent-count", 2, "--stdin"},
+            stdin = true
+          }
+        end
+      }
+    }
+  }
+)
+
+vim.api.nvim_exec(
+  [[
+augroup FormatAutogroup
+  autocmd!
+  autocmd BufWritePost *.lua FormatWrite
+  autocmd BufWritePost *.dart,*.java lua vim.lsp.buf.formatting()
+  autocmd BufWritePost *.py !black %
+  autocmd BufWritePost *.py e!
+augroup END
+]],
+  true
+)

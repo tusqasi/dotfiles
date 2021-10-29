@@ -15,12 +15,12 @@ if exists('g:vscode')
     " <Leader> l to save
     nmap <silent><Leader>l ;call VSCodeCall("workbench.action.files.save")<CR>
 elseif has('nvim')
-    " search for open buffers
-    nnoremap <Leader>b :Buffers<CR>
 
-    " better search
-    nnoremap <Leader>/ :Lines<CR> 
-
+    nnoremap <Leader>/ <CMD>lua require('keymaps').current_buffer_fuzzy_find()<CR>
+    nnoremap <Leader>b <CMD>lua require('keymaps').buffers()<CR>
+    nnoremap <Leader>F <CMD>lua require('keymaps').find_files()<CR>
+    nnoremap <Leader>R <CMD>lua require('keymaps').registers()<CR>
+    nnoremap <Leader>; <CMD>lua require('keymaps').builtin()<CR>
     noremap <Leader>c :norm ggVG"+y<CR>
     nmap <F2> ;Vifm<Cr>
     "

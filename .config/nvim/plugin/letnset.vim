@@ -1,35 +1,48 @@
 " letnset.vim
+" turn off emmet by default
 let g:user_emmet_install_global = 0
-augroup emmt
+" turn on emmet for html, css, js
+augroup emmet
     autocmd!
     au BufEnter *.html,*.css,*.js EmmetInstall
 augroup END
-set mouse=a
-let g:coc_global_extensions = [
-    \'coc-clangd',
-    \'coc-snippets',
-    \'coc-prettier',
-    \'coc-git',
-    \]
+
+" turn of default keybindings
+let g:tmux_navigator_no_mappings = 1
+
+" vim-tmux-navigator keybindings
+nnoremap <silent> <C-H> :TmuxNavigateLeft<cr>
+nnoremap <silent> <NL>  :TmuxNavigateDown<cr>
+nnoremap <silent> <C-K> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-L> :TmuxNavigateRight<cr>
+
+
+" let g:coc_global_extensions = [
+"     \'coc-clangd',
+"     \'coc-snippets',
+"     \'coc-prettier',
+"     \'coc-git',
+"     \]
 " \'coc-json',
-\'coc-flutter', 
+" \'coc-flutter', 
 " \'coc-flutter-tools', 
 " \'coc-jedi',
 " \'coc-tsserver',
 " \'coc-vimlsp',
 " \'coc-rls',
-set scrolloff=10
+
 " no netrw_banner 
 let g:netrw_banner = 0
 
 " Enable folding
-
 set foldmethod=indent
 set foldlevel=99
+
 " Numberline settings
 " Hybrid numbers
 set number relativenumber
 " set nu 
+set signcolumn=yes:2
 
 " Encoding
 set encoding=utf-8
@@ -64,10 +77,9 @@ syntax on
 " Settings for search
 set incsearch
 set nohlsearch
-set ignorecase
 set smartcase
+set ignorecase
 set inccommand=nosplit
 "
-set updatetime=10
+set updatetime=20
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.gz*
-
