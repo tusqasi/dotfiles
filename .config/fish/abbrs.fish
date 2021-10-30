@@ -19,7 +19,7 @@ abbr q 'exit'
 
 
 abbr inst 'sudo apt install' 
-abbr update 'sudo apt update; sudo apt upgrade'
+abbr update 'sudo apt update -y; sudo apt upgrade -y'
 abbr lspk 'sudo apt list| grep'
 abbr rpkg 'sudo apt remove'
 

@@ -1,7 +1,7 @@
-from libqtile.config import Key, KeyChord, hook
+from libqtile.config import Key, KeyChord
 from libqtile.command import lazy
 from variables import *
-from group import groups, group_names
+from group import group_names
 
 
 def window_to_previous_screen(qtile):
@@ -366,12 +366,12 @@ keys = [
     Key(
         [],
         "XF86MonBrightnessUp",
-        lazy.spawn("light -A 10"),
+        lazy.spawn(blight_inc),
     ),
     Key(
         [],
         "XF86MonBrightnessDown",
-        lazy.spawn("light -U 10"),
+        lazy.spawn(blight_dec),
     ),
 ]
 

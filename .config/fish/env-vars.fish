@@ -3,4 +3,8 @@ set -gx EDITOR /usr/bin/nvim
 set -gx SUDO_EDITOR /usr/bin/nvim
 set -g NVIM_DIR ~/.config/nvim/
 set -x MANPAGER "sh -c 'col -bx | batcat -l man -p'"
+set -x JDTLS_HOME ~/.local/share/nvim/lsp_servers/jdtls/
 
+set -Ux FZF_DEFAULT_OPTS "--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4"
+
+nvm use lts > /dev/null

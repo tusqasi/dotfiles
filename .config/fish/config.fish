@@ -7,7 +7,7 @@ source ~/.config/fish/paths.fish
 # Aliases
 source ~/.config/fish/abbrs.fish
 abbr -a -U -- e '~/scripts/edit_configs.sh'
-source ~/.config/asdf/asdf.fish
+source ~/Documents/software/asdf/asdf.fish
 fish_ssh_agent
 ssh-add -q ~/.ssh/new_key
 # No greeting setting
@@ -16,7 +16,7 @@ set fish_command_not_found
 
 # start starship prompt
 # starship init fish | source
-fish_vi_key_bindings
+
 # Helper functions
 function mc -d "Create a directory and set CWD"
     mkdir -pv $argv
