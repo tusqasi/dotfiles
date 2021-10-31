@@ -70,7 +70,14 @@ require "lspconfig".sumneko_lua.setup {
 require "lspconfig".dartls.setup {
   init_options = {formatting = true},
   capabilities = capabilities,
-  on_attach = on_attach
+  on_attach = on_attach,
+  settings = {
+    Lua = {
+      workspace = {
+        ignoreDir = {".vscode", "*/undodir/*"}
+      }
+    }
+  }
 }
 
 -- java

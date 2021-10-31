@@ -93,3 +93,5 @@ vim.opt.wildignore = {
   ".lock",
   "tags.lock"
 }
+-- better use bash instead of fish
+vim.opt.shell = "/bin/bash"

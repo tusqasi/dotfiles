@@ -28,8 +28,12 @@ map("n", "<Leader>R", "<CMD>lua require('functions').registers()<CR>", options)
 -- fd
 map("n", "<Leader>F", "<CMD>lua require('functions').fd()<CR>", options)
 
+-- edit nvim
+map("n", "<Leader>ne", "<CMD>lua require('functions').nvim_configs()<CR>", options)
+
 -- file broswer
 map("n", "<Leader>Ff", "<CMD>lua require('functions').file_browser()<CR>", options)
+
 -- yank whole file
 map("n", "<Leader>c", ':norm ggVG"+y<CR>', options)
 map("n", "<F2>", ";Vifm<Cr>", options)

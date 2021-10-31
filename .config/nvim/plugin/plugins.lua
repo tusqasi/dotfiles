@@ -4,7 +4,6 @@ return require("packer").startup(
     use "wbthomason/packer.nvim"
 
     -- Bling
-    use "itchyny/lightline.vim"
     use "gruvbox-community/gruvbox"
     use "dracula/vim"
     use "kyazdani42/nvim-web-devicons"
@@ -35,7 +34,9 @@ return require("packer").startup(
     use "L3MON4D3/LuaSnip"
     use "neovim/nvim-lspconfig"
     use "nvim-treesitter/nvim-treesitter"
+    use "nvim-treesitter/nvim-treesitter-textobjects"
     use "williamboman/nvim-lsp-installer"
+    use "norcalli/nvim-colorizer.lua"
     use "mfussenegger/nvim-jdtls"
 
     -- telescope
