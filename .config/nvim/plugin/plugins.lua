@@ -8,7 +8,6 @@ return require("packer").startup(
     use "gruvbox-community/gruvbox"
     use "dracula/vim"
     use "kyazdani42/nvim-web-devicons"
-    use "norcalli/nvim-colorizer.lua"
 
     -- utils
     use "vifm/vifm.vim"
@@ -21,28 +20,23 @@ return require("packer").startup(
     use "tpope/vim-surround"
     use "mhartington/formatter.nvim"
 
-    -- use "tpope/vim-commentary"
+    -- use 'tpope/vim-commentary'
     use "b3nj5m1n/kommentary"
     use "easymotion/vim-easymotion"
     use "wellle/targets.vim"
     use "tpope/vim-repeat"
-    
-    -- neovim 0.5+
-    -- Lsp
-    use "L3MON4D3/LuaSnip"
+
+    -- Lsp/treesitternvim.5+
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-nvim-lua"
     use "hrsh7th/cmp-path"
     use "hrsh7th/nvim-cmp"
+    use "L3MON4D3/LuaSnip"
     use "neovim/nvim-lspconfig"
+    use "nvim-treesitter/nvim-treesitter"
     use "williamboman/nvim-lsp-installer"
-    -- use "mfussenegger/nvim-jdtls"
-
-    -- treesitter
-    use "nvim-treesitter/nvim-treesitter"
-    use "nvim-treesitter/nvim-treesitter"
-    use "nvim-treesitter/nvim-treesitter-textobjects"
+    use "mfussenegger/nvim-jdtls"
 
     -- telescope
     use {
@@ -50,9 +44,9 @@ return require("packer").startup(
       requires = {{"nvim-lua/plenary.nvim"}}
     }
     -- Dart/Flutter
-    --[[ use "dart-lang/dart-vim-plugin"
-	use "thosakwe/vim-flutter"
-	use "natebosch/vim-lsc"
-	use "natebosch/vim-lsc-dart" ]]
+    --[[ use 'dart-lang/dart-vim-plugin'
+	use 'thosakwe/vim-flutter'
+	use 'natebosch/vim-lsc'
+	use 'natebosch/vim-lsc-dart' ]]
   end
 )

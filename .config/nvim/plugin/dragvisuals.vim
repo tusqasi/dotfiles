@@ -78,7 +78,7 @@ function! DVB_Drag (dir)
     " (to ensure we have access to block position data)...
     else
         " Set up a temporary convenience...
-        exec "nnoremap <silent><expr><buffer>  M  \<SID>Drag_Block('".a:dir."')"
+        exe "nnoremap <silent><expr><buffer>  M  \<SID>Drag_Block('".a:dir."')"
 
         " Return instructions to implement the move and reset selection...
         return '"vyM'
@@ -366,4 +366,3 @@ endfunction
 
 " Restore previous external compatibility options
 let &cpo = s:save_cpo
-
