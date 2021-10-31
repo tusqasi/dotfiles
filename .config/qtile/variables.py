@@ -1,8 +1,6 @@
 mod = "mod4"
 alt = "mod1"
 
-blight_inc = "xbacklight -inc 10"
-blight_dec = "xbacklight -dec 20"
 shell = "fish"
 terminal = "alacritty"
 browser = "firefox"
