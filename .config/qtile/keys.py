@@ -374,8 +374,15 @@ keys = [
         lazy.spawn("xbacklight -dec 15"),
     ),
 ]
-
-for i, (name, kwargs) in enumerate(group_names, 1):
+inverted = [
+    "exclam",
+    "at",
+    "numbersign",
+    "dollar",
+    "percent",
+    "caret",
+]
+for i, ((name, kwargs), inv) in enumerate(zip(group_names, inverted), 1):
     keys.append(
         Key(
             [mod],
@@ -394,6 +401,27 @@ for i, (name, kwargs) in enumerate(group_names, 1):
         Key(
             [mod, alt],
             str(i),
+            lazy.window.togroup(name, switch_group=True),
+        )
+    )
+    keys.append(
+        Key(
+            [mod],
+            str(inv),
+            lazy.group[name].toscreen(),
+        )
+    )
+    keys.append(
+        Key(
+            [mod, "shift"],
+            str(inv),
+            lazy.window.togroup(name),
+        )
+    )
+    keys.append(
+        Key(
+            [mod, alt],
+            str(inv),
             lazy.window.togroup(name, switch_group=True),
         )
     )
