@@ -12,7 +12,7 @@ SETUVAR _fish_abbr_cp:cp\x20\x2di
 SETUVAR _fish_abbr_df:df\x20\x2dh
 SETUVAR _fish_abbr_e:\x7e/scripts/edit_configs\x2esh
 SETUVAR _fish_abbr_free:free\x20\x2dm
-SETUVAR _fish_abbr_inst:sudo\x20apt\x20install
+SETUVAR _fish_abbr_inst:sudo\x20pacman\x20\x2dSyu\x20
 SETUVAR _fish_abbr_l:exa\x20\x2d\x2dicons
 SETUVAR _fish_abbr_la:exa\x20\x2dhla\x20\x2d\x2dicons
 SETUVAR _fish_abbr_lspk:sudo\x20apt\x20list\x7c\x20grep
@@ -24,13 +24,16 @@ SETUVAR _fish_abbr_pinst:pip\x20install
 SETUVAR _fish_abbr_py:python
 SETUVAR _fish_abbr_q:exit
 SETUVAR _fish_abbr_rm:rm\x20\x2dI\x20\x2d\x2dpreserve\x2droot
-SETUVAR _fish_abbr_rpkg:sudo\x20apt\x20remove
+SETUVAR _fish_abbr_rpkg:sudo\x20pacman\x20\x2dR
 SETUVAR _fish_abbr_s:sudo
 SETUVAR _fish_abbr_sn:sudoedit
-SETUVAR _fish_abbr_update:sudo\x20apt\x20update\x3b\x20sudo\x20apt\x20upgrade
+SETUVAR _fish_abbr_update:sudo\x20pacman\x20\x2dSyu
 SETUVAR _fish_abbr_v_2E_:vifm\x20\x2e/
 SETUVAR _fish_abbr_vim:nvim
 SETUVAR _fish_abbr_wget:wget\x20\x2dc
+SETUVAR _fisher_FabioAntunes_2F_fish_2D_nvm_files:/home/tusqasi/\x2econfig/fish/functions/__nvm_run\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/node\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/npm\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/npx\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/nvm\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/nvm_alias_command\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/nvm_alias_function\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/yarn\x2efish\x1e/home/tusqasi/\x2econfig/fish/completions/nvm\x2efish
+SETUVAR _fisher_edc_2F_bass_files:/home/tusqasi/\x2econfig/fish/functions/__bass\x2epy\x1e/home/tusqasi/\x2econfig/fish/functions/bass\x2efish
+SETUVAR _fisher_plugins:FabioAntunes/fish\x2dnvm\x1eedc/bass
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:005fd7

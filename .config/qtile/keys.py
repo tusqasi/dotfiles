@@ -18,32 +18,6 @@ def window_to_next_screen(qtile):
         qtile.current_window.togroup(group)
 
 
-def toggle_focus_floating():
-    """Toggle focus between floating window and other windows in group"""
-
-    @lazy.function
-    def _toggle_focus_floating(qtile):
-        group = qtile.current_group
-        switch = "non-float" if qtile.current_window.floating else "float"
-        logger.debug(
-            f"toggle_focus_floating: switch = {switch}\t current_window: {qtile.current_window}"
-        )
-        logger.debug(f"focus_history: {group.focus_history}")
-
-        for win in reversed(group.focus_history):
-            logger.debug(f"{win}: {win.floating}")
-            if switch == "float" and win.floating:
-                # win.focus(warp=False)
-                group.focus(win)
-                return
-            if switch == "non-float" and not win.floating:
-                # win.focus(warp=False)
-                group.focus(win)
-                return
-
-    return _toggle_focus_floating
-
-
 keys = [
     # Layout keybinds #
     # Switch between windows
@@ -159,16 +133,10 @@ keys = [
     ),
     # Key(
     #     [mod],
-    #     "s",
-    #     ,
-    #     desc="make window sticky",
+    #     "t",
+    #     lazy.function(toggle_focus_floating),
     # ),
     # Switch focus of monitors #
-    Key(
-        [mod],
-        "t",
-        lazy.function(toggle_focus_floating),
-    ),
     Key(
         [mod],
         "period",
@@ -282,6 +250,12 @@ keys = [
         "y",
         lazy.spawn("/home/tusqasi/scripts/play_clipboard_youtube.sh"),
         desc="run mpv with current clipboadr youtube link",
+    ),
+    Key(
+        [mod],
+        "c",
+        lazy.spawn("/home/tusqasi/scripts/get_clip_board.py"),
+        desc="Clipboard",
     ),
     # Launch stuff end #
     # power stuff

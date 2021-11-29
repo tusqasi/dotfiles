@@ -7,13 +7,17 @@ return require("packer").startup(
     use "gruvbox-community/gruvbox"
     use "dracula/vim"
     use "kyazdani42/nvim-web-devicons"
+    use {
+      "nvim-lualine/lualine.nvim",
+      requires = {"kyazdani42/nvim-web-devicons", opt = true}
+    }
+    use "norcalli/nvim-colorizer.lua"
 
     -- utils
     use "vifm/vifm.vim"
-    use "itchyny/vim-gitbranch"
     use "dag/vim-fish"
-    use "junegunn/fzf"
-    use "junegunn/fzf.vim"
+    --[[ use "junegunn/fzf"
+    use "junegunn/fzf.vim" ]]
     use "mattn/emmet-vim"
     use "christoomey/vim-tmux-navigator"
     use "tpope/vim-surround"
@@ -26,18 +30,23 @@ return require("packer").startup(
     use "tpope/vim-repeat"
 
     -- Lsp/treesitternvim.5+
+    -- cmp
     use "hrsh7th/cmp-buffer"
     use "hrsh7th/cmp-nvim-lsp"
     use "hrsh7th/cmp-nvim-lua"
     use "hrsh7th/cmp-path"
     use "hrsh7th/nvim-cmp"
+
+    -- lsp
     use "L3MON4D3/LuaSnip"
+    use "mfussenegger/nvim-jdtls"
     use "neovim/nvim-lspconfig"
+    use "williamboman/nvim-lsp-installer"
+
+    -- treesitter
     use "nvim-treesitter/nvim-treesitter"
     use "nvim-treesitter/nvim-treesitter-textobjects"
-    use "williamboman/nvim-lsp-installer"
-    use "norcalli/nvim-colorizer.lua"
-    use "mfussenegger/nvim-jdtls"
+    use "nvim-treesitter/playground"
 
     -- telescope
     use {

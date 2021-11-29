@@ -18,10 +18,10 @@ abbr wget 'wget -c'
 abbr q 'exit'
 
 
-abbr inst 'sudo apt install' 
-abbr update 'sudo apt update; sudo apt upgrade'
-abbr lspk 'sudo apt list| grep'
-abbr rpkg 'sudo apt remove'
+abbr inst 'sudo pacman -Syu ' 
+abbr update 'sudo pacman -Syu'
+# abbr lspk 'sudo pacman -S  '
+abbr rpkg 'sudo pacman -R'
 
 # if echo $DISTRO | grep -qi "ubuntu"
 #     abbr inst 'sudo apt install' 

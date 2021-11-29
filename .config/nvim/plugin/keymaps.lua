@@ -5,13 +5,12 @@ local map = vim.api.nvim_set_keymap
 
 -- map the leader key
 local options = {noremap = true}
-map("n", "<Space>", "", options)
+map("n", "<space>", "<nop>", {noremap = true, silent = true})
 vim.g.mapleader = " "
 
 map("n", ";", ":", options)
 map("n", ":", ";", options)
 
-map("n", "<SPACE>", " <Nop>", options)
 vim.g.mapleader = " "
 -- make Y behave more like C and D
 map("n", "Y", "y$", options)
@@ -32,7 +31,10 @@ map("n", "<Leader>F", "<CMD>lua require('functions').fd()<CR>", options)
 map("n", "<Leader>ne", "<CMD>lua require('functions').nvim_configs()<CR>", options)
 
 -- file broswer
-map("n", "<Leader>Ff", "<CMD>lua require('functions').file_browser()<CR>", options)
+map("n", "<Leader>Fb", "<CMD>lua require('functions').file_browser()<CR>", options)
+
+-- telescope
+map("n", "<Leader>;", "<CMD>lua require('telescope.builtin').builtin()<CR>", options)
 
 -- yank whole file
 map("n", "<Leader>c", ':norm ggVG"+y<CR>', options)

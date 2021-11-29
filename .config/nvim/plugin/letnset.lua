@@ -1,6 +1,8 @@
 vim.g.user_emmet_install_global = 0
 local M = {}
+
 local cmd = vim.cmd
+
 function M.create_augroup(autocmds, name)
   cmd("augroup " .. name)
   cmd("autocmd!")
@@ -20,7 +22,7 @@ M.create_augroup(
   "emmet"
 )
 
-vim.opt.mouse = "a"
+vim.opt.mouse = "n"
 
 -- no netrw_banner
 vim.g.netrw_banner = false
@@ -93,5 +95,6 @@ vim.opt.wildignore = {
   ".lock",
   "tags.lock"
 }
+
 -- better use bash instead of fish
-vim.opt.shell = "/bin/bash"
+-- vim.opt.shell = "/usr/bin/bash"
