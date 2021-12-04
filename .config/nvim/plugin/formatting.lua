@@ -28,8 +28,6 @@ augroup FormatAutogroup
   autocmd!
   autocmd BufWritePost *.lua FormatWrite
   autocmd BufWritePost *.dart,*.java lua vim.lsp.buf.formatting()
-  autocmd BufWritePost *.py !black %
-  autocmd BufWritePost *.py e!
 augroup END
 ]],
   true
