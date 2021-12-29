@@ -36,6 +36,9 @@ map("n", "<Leader>Fb", "<CMD>lua require('functions').file_browser()<CR>", optio
 -- telescope
 map("n", "<Leader>;", "<CMD>lua require('telescope.builtin').builtin()<CR>", options)
 
+-- shows references
+map("n", "<Leader>rr", "<CMD>lua require('functions').references()<CR>", options)
+
 -- yank whole file
 map("n", "<Leader>c", ':norm ggVG"+y<CR>', options)
 map("n", "<F2>", ";Vifm<Cr>", options)
@@ -43,14 +46,16 @@ map("n", "<F2>", ";Vifm<Cr>", options)
 -- <Leader> l to save
 map("n", "<Leader>l", ":update<CR>", {silent = true, noremap = true})
 
+map("n", "<Leader>o", ":AerialToggle<CR>", {silent = true, noremap = true})
+
 -- "visual drag
-map("v", "<LEFT>", "DVB_Drag('left')", {expr = true})
-map("v", "<RIGHT>", "DVB_Drag('right')", {expr = true})
-map("v", "<DOWN>", "DVB_Drag('down')", {expr = true})
-map("v", "<UP>", "DVB_Drag('up')", {expr = true})
-map("v", "D", "DVB_Duplicate()", {expr = true})
+-- map("v", "<LEFT>", "DVB_Drag('left')", {expr = true})
+-- map("v", "<RIGHT>", "DVB_Drag('right')", {expr = true})
+-- map("v", "<DOWN>", "DVB_Drag('down')", {expr = true})
+-- map("v", "<UP>", "DVB_Drag('up')", {expr = true})
+-- map("v", "D", "DVB_Duplicate()", {expr = true})
 -- Distraction Free
-map("n", "<F3>", ";Goyo<Cr>", options)
+-- map("n", "<F3>", ";Goyo<Cr>", options)
 
 -- "caps = esc
 -- au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'

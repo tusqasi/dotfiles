@@ -36,7 +36,7 @@ M.nvim_configs = function()
   )
 end
 
--- open nvim config
---[[ M.get_files = function()
-end ]]
+M.references = function()
+  require("telescope.builtin").lsp_references({})
+end
 return M

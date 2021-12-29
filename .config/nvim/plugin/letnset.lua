@@ -1,15 +1,13 @@
 vim.g.user_emmet_install_global = 0
 local M = {}
 
-local cmd = vim.cmd
-
 function M.create_augroup(autocmds, name)
-  cmd("augroup " .. name)
-  cmd("autocmd!")
+  vim.cmd("augroup " .. name)
+  vim.cmd("autocmd!")
   for _, autocmd in ipairs(autocmds) do
-    cmd("autocmd " .. table.concat(autocmd, " "))
+    vim.cmd("autocmd " .. table.concat(autocmd, " "))
   end
-  cmd("augroup END")
+  vim.cmd("augroup END")
 end
 M.create_augroup(
   {
@@ -30,12 +28,16 @@ vim.g.netrw_banner = false
 -- Enable folding
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
+
 -- Numberline settings
 -- Hybrid numbers
 vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.signcolumn="yes:2"
 
 -- Encoding
 vim.opt.encoding = "utf-8"
+
 -- Tab to 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 4
@@ -55,7 +57,7 @@ vim.opt.undodir = vim.g.nvim_dir .. "nvim/undodir/"
 -- if vim.fn.isdirectory(vim.o.undodir) == 0 then
 vim.fn.mkdir(vim.o.undodir, "p")
 -- end
-vim.api.nvim_command("syntax on")
+-- vim.api.nvim_command("syntax on")
 
 -- Settings for search
 vim.opt.incsearch = true

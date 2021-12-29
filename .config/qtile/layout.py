@@ -5,6 +5,8 @@ layout_default = {
     "border_focus": "50d450",
     "border_normal": "000000",
     "border_width": 3,
+    "max_ratio": 0.9,
+    "min_ratio": 0.1,
     # "margin": 50,
 }
 layouts = [

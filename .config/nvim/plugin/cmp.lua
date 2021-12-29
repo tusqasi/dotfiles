@@ -44,8 +44,14 @@ cmp.setup {
   },
   -- sources are in order
   sources = {
-    {name = "nvim_lsp"},
-    {name = "path"},
+    {
+      name = "nvim_lsp",
+      keyword_length = 3
+    },
+    {
+      name = "path",
+      keyword_length = 3
+    },
     {name = "luasnip"}
   }
 }
