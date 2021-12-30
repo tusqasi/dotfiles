@@ -1,3 +1,5 @@
+from collections import namedtuple
+
 colors = {
     "fg": "eeeeee",
     "fg_on_dark": "eeeeee",
@@ -5,7 +7,7 @@ colors = {
     "bg_light": "ebdbb2",
     "bg_dark": "504945",
     "current_scr_bg": "689d6a",
-    "group_not_visible":"6868bc",
+    "group_not_visible": "6868bc",
     "alert": "FF0000",
     "visible_groups_text": "000000",
     "other_scr_unfocused_bg": "789878",
