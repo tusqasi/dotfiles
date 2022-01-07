@@ -20,6 +20,7 @@ SETUVAR _fish_abbr_mkdir:mkdir\x20\x2dpv
 SETUVAR _fish_abbr_mv:mv\x20\x2di
 SETUVAR _fish_abbr_n:nvim
 SETUVAR _fish_abbr_p:ping\x20google\x2ecom
+SETUVAR _fish_abbr_pii:pip\x20install
 SETUVAR _fish_abbr_pinst:pip\x20install
 SETUVAR _fish_abbr_py:python
 SETUVAR _fish_abbr_q:exit
@@ -29,6 +30,7 @@ SETUVAR _fish_abbr_s:sudo
 SETUVAR _fish_abbr_sn:sudoedit
 SETUVAR _fish_abbr_update:sudo\x20pacman\x20\x2dSyu
 SETUVAR _fish_abbr_v_2E_:vifm\x20\x2e/
+SETUVAR _fish_abbr_ve:python\x20\x2dm\x20venv\x20\x2evenv
 SETUVAR _fish_abbr_vim:nvim
 SETUVAR _fish_abbr_wget:wget\x20\x2dc
 SETUVAR _fisher_FabioAntunes_2F_fish_2D_nvm_files:/home/tusqasi/\x2econfig/fish/functions/__nvm_run\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/node\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/npm\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/npx\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/nvm\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/nvm_alias_command\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/nvm_alias_function\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/yarn\x2efish\x1e/home/tusqasi/\x2econfig/fish/completions/nvm\x2efish

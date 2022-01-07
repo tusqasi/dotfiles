@@ -2,5 +2,6 @@ configuration {
 	show-icons: true;
 	dpi: 200;
 	modi:"combi,window,run,dmenu";
+	/* run-command: "fish -e {cmd}"; */
 }
 @theme "/home/tusqasi/.config/rofi/gruvbox-dark.rasi"

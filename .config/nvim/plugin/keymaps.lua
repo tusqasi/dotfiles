@@ -48,12 +48,6 @@ map("n", "<Leader>l", ":update<CR>", {silent = true, noremap = true})
 
 map("n", "<Leader>o", ":AerialToggle<CR>", {silent = true, noremap = true})
 
--- "visual drag
--- map("v", "<LEFT>", "DVB_Drag('left')", {expr = true})
--- map("v", "<RIGHT>", "DVB_Drag('right')", {expr = true})
--- map("v", "<DOWN>", "DVB_Drag('down')", {expr = true})
--- map("v", "<UP>", "DVB_Drag('up')", {expr = true})
--- map("v", "D", "DVB_Duplicate()", {expr = true})
 -- Distraction Free
 -- map("n", "<F3>", ";Goyo<Cr>", options)
 

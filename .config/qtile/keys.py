@@ -185,10 +185,9 @@ keys = [
         desc="Launch terminal",
     ),
     Key(
-        [vars.mod],
-        "o",
-        lazy.spawn(vars.browser),
-        desc="Launch vars.browser",
+        [vars.mod], "o",
+        # lazy.spawn(vars.browser),
+        # desc="Launch vars.browser",
     ),
     Key(
         [],
@@ -259,7 +258,7 @@ keys = [
     Key(
         ["control", "shift"],
         "Escape",
-        lazy.spawn(f"{vars.terminal} -e bpytop"),
+        lazy.spawn("gnome-system-monitor"),
         desc="task manager",
     ),
     Key(
@@ -368,11 +367,13 @@ keys = [
         [vars.mod],
         "XF86AudioRaiseVolume",
         lazy.spawn("xbacklight -inc 10"),
+        desc="Increase brightness",
     ),
     Key(
         [vars.mod],
         "XF86AudioLowerVolume",
         lazy.spawn("xbacklight -dec 15"),
+        desc="Lower brightness",
     ),
 ]
 inverted = [
@@ -389,6 +390,7 @@ for i, ((name, kwargs), inv) in enumerate(zip(group_names, inverted), 1):
             [vars.mod],
             str(i),
             lazy.group[name].toscreen(),
+            desc="Switch to group"
         )
     )
     keys.append(
@@ -396,6 +398,7 @@ for i, ((name, kwargs), inv) in enumerate(zip(group_names, inverted), 1):
             [vars.mod, "shift"],
             str(i),
             lazy.window.togroup(name),
+            desc="Send window to group"
         )
     )
     keys.append(
@@ -403,6 +406,7 @@ for i, ((name, kwargs), inv) in enumerate(zip(group_names, inverted), 1):
             [vars.mod, vars.alt],
             str(i),
             lazy.window.togroup(name, switch_group=True),
+            desc="Switch to group with window"
         )
     )
     keys.append(
@@ -410,6 +414,7 @@ for i, ((name, kwargs), inv) in enumerate(zip(group_names, inverted), 1):
             [vars.mod],
             str(inv),
             lazy.group[name].toscreen(),
+            desc="Switch to group"
         )
     )
     keys.append(
@@ -417,6 +422,7 @@ for i, ((name, kwargs), inv) in enumerate(zip(group_names, inverted), 1):
             [vars.mod, "shift"],
             str(inv),
             lazy.window.togroup(name),
+            desc="Send window to group"
         )
     )
     keys.append(
@@ -424,5 +430,7 @@ for i, ((name, kwargs), inv) in enumerate(zip(group_names, inverted), 1):
             [vars.mod, vars.alt],
             str(inv),
             lazy.window.togroup(name, switch_group=True),
+            desc="Switch to group with window"
         )
+
     )
