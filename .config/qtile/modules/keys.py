@@ -1,7 +1,15 @@
-from group import group_names
-from libqtile.command import lazy
+from libqtile.lazy import lazy
 from libqtile.config import Key, KeyChord
-import variables as vars
+from .groups import group_names
+from .variables import (
+    mod,
+    terminal,
+    alt,
+    file_manager,
+    home,
+    shell,
+    launcher,
+)
 
 
 def window_to_previous_screen(qtile):
@@ -43,25 +51,25 @@ keys = [
     # Layout keybinds #
     # Switch between windows
     Key(
-        [vars.mod],
+        [mod],
         "h",
         lazy.layout.left(),
         desc="Move focus to left",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "l",
         lazy.layout.right(),
         desc="Move focus to right",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "j",
         lazy.layout.down(),
         desc="Move focus down",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "k",
         lazy.layout.up(),
         desc="Move focus up",
@@ -69,25 +77,25 @@ keys = [
     # Move windows between left/right columns or move up/down in current stack.
     # Moving out of range in Columns layout will create new column.
     Key(
-        [vars.mod, "shift"],
+        [mod, "shift"],
         "h",
         lazy.layout.shuffle_left(),
         desc="Move window to the left",
     ),
     Key(
-        [vars.mod, "shift"],
+        [mod, "shift"],
         "l",
         lazy.layout.shuffle_right(),
         desc="Move window to the right",
     ),
     Key(
-        [vars.mod, "shift"],
+        [mod, "shift"],
         "j",
         lazy.layout.shuffle_down(),
         desc="Move window down",
     ),
     Key(
-        [vars.mod, "shift"],
+        [mod, "shift"],
         "k",
         lazy.layout.shuffle_up(),
         desc="Move window up",
@@ -95,83 +103,83 @@ keys = [
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
     Key(
-        [vars.mod, "control"],
+        [mod, "control"],
         "k",
         lazy.layout.grow(),
         desc="increase size",
     ),
     Key(
-        [vars.mod, "control"],
+        [mod, "control"],
         "j",
         lazy.layout.shrink(),
         desc="decrease size",
     ),
     Key(
-        [vars.mod, "control"],
+        [mod, "control"],
         "l",
         lazy.screen.next_group(),
         desc="switch to group on right",
     ),
     Key(
-        [vars.mod, "control"],
+        [mod, "control"],
         "h",
         lazy.screen.prev_group(),
         desc="switch to group on left",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "bracketleft",
         lazy.function(window_to_next_screen),
         desc="send window to next screen",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "bracketleft",
         lazy.function(window_to_previous_screen),
         desc="send window to previous screen",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "n",
         lazy.layout.normalize(),
         desc="Reset all window sizes",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "f",
         lazy.window.toggle_fullscreen(),
         desc="Fullscreen",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "m",
         lazy.layout.maximize(),
         desc="maximize",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "t",
         toggle_focus_floating(),
     ),
     # Switch focus of monitors #
     Key(
-        [vars.mod],
+        [mod],
         "period",
         lazy.next_screen(),
         desc="Move focus to next monitor",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "comma",
         lazy.prev_screen(),
         desc="Move focus to prev monitor",
     ),
     # Toggle between split and unsplit sides of stack.
-    # Split = all windows displayed
+    # Spit = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
     # Key(
-    #     [vars.mod, "shift"],
+    #     [mod, "shift"],
     #     "Return",
     #     lazy.layout.toggle_split(),
     #     desc="Toggle between split and unsplit sides of stack",
@@ -179,15 +187,16 @@ keys = [
     # Layout keybinds end #
     # Launch stuff #
     Key(
-        [vars.mod],
+        [mod],
         "Return",
-        lazy.spawn(f"{vars.terminal} -e {vars.shell}"),
+        lazy.spawn(f"{terminal} -e {shell}"),
         desc="Launch terminal",
     ),
     Key(
-        [vars.mod], "o",
-        # lazy.spawn(vars.browser),
-        # desc="Launch vars.browser",
+        [mod],
+        "o",
+        # lazy.spawn(browser),
+        # desc="Launch browser",
     ),
     Key(
         [],
@@ -208,43 +217,43 @@ keys = [
         desc="Launch gcolor3 picker",
     ),
     Key(
-        [vars.mod, vars.alt],
+        [mod, alt],
         "d",
         lazy.spawn("discord"),
         desc="Launch Discord",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "space",
-        lazy.spawn(vars.launcher),
-        desc="Launch vars.launcher",
+        lazy.spawn(launcher),
+        desc="Launch launcher",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "p",
-        lazy.spawn(f"{vars.home}/scripts/rofi_tmux.py"),
-        desc="Launch tmux vars.launcher",
+        lazy.spawn(f"{home}/scripts/rofi_tmux.py"),
+        desc="Launch tmux launcher",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "s",
         lazy.spawn("scrcpy"),
         desc="Spawn scrcpy",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "e",
-        lazy.spawn(vars.file_manager),
+        lazy.spawn(file_manager),
         desc="open file_manager",
     ),
     Key(
-        [vars.mod, vars.alt],
+        [mod, alt],
         "e",
         lazy.spawn("rofimoji"),
         desc="select emoji",
     ),
     Key(
-        [vars.mod, vars.alt],
+        [mod, alt],
         "o",
         lazy.spawn("/home/tusqasi/scripts/ocr"),
         desc="run ocr on screen",
@@ -262,13 +271,13 @@ keys = [
         desc="task manager",
     ),
     Key(
-        [vars.mod, vars.alt],
+        [mod, alt],
         "y",
         lazy.spawn("/home/tusqasi/scripts/play_clipboard_youtube.sh"),
         desc="run mpv with current clipboadr youtube link",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "c",
         lazy.spawn("/home/tusqasi/scripts/get_clip_board.py"),
         desc="Clipboard",
@@ -276,7 +285,7 @@ keys = [
     # Launch stuff end #
     # power stuff
     KeyChord(
-        [vars.mod, vars.alt],
+        [mod, alt],
         "p",
         [
             Key([], "h", lazy.spawn("systemctl hibernate")),
@@ -286,31 +295,31 @@ keys = [
     ),
     # Layout
     Key(
-        [vars.mod],
+        [mod],
         "Tab",
         lazy.next_layout(),
         desc="Toggle between layouts",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "w",
         lazy.window.kill(),
         desc="Kill focused window",
     ),
     # Make floating
     Key(
-        [vars.mod, "control"],
+        [mod, "control"],
         "f",
         lazy.window.toggle_floating(),
     ),
     Key(
-        [vars.mod, "control"],
+        [mod, "control"],
         "r",
         lazy.restart(),
         desc="Restart Qtile",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "r",
         lazy.spawncmd(),
         desc="Spawn a command using a prompt widget",
@@ -364,13 +373,13 @@ keys = [
         lazy.spawn("xbacklight -dec 15"),
     ),
     Key(
-        [vars.mod],
+        [mod],
         "XF86AudioRaiseVolume",
         lazy.spawn("xbacklight -inc 10"),
         desc="Increase brightness",
     ),
     Key(
-        [vars.mod],
+        [mod],
         "XF86AudioLowerVolume",
         lazy.spawn("xbacklight -dec 15"),
         desc="Lower brightness",
@@ -387,50 +396,49 @@ inverted = [
 for i, ((name, kwargs), inv) in enumerate(zip(group_names, inverted), 1):
     keys.append(
         Key(
-            [vars.mod],
+            [mod],
             str(i),
             lazy.group[name].toscreen(),
-            desc="Switch to group"
+            desc="Switch to group",
         )
     )
     keys.append(
         Key(
-            [vars.mod, "shift"],
+            [mod, "shift"],
             str(i),
             lazy.window.togroup(name),
-            desc="Send window to group"
+            desc="Send window to group",
         )
     )
     keys.append(
         Key(
-            [vars.mod, vars.alt],
+            [mod, alt],
             str(i),
             lazy.window.togroup(name, switch_group=True),
-            desc="Switch to group with window"
+            desc="Switch to group with window",
         )
     )
     keys.append(
         Key(
-            [vars.mod],
+            [mod],
             str(inv),
             lazy.group[name].toscreen(),
-            desc="Switch to group"
+            desc="Switch to group",
         )
     )
     keys.append(
         Key(
-            [vars.mod, "shift"],
+            [mod, "shift"],
             str(inv),
             lazy.window.togroup(name),
-            desc="Send window to group"
+            desc="Send window to group",
         )
     )
     keys.append(
         Key(
-            [vars.mod, vars.alt],
+            [mod, alt],
             str(inv),
             lazy.window.togroup(name, switch_group=True),
-            desc="Switch to group with window"
+            desc="Switch to group with window",
         )
-
     )

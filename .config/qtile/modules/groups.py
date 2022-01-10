@@ -1,5 +1,5 @@
 from libqtile.config import Group
-from libqtile.command import lazy
+
 
 group_names = [
     ("DEV", {"layout": "Max"}),
@@ -8,9 +8,6 @@ group_names = [
     ("DOC", {"layout": "Max"}),
     ("GAME", {"layout": "Max"}),
     ("VID", {"layout": "Max"}),
-    # ("CHAT", {'layout': 'monadtall'}),
-    # ("VBOX", {'layout': 'monadtall'}),
-    # ("GFX", {'layout': 'floating'}),
 ]
 
 groups = [Group(name, kwargs) for name, kwargs in group_names]
