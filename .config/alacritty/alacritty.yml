@@ -35,27 +35,27 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: LM Mono 10
+    family: CozetteVector
 
     style: Regular
 
   # Bold font face
   bold:
-    family: LM Mono 10
+    family: CozetteVector
 
     # The `style` can be specified to pick a specific face.
     style: Bold
 
   # Italic font face
   italic:
-    family: LM Mono 10
+    family: CozetteVector
 
     # The `style` can be specified to pick a specific face.
     style: Italic
 
   # Bold italic font face
   bold_italic:
-    family: LM Mono 10
+    family: CozetteVector
 
     # The `style` can be specified to pick a specific face.
     style: Bold Italic
