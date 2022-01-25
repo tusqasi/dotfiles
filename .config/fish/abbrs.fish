@@ -16,6 +16,7 @@ abbr v. 'vifm ./'
 abbr vim 'nvim'
 abbr wget 'wget -c'
 abbr q 'exit'
+abbr e '~/scripts/edit_configs.sh'
 
 
 abbr inst 'sudo pacman -Syu ' 
