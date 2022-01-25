@@ -4,4 +4,4 @@ configuration {
 	modi:"combi,window,run,dmenu";
 	/* run-command: "fish -e {cmd}"; */
 }
-@theme "/home/tusqasi/.config/rofi/gruvbox-dark.rasi"
+@theme "/home/tusqasi/.config/rofi/themes/arc-dark-transperent.rasi"
