@@ -1,14 +1,15 @@
-from libqtile.lazy import lazy
-from libqtile.config import Key, KeyChord
 from .groups import group_names
+from libqtile.config import Key, KeyChord
+from libqtile.lazy import lazy
 from .variables import (
-    mod,
-    terminal,
     alt,
+    browser,
     file_manager,
     home,
-    shell,
     launcher,
+    mod,
+    shell,
+    terminal,
 )
 
 
@@ -195,8 +196,8 @@ keys = [
     Key(
         [mod],
         "o",
-        # lazy.spawn(browser),
-        # desc="Launch browser",
+        lazy.spawn(browser),
+        desc="Launch browser",
     ),
     Key(
         [],

@@ -3,7 +3,7 @@ alt = "mod1"
 
 shell = "fish"
 terminal = "alacritty"
-browser = "firefox"
+browser = "brave --force-device-scale-factor=1.25"
 home = "/home/tusqasi"
 launcher = "rofi -show combi -combi-modi 'drun,run,window' -modi combi"
 startup_script = f"{home}/scripts/startup"

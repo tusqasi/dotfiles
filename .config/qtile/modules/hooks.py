@@ -7,8 +7,9 @@ from .variables import startup_script
 def send_to_www(window):
     windowtype = window.window.get_wm_class()[1]
     browsers = ["firefox", "brave", "chromium", "qutebrowser"]
-    if windowtype.lower() in browsers:
-        window.togroup("WWW")
+    for browser in browsers:
+        if windowtype.lower().find(browser) > -1:
+            window.togroup("WWW")
 
 
 @hook.subscribe.startup_once
