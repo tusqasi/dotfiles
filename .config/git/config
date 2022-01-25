@@ -1,7 +1,8 @@
 [user]
 	name = tusqasi
 	email = 2002.tushar.kuntawar@gmail.com
-[core]
-	editor = nvim
 [init]
 	defaultBranch = master
+
+[core]
+    editor = env nvim
