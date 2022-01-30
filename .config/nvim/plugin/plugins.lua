@@ -16,15 +16,44 @@ return require("packer").startup(
     -- utils
     use "vifm/vifm.vim"
     use "dag/vim-fish"
-    --[[ use "junegunn/fzf"
-    use "junegunn/fzf.vim" ]]
     use "mattn/emmet-vim"
     use "christoomey/vim-tmux-navigator"
     use "tpope/vim-surround"
-    use "mhartington/formatter.nvim"
+    use {
+        "lewis6991/gitsigns.nvim",
+        requires = {
+            "nvim-lua/plenary.nvim"
+        },
+        config = function()
+            require("gitsigns").setup()
+        end
+    }
+    use "nathom/filetype.nvim"
+    use "prettier/vim-prettier"
+    use {
+        "stevearc/aerial.nvim",
+        cmd = "AerialToggle",
+        config = function()
+            require("aerial").setup(
+                {
+                    filter_kind = false
+                }
+            )
+        end
+    }
+    use "rhysd/committia.vim"
+    use "JoosepAlviste/nvim-ts-context-commentstring"
+    use {
+        "numToStr/Comment.nvim",
+        config = function()
+            require("Comment").setup()
+        end
+    }
+    use "easymotion/vim-easymotion"
+    use "wellle/targets.vim"
+    use "tpope/vim-repeat"
 
     -- use 'tpope/vim-commentary'
-    use "b3nj5m1n/kommentary"
     use "easymotion/vim-easymotion"
     use "wellle/targets.vim"
     use "tpope/vim-repeat"
@@ -36,6 +65,7 @@ return require("packer").startup(
     use "hrsh7th/cmp-nvim-lua"
     use "hrsh7th/cmp-path"
     use "hrsh7th/nvim-cmp"
+    use "hrsh7th/cmp-cmdline"
 
     -- lsp
     use "L3MON4D3/LuaSnip"
