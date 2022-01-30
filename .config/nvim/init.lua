@@ -18,22 +18,15 @@ if ok then
   colorizer.setup({})
 end
 
-local disabled_built_ins = {
-  "gzip",
-  "zip",
-  "zipPlugin",
-  "tar",
-  "tarPlugin",
-  "getscript",
-  "getscriptPlugin",
-  "vimball",
-  "vimballPlugin",
-  "2html_plugin",
-  "logipat",
-  "rrhelper",
-  "spellfile_plugin",
-  "matchit"
-}
-for _, plugin in pairs(disabled_built_ins) do
-  vim.g["loaded_" .. plugin] = 1
-end
+require "tusqasi.cmp"
+require "tusqasi.comments"
+require "tusqasi.disable_builtin"
+require "tusqasi.disabled"
+require "tusqasi.formatting"
+require "tusqasi.lsp"
+require "tusqasi.luasnip"
+require "tusqasi.snippets"
+require "tusqasi.statusline"
+require "tusqasi.telescope"
+require "tusqasi.text-obj"
+require "tusqasi.disabled"
