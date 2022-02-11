@@ -19,6 +19,7 @@ window:
     x: 10
     y: 10
 
+  opacity: 0.8
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -260,7 +261,6 @@ schemes:
         cyan: '#5A8887'
         white: '#ae4814'
 
-colors: *dracula
+colors: *gruvbox-dark
 
-# background_opacity: 0.9
 
