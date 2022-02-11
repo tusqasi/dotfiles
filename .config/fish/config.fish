@@ -28,4 +28,4 @@ function mc -d "Create a directory and set CWD"
 end
 
 # starship start
-source (/usr/bin/starship init fish --print-full-init | psub)
+# source (/usr/bin/starship init fish --print-full-init | psub)
