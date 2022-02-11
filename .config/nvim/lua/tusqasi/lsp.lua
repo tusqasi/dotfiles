@@ -82,6 +82,7 @@ require "lspconfig".dartls.setup {
     }
   }
 }
+-- require'lspconfig'.kotlin_language_server.setup{}
 
 -- java
 --[[ require "lspconfig".java_language_server.setup {
@@ -91,10 +92,10 @@ require "lspconfig".dartls.setup {
   end
 } ]]
 -- java but eclipse
-require "lspconfig".jdtls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach
-}
+-- require "lspconfig".jdtls.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach
+-- }
 
 -- pylsp
 require "lspconfig".pylsp.setup {
@@ -102,11 +103,11 @@ require "lspconfig".pylsp.setup {
   on_attach = on_attach
 }
 -- vimls
-require "lspconfig".vimls.setup {
-  capabilities = capabilities,
-  on_attach = on_attach
-}
-require "lspconfig".tsserver.setup {
-  capabilities = capabilities,
-  on_attach = on_attach
-}
+-- require "lspconfig".vimls.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach
+-- }
+-- require "lspconfig".tsserver.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach
+-- }
