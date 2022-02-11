@@ -44,22 +44,22 @@ vim.opt.shiftwidth = 4
 vim.api.nvim_command("filetype off")
 
 vim.opt.fillchars = {
-  vert = '▕', -- alternatives │
-  fold = ' ',
-  eob = ' ', -- suppress ~ at EndOfBuffer
-  diff = '╱', -- alternatives = ⣿ ░ ─
-  msgsep = '‾',
-  foldopen = '▾',
-  foldsep = '│',
-  foldclose = '▸',
+    vert = "▕", -- alternatives │
+    fold = " ",
+    eob = " ", -- suppress ~ at EndOfBuffer
+    diff = "╱", -- alternatives = ⣿ ░ ─
+    msgsep = "‾",
+    foldopen = "▾",
+    foldsep = "│",
+    foldclose = "▸"
 }
 
 vim.opt.listchars = {
-  eol = nil,
-  tab = '│ ',
-  extends = '»',
-  precedes = '«',
-  trail = '•',
+    eol = nil,
+    tab = "│ ",
+    extends = "»",
+    precedes = "«",
+    trail = "•"
 }
 -- don't close exited buffer
 vim.opt.hidden = true
