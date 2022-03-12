@@ -6,7 +6,6 @@ window:
   #dimensions:
   #  columns: 0
   #  lines: 0
-
   #position:
   #  x: 0
   #  y: 0
@@ -62,7 +61,7 @@ font:
     style: Bold Italic
 
   # Font size
-  size: 12.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -262,5 +261,3 @@ schemes:
         white: '#ae4814'
 
 colors: *gruvbox-dark
-
-

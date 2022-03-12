@@ -6,6 +6,7 @@ abbr free 'free -m' # show sizes in MB
 abbr mkdir 'mkdir -pv'
 abbr mv 'mv -i'
 abbr n nvim
+abbr vp nsxiv
 abbr p 'ping google.com'
 abbr py python
 abbr pinst 'pip install'
@@ -20,7 +21,7 @@ abbr e '~/scripts/edit_configs.sh'
 
 
 abbr inst 'sudo pacman -Syu '
-abbr update 'sudo pacman -Syu'
+abbr updt 'sudo pacman -Syu'
 # abbr lspk 'sudo pacman -S  '
 abbr rpkg 'sudo pacman -R'
 

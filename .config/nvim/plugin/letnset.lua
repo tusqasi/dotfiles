@@ -74,6 +74,7 @@ vim.opt.undodir = vim.env.HOME .. "/.local/share/nvim/undodir/"
 -- if vim.fn.isdirectory(vim.o.undodir) == 0 then
 vim.fn.mkdir(vim.o.undodir, "p")
 -- end
+
 vim.api.nvim_command("syntax on")
 
 -- Settings for search
