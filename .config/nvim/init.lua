@@ -1,32 +1,24 @@
 vim.g.nvim_dir = vim.fn.expand("~") .. "/.config/nvim"
-local ok, reload, treesitter, colorizer
-ok, reload = pcall(require, "plenary.reload")
-RELOAD = ok and reload.reload_module or function(...)
-    return ...
-  end
-function R(name)
-  RELOAD(name)
-  return require(name)
+Ok, Treesitter = pcall(require, "nvim-treesitter.configs")
+if Ok then
+    Treesitter.setup({highlight = {enable = true}})
 end
-ok, treesitter = pcall(require, "nvim-treesitter.configs")
-if ok then
-  treesitter.setup({highlight = {enable = true}})
-end
-ok, colorizer = pcall(require, "colorizer")
-if ok then
-  vim.opt.termguicolors = true
-  colorizer.setup({})
+Ok, Colorizer = pcall(require, "colorizer")
+if Ok then
+    vim.opt.termguicolors = true
+    Colorizer.setup({})
 end
 
 require "tusqasi.cmp"
 require "tusqasi.comments"
 require "tusqasi.disable_builtin"
 require "tusqasi.disabled"
+require "tusqasi.disabled"
 require "tusqasi.formatting"
+require "tusqasi.globals"
 require "tusqasi.lsp"
 require "tusqasi.luasnip"
 require "tusqasi.snippets"
 require "tusqasi.statusline"
 require "tusqasi.telescope"
 require "tusqasi.text-obj"
-require "tusqasi.disabled"
