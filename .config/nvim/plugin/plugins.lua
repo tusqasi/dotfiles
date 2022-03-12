@@ -12,13 +12,6 @@ return require("packer").startup(
             requires = {"kyazdani42/nvim-web-devicons", opt = true}
         }
         use "norcalli/nvim-colorizer.lua"
-
-        -- utils
-        use "vifm/vifm.vim"
-        use "dag/vim-fish"
-        use "mattn/emmet-vim"
-        use "christoomey/vim-tmux-navigator"
-        use "tpope/vim-surround"
         use {
             "lewis6991/gitsigns.nvim",
             requires = {
@@ -28,8 +21,6 @@ return require("packer").startup(
                 require("gitsigns").setup()
             end
         }
-        use "nathom/filetype.nvim"
-        use "prettier/vim-prettier"
         use {
             "stevearc/aerial.nvim",
             cmd = "AerialToggle",
@@ -41,6 +32,15 @@ return require("packer").startup(
                 )
             end
         }
+
+        -- utils
+        use "vifm/vifm.vim"
+        use "dag/vim-fish"
+        use "mattn/emmet-vim"
+        use "christoomey/vim-tmux-navigator"
+        use "tpope/vim-surround"
+        -- use "nathom/filetype.nvim"
+        use "prettier/vim-prettier"
         use "rhysd/committia.vim"
         use "JoosepAlviste/nvim-ts-context-commentstring"
         use {
@@ -53,6 +53,9 @@ return require("packer").startup(
         use "wellle/targets.vim"
         use "tpope/vim-repeat"
         use "sbdchd/neoformat"
+        use "L3MON4D3/LuaSnip"
+        use "github/copilot.vim"
+        -- use "rafamadriz/friendly-snippets"
 
         -- Lsp/treesitternvim.5+
         -- cmp
@@ -64,7 +67,6 @@ return require("packer").startup(
         use "hrsh7th/cmp-cmdline"
 
         -- lsp
-        use "L3MON4D3/LuaSnip"
         use "mfussenegger/nvim-jdtls"
         use "neovim/nvim-lspconfig"
         use "williamboman/nvim-lsp-installer"
@@ -80,9 +82,9 @@ return require("packer").startup(
             requires = {{"nvim-lua/plenary.nvim"}}
         }
         -- Dart/Flutter
-        use "dart-lang/dart-vim-plugin"
-        use "thosakwe/vim-flutter"
-        use "natebosch/vim-lsc"
-        use "natebosch/vim-lsc-dart"
+        -- use "dart-lang/dart-vim-plugin"
+        -- use "thosakwe/vim-flutter"
+        -- use "natebosch/vim-lsc"
+        -- use "natebosch/vim-lsc-dart"
     end
 )
