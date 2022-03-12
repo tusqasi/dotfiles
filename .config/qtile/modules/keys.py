@@ -250,8 +250,14 @@ keys = [
     Key(
         [mod, alt],
         "e",
-        lazy.spawn("rofimoji"),
+        lazy.spawn("rofimoji --action type copy"),
         desc="select emoji",
+    ),
+    Key(
+        [mod, alt],
+        "g",
+        lazy.spawn("rofimoji --file ~/scripts/gitmoji.csv"),
+        desc="select gitmoji",
     ),
     Key(
         [mod, alt],
