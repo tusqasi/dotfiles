@@ -1,4 +1,7 @@
 vim.g.nvim_dir = vim.fn.expand("~") .. "/.config/nvim"
+
+vim.g.copilot_enabled = false
+
 Ok, Treesitter = pcall(require, "nvim-treesitter.configs")
 if Ok then
     Treesitter.setup({highlight = {enable = true}})
