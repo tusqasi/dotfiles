@@ -55,6 +55,8 @@ return require("packer").startup(
         use "sbdchd/neoformat"
         use "L3MON4D3/LuaSnip"
         use "github/copilot.vim"
+        use {"nvim-telescope/telescope-file-browser.nvim"}
+        use "folke/lua-dev.nvim"
         -- use "rafamadriz/friendly-snippets"
 
         -- Lsp/treesitternvim.5+
