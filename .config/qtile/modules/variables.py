@@ -1,9 +1,9 @@
 mod = "mod4"
 alt = "mod1"
 
-shell = "fish"
+shell = "zsh"
 terminal = "alacritty"
-browser = "brave --force-device-scale-factor=1.45"
+browser = "brave --force-device-scale-factor=1.25"
 # browser = "firefox"
 home = "/home/tusqasi"
 launcher = "rofi -show combi -combi-modi 'drun,run,window' -modi combi"
