@@ -27,13 +27,13 @@ map("n", "<Leader>F", "<CMD>lua require('functions').fd()<CR>", options)
 -- edit nvim configs
 map("n", "<Leader>ne", "<CMD>lua require('functions').nvim_configs()<CR>", options)
 
--- file broswer
+-- File broswer
 map("n", "<Leader>Fb", "<CMD>lua require('functions').file_browser()<CR>", options)
 
--- telescope
+-- Telescope
 map("n", "<Leader>;", "<CMD>lua require('telescope.builtin').builtin()<CR>", options)
 
--- yank whole file
+-- Yank whole file
 map("n", "<Leader>c", ':norm ggVG"+y<CR>', options)
 map("n", "<F2>", ";Vifm<Cr>", options)
 
@@ -43,9 +43,11 @@ map("n", "<Leader>l", ":update<CR>", {silent = true, noremap = true})
 -- Mapping for spell check
 map("n", "<F6>", "<CMD>setlocal spell! spelllang=en<CR>", options)
 
--- Diable Help for F1
+-- Disable Help for F1
 map("n", "<F1>", "<NOP>", options)
 
 map("n", "<Leader>o", "<CMD>AerialToggle<CR>", options)
+
+map("n", "<leader><leader>sn", "<cmd>luafile ~/.config/nvim/lua/tusqasi/snippets.lua<CR>", options)
 
 vim.g.user_emmet_leader_key = ","
