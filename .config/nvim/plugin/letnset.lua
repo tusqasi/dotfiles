@@ -27,6 +27,11 @@ vim.opt.mouse = "n"
 -- no netrw_banner
 vim.g.netrw_banner = false
 
+-- don't show the mode
+vim.opt.showmode= false
+
+-- Don't break words
+vim.opt.linebreak = true
 -- Enable folding
 vim.opt.foldmethod = "indent"
 vim.opt.foldlevel = 99
