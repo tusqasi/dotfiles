@@ -1,39 +1,42 @@
 M = {}
 
 M.buf_search = function()
-  require("telescope.builtin").current_buffer_fuzzy_find()
+    vim.cmd(":Telescope current_buffer_fuzzy_find")
 end
 
 M.buffers = function()
-  require("telescope.builtin").buffers()
+    vim.cmd(":Telescope buffers")
 end
 M.registers = function()
-  require("telescope.builtin").registers()
+    vim.cmd(":Telescope registers")
 end
 
 M.builtin = function()
-  require("telescope.builtin").builtin()
+    vim.cmd(":Telescope builtin")
 end
 
 M.fd = function()
-  require("telescope.builtin").fd()
+    vim.cmd(":Telescope fd")
 end
 
 M.file_browser = function()
-  require("telescope.builtin").file_browser()
+    vim.cmd(":Telescope file_browser")
 end
 
 M.nvim_configs = function()
-  local opts = {
-    cwd = vim.g.nvim_dir,
-    find_files = "rd"
-  }
-  require("telescope.builtin").find_files(
-    {
-      cwd = vim.g.nvim_dir,
-      file_ignore_patterns = {"swapfiles", "undodir"}
+    local opts = {
+        cwd = vim.g.nvim_dir,
+        find_files = "rd"
     }
-  )
+    require("telescope.builtin").find_files(opts)
+end
+
+M.grep_nvim_configs = function()
+    local opts = {
+        cwd = vim.g.nvim_dir,
+        find_files = "rd"
+    }
+    vim.cmd(":Telescope live_grep")
 end
 
 -- open nvim config
