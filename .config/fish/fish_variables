@@ -1,0 +1,85 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export DENO_INSTALL:/home/tusqasi/\x2econfig/deno
+SETUVAR --export FLUTTER_HOME:/opt/flutter
+SETUVAR --export --path GOPATH:/home/tusqasi/\x2elocal/share/go/
+SETUVAR --export MANPAGER:sh\x20\x2dc\x20\x27col\x20\x2dbx\x20\x7c\x20bat\x20\x2dl\x20man\x20\x2dp\x27
+SETUVAR NVIM_DIR:/home/tusqasi/\x2econfig/nvim
+SETUVAR --export PYENV_ROOT:/home/tusqasi/\x2epyenv
+SETUVAR --export SUDO_EDITOR:/usr/local/bin/nvim
+SETUVAR --export WAKATIME_HOME:/home/tusqasi/\x2econfig/wakatime/
+SETUVAR ZO_CMD:zo
+SETUVAR Z_CMD:z
+SETUVAR Z_DATA:/home/tusqasi/\x2elocal/share/z/data
+SETUVAR Z_DATA_DIR:/home/tusqasi/\x2elocal/share/z
+SETUVAR Z_EXCLUDE:\x5e/home/tusqasi\x24
+SETUVAR __fish_initialized:3100
+SETUVAR _fish_abbr_batman:bat\x20\x2dl\x20man\x20\x2dp
+SETUVAR _fish_abbr_c:clear
+SETUVAR _fish_abbr_cfg:/usr/bin/git\x20\x2d\x2dgit\x2ddir\x3d/home/tusqasi/\x2ecfg/\x20\x2d\x2dwork\x2dtree\x3d/home/tusqasi
+SETUVAR _fish_abbr_config:/usr/bin/git\x20\x2d\x2dgit\x2ddir\x3d/home/tusqasi/\x2ecfg/\x20\x2d\x2dwork\x2dtree\x3d/home/tusqasi
+SETUVAR _fish_abbr_cp:cp\x20\x2di
+SETUVAR _fish_abbr_df:df\x20\x2dh
+SETUVAR _fish_abbr_e:\x7e/scripts/edit_configs\x2esh
+SETUVAR _fish_abbr_free:free\x20\x2dm
+SETUVAR _fish_abbr_inst:sudo\x20pacman\x20\x2dSyu\x20
+SETUVAR _fish_abbr_l:exa\x20\x2d\x2dicons
+SETUVAR _fish_abbr_la:exa\x20\x2dhla\x20\x2d\x2dicons
+SETUVAR _fish_abbr_lspk:sudo\x20apt\x20list\x7c\x20grep
+SETUVAR _fish_abbr_mkdir:mkdir\x20\x2dpv
+SETUVAR _fish_abbr_mv:mv\x20\x2di
+SETUVAR _fish_abbr_n:nvim
+SETUVAR _fish_abbr_p:ping\x20google\x2ecom
+SETUVAR _fish_abbr_pii:pip\x20install
+SETUVAR _fish_abbr_pinst:pip\x20install
+SETUVAR _fish_abbr_py:python
+SETUVAR _fish_abbr_q:exit
+SETUVAR _fish_abbr_rm:rm\x20\x2dI\x20\x2d\x2dpreserve\x2droot
+SETUVAR _fish_abbr_rmd:rm\x20\x2dIrd\x20\x2d\x2dpreserve\x2droot
+SETUVAR _fish_abbr_rmp:sudo\x20pacman\x20\x2dR
+SETUVAR _fish_abbr_rpkg:sudo\x20pacman\x20\x2dR
+SETUVAR _fish_abbr_rs:rsync\x20\x2dazvhprP
+SETUVAR _fish_abbr_s:sudo
+SETUVAR _fish_abbr_sn:sudoedit
+SETUVAR _fish_abbr_update:sudo\x20pacman\x20\x2dSyu
+SETUVAR _fish_abbr_updt:sudo\x20pacman\x20\x2dSyu
+SETUVAR _fish_abbr_v_2E_:vifm\x20\x2e/
+SETUVAR _fish_abbr_ve:python\x20\x2dm\x20venv\x20\x2evenv
+SETUVAR _fish_abbr_vim:nvim
+SETUVAR _fish_abbr_vl:vifm\x20/home/tusqasi/\x2elocal/share/
+SETUVAR _fish_abbr_vp:nsxiv
+SETUVAR _fish_abbr_wget:wget\x20\x2dc
+SETUVAR _fisher_jorgebucaran_2F_nvm_2E_fish_files:/home/tusqasi/\x2econfig/fish/functions/_nvm_index_update\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/_nvm_list\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/_nvm_version_activate\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/_nvm_version_deactivate\x2efish\x1e/home/tusqasi/\x2econfig/fish/functions/nvm\x2efish\x1e/home/tusqasi/\x2econfig/fish/conf\x2ed/nvm\x2efish\x1e/home/tusqasi/\x2econfig/fish/completions/nvm\x2efish
+SETUVAR _fisher_plugins:jorgebucaran/nvm\x2efish
+SETUVAR fish_color_autosuggestion:777777
+SETUVAR fish_color_cancel:\x2dr
+SETUVAR fish_color_command:00FF00
+SETUVAR fish_color_comment:30BE30
+SETUVAR fish_color_cwd:green
+SETUVAR fish_color_cwd_root:red
+SETUVAR fish_color_end:FF7B7B
+SETUVAR fish_color_error:A40000
+SETUVAR fish_color_escape:00a6b2
+SETUVAR fish_color_history_current:\x2d\x2dbold
+SETUVAR fish_color_host:normal
+SETUVAR fish_color_host_remote:yellow
+SETUVAR fish_color_match:\x2d\x2dbackground\x3dbrblue
+SETUVAR fish_color_normal:normal
+SETUVAR fish_color_operator:00a6b2
+SETUVAR fish_color_param:30BE30
+SETUVAR fish_color_quote:44FF44
+SETUVAR fish_color_redirection:7BFF7B
+SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_status:red
+SETUVAR fish_color_user:brgreen
+SETUVAR fish_color_valid_path:\x2d\x2dunderline
+SETUVAR fish_key_bindings:fish_default_key_bindings
+SETUVAR fish_pager_color_completion:normal
+SETUVAR fish_pager_color_description:B3A06D\x1eyellow
+SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
+SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_user_paths:/home/tusqasi/\x2epyenv/bin\x1e/home/tusqasi/bin/\x1e/home/tusqasi/scripts/\x1e/home/tusqasi/\x2elocal/bin/\x1e/home/tusqasi/\x2elocal/share/node_deps/bin/\x1e/home/tusqasi/Documents/software/flutter/bin/\x1e/home/tusqasi/\x2econfig/deno/bin/\x1e/opt/flutter/bin/\x1e/home/tusqasi/\x2egem/ruby/3\x2e0\x2e0/bin/
+SETUVAR nvm_data:/home/tusqasi/\x2elocal/share/nvm
+SETUVAR nvm_default_version:lts
+SETUVAR nvm_mirror:https\x3a//nodejs\x2eorg/dist
