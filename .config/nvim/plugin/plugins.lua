@@ -39,8 +39,6 @@ return require("packer").startup(
         use "mattn/emmet-vim"
         use "christoomey/vim-tmux-navigator"
         use "tpope/vim-surround"
-        -- use "nathom/filetype.nvim"
-        use "prettier/vim-prettier"
         use "rhysd/committia.vim"
         use "JoosepAlviste/nvim-ts-context-commentstring"
         use {
@@ -57,7 +55,11 @@ return require("packer").startup(
         use "github/copilot.vim"
         use {"nvim-telescope/telescope-file-browser.nvim"}
         use "folke/lua-dev.nvim"
-        -- use "rafamadriz/friendly-snippets"
+        use "junegunn/vim-easy-align"
+        use {"chrisbra/NrrwRgn"}
+        use "rafamadriz/friendly-snippets"
+        use "junegunn/goyo.vim"
+        use "f3fora/cmp-spell"
 
         -- Lsp/treesitternvim.5+
         -- cmp
