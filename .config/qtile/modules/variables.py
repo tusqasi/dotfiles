@@ -1,7 +1,7 @@
 mod = "mod4"
 alt = "mod1"
 
-shell = "zsh"
+shell = "fish"
 terminal = "alacritty"
 browser = "brave --force-device-scale-factor=1.25"
 # browser = "firefox"
