@@ -15,8 +15,8 @@ require "lualine".setup {
             {"diagnostics", sources = {"nvim_diagnostic"}}
         },
         lualine_c = {"filename"},
-        lualine_x = {"encoding", "fileformat", "filetype"},
-        lualine_y = {"progress"},
+        lualine_W = {"encoding", "fileformat", "filetype"},
+        lualine_x = {"progress"},
         lualine_y = {"location"},
         lualine_z = {""}
     }
