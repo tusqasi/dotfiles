@@ -70,7 +70,7 @@ ZSH_CUSTOM=/home/tusqasi/.config/zsh/custom/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm fzf zoxide zsh-autosuggestions zsh-abbr)
+plugins=(git nvm fzf zoxide zsh-autosuggestions zsh-abbr zsh-pyenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -137,16 +137,20 @@ export GOPATH="$HOME/.local/share/go/"
 export WAKATIME_HOME="$HOME/.config/wakatime/"
 export FLUTTER_HOME="/opt/flutter"
 
-path+=("~/bin/")
-path+=("~/scripts/")
-path+=("~/.local/bin/")
-path+=("~/.local/share/node_deps/bin/")
-path+=("~/Documents/software/flutter/bin/")
+path+=("$HOME/bin/")
+path+=("$HOME/scripts/")
+path+=("$HOME/.local/bin/")
+path+=("$HOME/.local/share/node_deps/bin/")
+path+=("$HOME/Documents/software/flutter/bin/")
 path+=("$DENO_INSTALL/bin/")
 path+=("$FLUTTER_HOME/bin/")
-path+=("~/.gem/ruby/3.0.0/bin/")
+path+=("$HOME/.gem/ruby/3.0.0/bin/")
+path+=("$HOME/.pyenv/bin/")
 
 export NVM_DIR="$HOME/.config/nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+eval "$(pyenv init --path)"
+eval "$(pyenv virtualenv-init -)"
+eval "$(pyenv init -)"
