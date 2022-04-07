@@ -37,6 +37,7 @@ luasnip.config.set_config(
     }
 )
 luasnip.snippets = {
+    
     lua = {
         snippet(
             "use",
@@ -64,43 +65,9 @@ luasnip.snippets = {
         )
     },
     python = {
-        snippet(
-            "doc",
-            {
-                t({'"""'}),
-                t({""}),
-                i(1),
-                t({'"""'})
-            }
-        ),
-        snippet(
-            "main",
-            {
-                t({'if __name__ == "__main__":', "\tmain("}),
-                i(1),
-                t({")"})
-            }
-        ),
-        snippet(
-            "def",
-            {
-                t({"def "}),
-                i(1),
-                t({"("}),
-                i(2),
-                t({"):", "\t"}),
-                i(3)
-            }
-        ),
-        snippet(
-            "if",
-            {
-                t({"if "}),
-                i(1),
-                t({":", "\t"}),
-                i(2)
-            }
-        )
+        snippet("route", fmt([[@app.route("{}")
+def {}({}):
+    {}]], {i(1), i(2, {"home"}), i(3), i(4)}))
     },
     cpp = {
         snippet("func", fmt([[{} {}({}) {{
