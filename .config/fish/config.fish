@@ -5,5 +5,6 @@ ssh-add -q ~/.ssh/new_key
 set fish_greeting
 set fish_command_not_found
 
+source /opt/asdf-vm/asdf.fish
 status is-login; and pyenv init --path | source
 status is-interactive; and pyenv init - | source

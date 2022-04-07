@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export DENO_INSTALL:/home/tusqasi/\x2econfig/deno
+SETUVAR EDITOR:/usr/local/bin/nvim
 SETUVAR --export FLUTTER_HOME:/opt/flutter
 SETUVAR --export --path GOPATH:/home/tusqasi/\x2elocal/share/go/
 SETUVAR --export MANPAGER:sh\x20\x2dc\x20\x27col\x20\x2dbx\x20\x7c\x20bat\x20\x2dl\x20man\x20\x2dp\x27
@@ -17,12 +18,13 @@ SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_batman:bat\x20\x2dl\x20man\x20\x2dp
 SETUVAR _fish_abbr_c:clear
 SETUVAR _fish_abbr_cfg:/usr/bin/git\x20\x2d\x2dgit\x2ddir\x3d/home/tusqasi/\x2ecfg/\x20\x2d\x2dwork\x2dtree\x3d/home/tusqasi
+SETUVAR _fish_abbr_cfgp:/usr/bin/git\x20\x2d\x2dgit\x2ddir\x3d/home/tusqasi/\x2ecfg/\x20\x2d\x2dwork\x2dtree\x3d/home/tusqasi\x20push
 SETUVAR _fish_abbr_config:/usr/bin/git\x20\x2d\x2dgit\x2ddir\x3d/home/tusqasi/\x2ecfg/\x20\x2d\x2dwork\x2dtree\x3d/home/tusqasi
 SETUVAR _fish_abbr_cp:cp\x20\x2di
 SETUVAR _fish_abbr_df:df\x20\x2dh
 SETUVAR _fish_abbr_e:\x7e/scripts/edit_configs\x2esh
 SETUVAR _fish_abbr_free:free\x20\x2dm
-SETUVAR _fish_abbr_inst:sudo\x20pacman\x20\x2dSyu\x20
+SETUVAR _fish_abbr_inst:sudo\x20pacman\x20\x2dS
 SETUVAR _fish_abbr_l:exa\x20\x2d\x2dicons
 SETUVAR _fish_abbr_la:exa\x20\x2dhla\x20\x2d\x2dicons
 SETUVAR _fish_abbr_lspk:sudo\x20apt\x20list\x7c\x20grep
@@ -30,6 +32,7 @@ SETUVAR _fish_abbr_mkdir:mkdir\x20\x2dpv
 SETUVAR _fish_abbr_mv:mv\x20\x2di
 SETUVAR _fish_abbr_n:nvim
 SETUVAR _fish_abbr_p:ping\x20google\x2ecom
+SETUVAR _fish_abbr_pfr:pip\x20freeze\x20\x3e\x20requirements\x2etxt
 SETUVAR _fish_abbr_pii:pip\x20install
 SETUVAR _fish_abbr_pinst:pip\x20install
 SETUVAR _fish_abbr_py:python
