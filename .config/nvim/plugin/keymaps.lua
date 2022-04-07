@@ -8,7 +8,7 @@ local bmap = vim.api.nvim_buf_set_keymap
 -- map the leader key
 local options = {noremap = true}
 vim.g.mapleader = " "
-map("n", "<space>", "<nop>", {noremap = true, silent = true})
+map("n", "<Space>", "<Nop>", {noremap = true, silent = true})
 
 map("n", ";", ":", options)
 map("n", ":", ";", options)
@@ -46,6 +46,10 @@ map("n", "<Leader>a", ":Telescope lsp_code_actions<CR>", options)
 -- Help tags
 map("n", "<Leader>h", ":Telescope help_tags<CR>", options)
 
+
+-- Show references
+map("n", "<Leader><Leader>", ":Telescope lsp_references<CR>", options)
+
 -- Yank whole file
 map("n", "<Leader>c", ':norm ggVG"+y<CR>', options)
 map("n", "<F2>", ";Vifm<Cr>", options)
@@ -65,6 +69,9 @@ map("n", "<F1>", "<NOP>", options)
 map("n", "<Leader>o", "<CMD>AerialToggle<CR>", options)
 
 map("n", "<leader><leader>sn", "<cmd>luafile ~/.config/nvim/lua/tusqasi/snippets.lua<CR>", options)
+map("n", "<leader><leader>sk", "<cmd>luafile ~/.config/nvim/plugin/keymaps.lua<CR>", options)
 map("n", "<leader><leader>x", "<cmd>source %<CR>", options)
+
+map("n", "<C-/>", "<Nop>", options)
 
 vim.g.user_emmet_leader_key = ","

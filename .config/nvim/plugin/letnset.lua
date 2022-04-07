@@ -22,7 +22,7 @@ M.create_augroup(
     "emmet"
 )
 
-vim.opt.mouse = "n"
+vim.opt.mouse = "a"
 
 -- no netrw_banner
 vim.g.netrw_banner = false
