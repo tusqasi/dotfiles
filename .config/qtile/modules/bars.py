@@ -1,5 +1,5 @@
 from libqtile import bar
-
+from libqtile.lazy import lazy
 from libqtile import widget
 
 bar_1 = bar.Bar(
@@ -45,9 +45,13 @@ bar_1 = bar.Bar(
         widget.TaskList(
             border="#2eb039",
             icon_size=14,
-            padding=0,
-            margin=0,
+            padding=1,
+            margin=1,
             parse_text=lambda x: "",
+            mouse_callbacks={
+                "Button4": lazy.layout.down(),
+                "Button5": lazy.layout.up(),
+            },
         ),
         widget.Chord(
             chords_colors={
@@ -59,12 +63,25 @@ bar_1 = bar.Bar(
             text="﬙",
             foreground="#d65d0e",
         ),
-        widget.MemoryGraph(fill_color="#e29545"),
+        widget.MemoryGraph(
+            graph_color="#cb5b13",
+            type="box",
+        ),
         widget.TextBox(
             text="",
             foreground="#689d6a",
         ),
-        widget.CPUGraph(),
+        widget.CPUGraph(
+            graph_color="#659668",
+            type="box",
+        ),
+        widget.TextBox(
+            text="",
+            mouse_callbacks={
+                "Button4": lazy.spawn("xbacklight -inc 5"),
+                "Button5": lazy.spawn("xbacklight -dec 10"),
+            },
+        ),
         widget.Systray(icon_size=20),
         widget.TextBox(
             text="",
