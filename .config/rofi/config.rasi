@@ -2,6 +2,6 @@ configuration {
 	show-icons: true;
 	dpi: 200;
 	modi:"combi,window,run,dmenu";
-	/* run-command: "fish -e {cmd}"; */
+	/* run-command: "fish -C {cmd}"; */
 }
 @theme "/home/tusqasi/.config/rofi/themes/arc-dark-transperent.rasi"
