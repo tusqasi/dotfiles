@@ -10,6 +10,7 @@ from .variables import (
     mod,
     shell,
     terminal,
+    system_monitor,
 )
 
 
@@ -274,7 +275,7 @@ keys = [
     Key(
         ["control", "shift"],
         "Escape",
-        lazy.spawn("gnome-system-monitor"),
+        lazy.spawn(system_monitor),
         desc="task manager",
     ),
     Key(
@@ -286,19 +287,16 @@ keys = [
     Key(
         [mod],
         "c",
-        lazy.spawn("/home/tusqasi/scripts/get_clip_board.py"),
-        desc="Clipboard",
+        lazy.spawn("/home/tusqasi/scripts/rofi_clipboard.py"),
+        desc="Clipboard rofi program",
     ),
     # Launch stuff end #
     # power stuff
-    KeyChord(
+    Key(
         [mod, alt],
         "p",
-        [
-            Key([], "h", lazy.spawn("systemctl hibernate")),
-            Key([], "r", lazy.spawn("systemctl reboot")),
-            Key([], "s", lazy.spawn("shutdown now")),
-        ],
+        lazy.spawn("python -m rofi_rbw.rofi_rbw"),
+        desc="Bitwarden rofi",
     ),
     # Layout
     Key(
@@ -335,17 +333,17 @@ keys = [
     Key(
         [],
         "XF86AudioRaiseVolume",
-        lazy.spawn("pactl -- set-sink-volume 0 +5%"),
+        lazy.spawn("pactl -- set-sink-volume  @DEFAULT_SINK@ +5%"),
     ),
     Key(
         [],
         "XF86AudioLowerVolume",
-        lazy.spawn("pactl -- set-sink-volume 0 -5%"),
+        lazy.spawn("pactl -- set-sink-volume  @DEFAULT_SINK@  -5%"),
     ),
     Key(
         [],
         "XF86AudioMute",
-        lazy.spawn("pactl set-sink-mute 0 toggle"),
+        lazy.spawn("pactl set-sink-mute  @DEFAULT_SINK@  toggle"),
     ),
     Key(
         [],

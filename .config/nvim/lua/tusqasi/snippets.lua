@@ -5,19 +5,19 @@ local snippet = luasnip.snippet
 local t = luasnip.text_node
 local i = luasnip.insert_node
 local f = luasnip.function_node
-local d = luasnip.dynamic_node
-local c = luasnip.choice_node
-local snippet_from_nodes = luasnip.sn
+-- local d = luasnip.dynamic_node
+-- local c = luasnip.choice_node
+-- local snippet_from_nodes = luasnip.sn
 local fmt = require("luasnip.extras.fmt").fmt
 
-local same = function(index)
-    return f(
-        function(args)
-            return args[1]
-        end,
-        {index}
-    )
-end
+-- local same = function(index)
+--     return f(
+--         function(args)
+--             return args[1]
+--         end,
+--         {index}
+--     )
+-- end
 local types = require("luasnip.util.types")
 -- Every unspecified option will be set to the default.
 luasnip.config.set_config(
@@ -37,19 +37,18 @@ luasnip.config.set_config(
     }
 )
 luasnip.snippets = {
-    
-    lua = {
-        snippet(
-            "use",
-            {
-                f(
-                    function()
-                        return string.format([[use "%s"]], vim.fn.getreg("+"))
-                    end
-                )
-            }
-        )
-    },
+    -- lua = {
+    --     snippet(
+    --         "use",
+    --         {
+    --             f(
+    --                 function()
+    --                     return string.format([[use "%s"]], vim.fn.getreg("+"))
+    --                 end
+    --             )
+    --         }
+    --     )
+    -- },
     javascriptreact = {
         snippet(
             "cmp",
@@ -73,9 +72,28 @@ def {}({}):
         snippet("func", fmt([[{} {}({}) {{
     {};
 }}]], {i(1, {"int"}), i(2), i(3, {"int n"}), i(4)}))
+    },
+    javascript = {
+        snippet("log", fmt([[console.log({});]], {i(1)}))
     }
 }
 
 -- add snippet library
 --
 require("luasnip.loaders.from_vscode").load()
+luasnip.filetype_extend("dart", {"flutter"})
+luasnip.snippets.lua = {
+    lua = {
+        snippet(
+            "use",
+            {
+                f(
+                    function()
+                        print "sdf"
+                        return 23
+                    end
+                )
+            }
+        )
+    }
+}

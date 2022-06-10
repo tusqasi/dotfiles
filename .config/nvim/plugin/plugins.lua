@@ -4,7 +4,7 @@ return require("packer").startup(
         use "wbthomason/packer.nvim"
 
         -- Bling
-        use "gruvbox-community/gruvbox"
+        -- use "gruvbox-community/gruvbox"
         use "dracula/vim"
         use "kyazdani42/nvim-web-devicons"
         use {
@@ -34,12 +34,12 @@ return require("packer").startup(
         }
 
         -- utils
-        use "vifm/vifm.vim"
+        -- use "vifm/vifm.vim"
         use "dag/vim-fish"
         use "mattn/emmet-vim"
         use "christoomey/vim-tmux-navigator"
         use "tpope/vim-surround"
-        use "rhysd/committia.vim"
+        -- use "rhysd/committia.vim"
         use "JoosepAlviste/nvim-ts-context-commentstring"
         use {
             "numToStr/Comment.nvim",
@@ -47,19 +47,21 @@ return require("packer").startup(
                 require("Comment").setup()
             end
         }
-        use "easymotion/vim-easymotion"
+        -- use "easymotion/vim-easymotion"
         use "wellle/targets.vim"
         use "tpope/vim-repeat"
         use "sbdchd/neoformat"
         use "L3MON4D3/LuaSnip"
-        use "github/copilot.vim"
+        -- use "github/copilot.vim"
         use {"nvim-telescope/telescope-file-browser.nvim"}
         use "folke/lua-dev.nvim"
-        use "junegunn/vim-easy-align"
-        use {"chrisbra/NrrwRgn"}
+        -- use "junegunn/vim-easy-align"
+        -- use {"chrisbra/NrrwRgn"}
         use "rafamadriz/friendly-snippets"
         use "junegunn/goyo.vim"
         use "f3fora/cmp-spell"
+        use "andymass/vim-matchup"
+        use "dstein64/vim-startuptime"
 
         -- Lsp/treesitternvim.5+
         -- cmp
@@ -71,14 +73,14 @@ return require("packer").startup(
         use "hrsh7th/cmp-cmdline"
 
         -- lsp
-        use "mfussenegger/nvim-jdtls"
+        -- use "mfussenegger/nvim-jdtls"
         use "neovim/nvim-lspconfig"
         use "williamboman/nvim-lsp-installer"
 
         -- treesitter
         use "nvim-treesitter/nvim-treesitter"
         use "nvim-treesitter/nvim-treesitter-textobjects"
-        use "nvim-treesitter/playground"
+        -- use "nvim-treesitter/playground"
 
         -- telescope
         use {
@@ -86,9 +88,12 @@ return require("packer").startup(
             requires = {{"nvim-lua/plenary.nvim"}}
         }
         -- Dart/Flutter
-        -- use "dart-lang/dart-vim-plugin"
-        -- use "thosakwe/vim-flutter"
-        -- use "natebosch/vim-lsc"
-        -- use "natebosch/vim-lsc-dart"
+        use "dart-lang/dart-vim-plugin"
+        use "thosakwe/vim-flutter"
+        use "natebosch/vim-lsc"
+        use "natebosch/vim-lsc-dart"
+
+        -- Coconut oiled
+        use "ThePrimeagen/refactoring.nvim"
     end
 )

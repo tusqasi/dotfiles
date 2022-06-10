@@ -48,7 +48,7 @@ map("n", "<Leader>h", ":Telescope help_tags<CR>", options)
 
 
 -- Show references
-map("n", "<Leader><Leader>", ":Telescope lsp_references<CR>", options)
+map("n", "<Leader><Leader>r", ":Telescope lsp_references<CR>", options)
 
 -- Yank whole file
 map("n", "<Leader>c", ':norm ggVG"+y<CR>', options)

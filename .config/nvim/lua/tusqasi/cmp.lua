@@ -24,11 +24,7 @@ cmp.setup {
         ["<C-Space>"] = cmp.mapping.complete(),
         ["<C-e>"] = cmp.mapping(
             function(fallback)
-                if luasnip.expand_or_jumpable() then
-                    luasnip.expand_or_jump()
-                else
-                    fallback()
-                end
+                luasnip.expand_or_jump()
             end,
             {"i", "s"}
         ),
@@ -45,13 +41,16 @@ cmp.setup {
     }
 }
 
-cmp.setup.filetype({ 'markdown', 'help' }, {
-    sources = {
-      { name = 'path' },
-      { name = 'buffer' },
-      { name = 'spell' },
+cmp.setup.filetype(
+    {"markdown", "help"},
+    {
+        sources = {
+            {name = "path"},
+            {name = "buffer"},
+            {name = "spell"}
+        }
     }
-  })
+)
 
 -- require "cmp".setup.cmdline(
 --     ":",

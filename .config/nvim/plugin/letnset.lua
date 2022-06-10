@@ -28,7 +28,7 @@ vim.opt.mouse = "a"
 vim.g.netrw_banner = false
 
 -- don't show the mode
-vim.opt.showmode= false
+vim.opt.showmode = false
 
 -- Don't break words
 vim.opt.linebreak = true

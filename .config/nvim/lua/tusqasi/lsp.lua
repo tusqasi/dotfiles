@@ -3,6 +3,7 @@ local nvim_lsp = require("lspconfig")
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
+
 local on_attach = function(client, bufnr)
     -- wrapper functions
     local function buf_set_keymap(...)
@@ -21,8 +22,7 @@ local on_attach = function(client, bufnr)
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
-    buf_set_keymap("n", "<space>K", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-    buf_set_keymap("n", "<space>K", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+    buf_set_keymap("n", "<space>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
     buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
     buf_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
     buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
@@ -37,6 +37,7 @@ end
 -- used for cmp completions
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- lsp configs below
 -- [[ info on lsp stuff
 -- keep on_attach and capabilities in all setup functions
@@ -47,7 +48,8 @@ capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 local system_name = "Linux"
 local sumneko_root_path = "/home/tusqasi/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/"
-local sumneko_binary = sumneko_root_path .. "/bin/" .. system_name .. "/lua-language-server"
+local sumneko_binary =
+    "/home/tusqasi/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server"
 
 local luadev =
     require("lua-dev").setup(
@@ -72,6 +74,11 @@ local luadev =
     }
 )
 nvim_lsp.sumneko_lua.setup(luadev)
+nvim_lsp.cssls.setup {
+    capabilities = capabilities,
+    on_attach = on_attach,
+    filetypes = {"css", "scss", "less", "html"}
+}
 
 -- nvim_lsp.sumneko_lua.setup {
 --     cmd = {sumneko_binary, "-E", sumneko_root_path .. "/main.lua"},
@@ -136,12 +143,24 @@ nvim_lsp.clangd.setup {
     on_attach = on_attach
 }
 
+-- rust
+nvim_lsp.rust_analyzer.setup {
+    capabilities = capabilities,
+    on_attach = on_attach
+}
+
 -- vimls
 -- require "lspconfig".vimls.setup {
 --   capabilities = capabilities,
 --   on_attach = on_attach
 -- }
--- require "lspconfig".tsserver.setup {
---   capabilities = capabilities,
---   on_attach = on_attach
--- }
+nvim_lsp.tsserver.setup {
+    capabilities = capabilities,
+    on_attach = on_attach
+}
+
+nvim_lsp.gopls.setup {
+    cmd = {"/home/tusqasi/.local/share/nvim/lsp_servers/go/gopls"},
+    capabilities = capabilities,
+    on_attach = on_attach
+}
