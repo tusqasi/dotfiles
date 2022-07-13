@@ -1,5 +1,9 @@
 -- enable lsp plugin
 local nvim_lsp = require("lspconfig")
+require("nvim-lsp-installer").setup {
+    ensure_installed = {"dartls", "jedi-language-server", "sumneko_lua", "tsserver"},
+    automatic_installation = true
+}
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -9,6 +13,7 @@ local on_attach = function(client, bufnr)
     local function buf_set_keymap(...)
         vim.api.nvim_buf_set_keymap(bufnr, ...)
     end
+
     -- local function buf_set_option(...)
     --     vim.api.nvim_buf_set_option(bufnr, ...)
     -- end
@@ -18,20 +23,21 @@ local on_attach = function(client, bufnr)
 
     -- Mappings.
     local opts = {noremap = true, silent = true}
-
+    print(vim.g.mapleader)
     -- See `:help vim.lsp.*` for documentation on any of the below functions
     buf_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
     buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
     buf_set_keymap("n", "<space>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+    buf_set_keymap("n", "<space><space>k", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
     buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
     buf_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
     buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-    buf_set_keymap("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
+    -- buf_set_keymap("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
     buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
     buf_set_keymap("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
     buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
     buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-    buf_set_keymap("n", "<space><CR>", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+    -- buf_set_keymap("n", "<space><CR>", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", opts)
 end
 
 -- used for cmp completions
@@ -46,7 +52,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- ]]
 -- lua
 
-local system_name = "Linux"
+-- local system_name = "Linux"
 local sumneko_root_path = "/home/tusqasi/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/"
 local sumneko_binary =
     "/home/tusqasi/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server"
@@ -99,14 +105,22 @@ nvim_lsp.cssls.setup {
 -- }
 
 -- dart
-nvim_lsp.dartls.setup {
-    init_options = {formatting = true},
-    capabilities = capabilities,
-    on_attach = on_attach
+-- nvim_lsp.dartls.setup {
+--     init_options = {
+--         formatting = true,
+-- enableSdkFormatter=true,},
+--     capabilities = capabilities,
+--     on_attach = on_attach
+-- }
+require("flutter-tools").setup {
+    lsp = {
+        capabilities = capabilities,
+        on_attach = on_attach
+    }
 }
-nvim_lsp.kotlin_language_server.setup {
-    cmd = {vim.fn.expand("~") .. "/" .. ".local/share/nvim/lsp_servers/kotlin/server/bin/kotlin-language-server"}
-}
+-- nvim_lsp.kotlin_language_server.setup {
+--     cmd = {vim.fn.expand("~") .. "/" .. ".local/share/nvim/lsp_servers/kotlin/server/bin/kotlin-language-server"}
+-- }
 
 -- java
 --[[ require "lspconfig".java_language_server.setup {
@@ -144,10 +158,10 @@ nvim_lsp.clangd.setup {
 }
 
 -- rust
-nvim_lsp.rust_analyzer.setup {
-    capabilities = capabilities,
-    on_attach = on_attach
-}
+-- nvim_lsp.rust_analyzer.setup {
+--     capabilities = capabilities,
+--     on_attach = on_attach
+-- }
 
 -- vimls
 -- require "lspconfig".vimls.setup {
@@ -159,8 +173,8 @@ nvim_lsp.tsserver.setup {
     on_attach = on_attach
 }
 
-nvim_lsp.gopls.setup {
-    cmd = {"/home/tusqasi/.local/share/nvim/lsp_servers/go/gopls"},
-    capabilities = capabilities,
-    on_attach = on_attach
-}
+-- nvim_lsp.gopls.setup {
+--     cmd = {"/home/tusqasi/.local/share/nvim/lsp_servers/go/gopls"},
+--     capabilities = capabilities,
+--     on_attach = on_attach
+-- }
