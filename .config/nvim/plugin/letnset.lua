@@ -1,26 +1,5 @@
-vim.g.user_emmet_install_global = 0
-local M = {}
 
-local cmd = vim.cmd
 
-function M.create_augroup(autocmds, name)
-    cmd("augroup " .. name)
-    cmd("autocmd!")
-    for _, autocmd in ipairs(autocmds) do
-        cmd("autocmd " .. table.concat(autocmd, " "))
-    end
-    cmd("augroup END")
-end
-M.create_augroup(
-    {
-        {
-            "BufEnter",
-            "*.html,*.css,*.js",
-            ":EmmetInstall"
-        }
-    },
-    "emmet"
-)
 
 vim.opt.mouse = "a"
 
@@ -38,8 +17,12 @@ vim.opt.foldlevel = 99
 -- Numberline settings
 -- Hybrid numbers
 vim.opt.number = true
-
 vim.opt.relativenumber = true
+
+-- just cause
+vim.opt.laststatus = 2
+
+vim.opt.signcolumn = 'yes:2'
 -- Encoding
 vim.opt.encoding = "utf-8"
 -- Tab to 4
@@ -48,6 +31,8 @@ vim.opt.shiftwidth = 4
 
 vim.api.nvim_command("filetype off")
 
+vim.opt.list = true
+-- vim.opt.fill = true
 vim.opt.fillchars = {
     vert = "▕", -- alternatives │
     fold = " ",
@@ -58,27 +43,36 @@ vim.opt.fillchars = {
     foldsep = "│",
     foldclose = "▸"
 }
-
 vim.opt.listchars = {
-    eol = nil,
-    tab = "│ ",
-    extends = "»",
-    precedes = "«",
-    trail = "•"
+    eol = "↲",
+    tab = "» ",
+    trail = "·",
+    extends = "<",
+    precedes = ">",
+    conceal = "┊",
+    nbsp = "␣"
 }
+
+-- vim.opt.listchars = {
+--     eol = nil,
+--     tab = "│ ",
+--     extends = "»",
+--     precedes = "«",
+--     trail = "•"
+-- }
 -- don't close exited buffer
 vim.opt.hidden = true
+
 -- Backups and swap and such
+vim.opt.swapfile = false
 
-vim.opt.swapfile = true
-vim.opt.undofile = true
 -- Persistent Undo
+vim.opt.undofile = true
 vim.opt.undodir = vim.env.HOME .. "/.local/share/nvim/undodir/"
-
 -- Make those folders automatically if they don't already exist.
--- if vim.fn.isdirectory(vim.o.undodir) == 0 then
-vim.fn.mkdir(vim.o.undodir, "p")
--- end
+if vim.fn.isdirectory(vim.o.undodir) == 0 then
+    vim.fn.mkdir(vim.o.undodir, "p")
+end
 
 vim.api.nvim_command("syntax on")
 
@@ -89,7 +83,6 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.inccommand = "nosplit"
 vim.opt.updatetime = 10
--- vim.opt.wildignore = vim.opt.wildignore .. "*/tmp/*,*.so,*.swp,*.zip,*.gz*"
 vim.opt.wildignore = {
     "*.aux",
     "*.avi",
@@ -122,4 +115,4 @@ vim.opt.wildignore = {
 }
 
 -- better use bash instead of fish
--- vim.opt.shell = "/usr/bin/bash"
+vim.opt.shell = "/usr/bin/zsh"
