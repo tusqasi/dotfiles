@@ -1,4 +1,18 @@
-local telescope = require("telescope")
-
-telescope.setup()
-require("telescope").load_extension "file_browser"
+local telescope = require("telescope").setup(
+	{
+		pickers = {
+			current_buffer_fuzzy_find = {
+				theme = "ivy"
+			},
+			live_grep = {
+				theme = "ivy"
+			},
+			find_files = {
+				theme = "ivy"
+			},
+			registers = {
+				theme = "ivy"
+			}
+		}
+	}
+)
