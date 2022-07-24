@@ -4,9 +4,9 @@
 --
 
 -- map the leader key
-local options = { noremap = true }
+local options = {noremap = true}
 vim.g.mapleader = " "
-vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
+vim.keymap.set("n", "<Space>", "<Nop>", {noremap = true, silent = true})
 
 vim.keymap.set("n", ";", ":", options)
 vim.keymap.set("n", ":", ";", options)
@@ -21,7 +21,7 @@ vim.keymap.set("n", "<Leader>/", "<CMD>lua require('telescope.builtin').current_
 vim.keymap.set("n", "<Leader>R", "<CMD>lua require('functions').registers()<CR>", options)
 
 -- fd
-vim.keymap.set("n", "<Leader>ff", "<CMD>lua require('telescope.builtin').fd()<CR>", options)
+vim.keymap.set("n", "<Leader>ff", "<CMD>lua require('telescope.builtin').git_files()<CR>", options)
 
 -- File broswer
 vim.keymap.set("n", "<Leader>fb", "<CMD>lua require('telescope').extensions.file_browser.file_browser()<CR>", options)
@@ -54,7 +54,7 @@ vim.keymap.set("n", "<Leader>c", ':norm ggVG"+y<CR>', options)
 -- vim.keymap.set("n", "<F2>", ";Vifm<CR>", options)
 
 -- <Leader> l to save
-vim.keymap.set("n", "<Leader>l", ":update<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "<Leader>l", ":update<CR>", {silent = true, noremap = true})
 
 -- Goyo distraction free
 -- vim.keymap.set("n", "<F3>", ":Goyo<CR>", options)
@@ -65,8 +65,6 @@ vim.keymap.set("n", "<F6>", "<CMD>setlocal spell! spelllang=en<CR>", options)
 -- Disable Help for F1
 vim.keymap.set("n", "<F1>", "<NOP>", options)
 
--- vim.keymap.set("n", "<Leader>o", "<CMD>AerialToggle<CR>", options)
-
 vim.keymap.set("n", "<leader><leader>ss", "<CMD> lua require('tusqasi.snippets')<CR>", options)
 vim.keymap.set("n", "<leader><leader>sk", "<CMD>luafile ~/.config/nvim/plugin/keymaps.lua<CR>", options)
 vim.keymap.set("n", "<leader><leader>x", "<CMD>source %<CR>", options)
@@ -74,5 +72,6 @@ vim.keymap.set("n", "<leader><leader>i", "<CMD>lua require('functions').packer_s
 
 vim.keymap.set("n", "<C-/>", "<Nop>", options)
 
-
-vim.keymap.set("n", "<leader>gf", "<CMD>e <cfile><CR>", options)
+-- vim.keymap.set("n", "<leader>gf", "<CMD>e <cfile><CR>", options)
+vim.keymap.set("n", "<leader>d", "<CMD>ToggleDiag<CR>", options)
+vim.keymap.set("n", "<leader>gg", "<CMD>Neogit<CR>>", options)
