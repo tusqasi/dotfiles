@@ -4,12 +4,12 @@
 --
 
 -- map the leader key
-local options = {noremap = true}
+local options = { noremap = true }
 vim.g.mapleader = " "
-vim.keymap.set("n", "<Space>", "<Nop>", {noremap = true, silent = true})
+vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
 
-vim.keymap.set("n", ";", ":", options)
-vim.keymap.set("n", ":", ";", options)
+-- vim.keymap.set("n", ";", ":", options)
+-- vim.keymap.set("n", ":", ";", options)
 
 -- search for open buffers
 vim.keymap.set("n", "<Leader>b", "<CMD>lua require('telescope.builtin').buffers()<CR>", options)
@@ -54,7 +54,7 @@ vim.keymap.set("n", "<Leader>c", ':norm ggVG"+y<CR>', options)
 -- vim.keymap.set("n", "<F2>", ";Vifm<CR>", options)
 
 -- <Leader> l to save
-vim.keymap.set("n", "<Leader>l", ":update<CR>", {silent = true, noremap = true})
+-- vim.keymap.set("n", "<Leader>l", ":update<CR>", { silent = true, noremap = true })
 
 -- Goyo distraction free
 -- vim.keymap.set("n", "<F3>", ":Goyo<CR>", options)
@@ -72,6 +72,9 @@ vim.keymap.set("n", "<leader><leader>i", "<CMD>lua require('functions').packer_s
 
 vim.keymap.set("n", "<C-/>", "<Nop>", options)
 
--- vim.keymap.set("n", "<leader>gf", "<CMD>e <cfile><CR>", options)
 vim.keymap.set("n", "<leader>d", "<CMD>ToggleDiag<CR>", options)
 vim.keymap.set("n", "<leader>gg", "<CMD>Neogit<CR>>", options)
+
+-- quickfix list keys
+vim.keymap.set("n", "<leader>j", "<CMD>cnext<CR>>", options)
+vim.keymap.set("n", "<leader>k", "<CMD>cprev<CR>>", options)
