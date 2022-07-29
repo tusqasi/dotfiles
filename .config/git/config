@@ -4,8 +4,5 @@
 
 [core]
     editor = env nvim
-[gui]
-	fontui = -family \"Noto Mono\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
-	fontdiff = -family \"VictorMono Nerd Font Mono\" -size 12 -weight normal -slant roman -underline 0 -overstrike 0
 [safe]
 	directory = /opt/flutter
