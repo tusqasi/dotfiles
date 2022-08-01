@@ -4,7 +4,7 @@ vim.g.nvim_dir = vim.fn.expand("~") .. "/.config/nvim"
 
 Ok, Treesitter = pcall(require, "nvim-treesitter.configs")
 if Ok then
-    Treesitter.setup({highlight = {enable = true}})
+	Treesitter.setup({ highlight = { enable = true } })
 end
 -- Ok, Colorizer = pcall(require, "colorizer")
 -- if Ok then
@@ -12,15 +12,15 @@ end
 --     Colorizer.setup({})
 -- end
 require("impatient")
-require "tusqasi.cmp"
-require "tusqasi.comments"
+require("tusqasi.cmp")
+require("tusqasi.comments")
 -- require "tusqasi.disable_builtin"
-require "tusqasi.formatting"
+require("tusqasi.formatting")
 -- require "tusqasi.globals"
 -- require "tusqasi.goyo"
-require "tusqasi.lsp"
-require "tusqasi.luasnip"
-require "tusqasi.snippets"
+require("tusqasi.lsp")
+require("tusqasi.luasnip")
+require("tusqasi.snippets")
 -- require "tusqasi.statusline"
-require "tusqasi.telescope"
-require "tusqasi.text-obj"
+require("tusqasi.telescope")
+require("tusqasi.text-obj")
