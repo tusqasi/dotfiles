@@ -11,9 +11,11 @@ end
 --     vim.opt.termguicolors = true
 --     Colorizer.setup({})
 -- end
-require("impatient")
+
+-- require("impatient")
 require("tusqasi.cmp")
 require("tusqasi.comments")
+require("tusqasi.emmet")
 -- require "tusqasi.disable_builtin"
 require("tusqasi.formatting")
 -- require "tusqasi.globals"
