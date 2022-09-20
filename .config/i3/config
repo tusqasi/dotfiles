@@ -6,33 +6,36 @@
 set_from_resource $mod  i3-wm.mod Mod4
 set_from_resource $alt  i3-wm.alt Mod1
 
+# set font
+font pango: Terminus 17px
+set $browser brave
+set $terminal alacritty
+set $shell zsh
+set $monitor ksysgaurd
+set $filemanager dolphin
+
 ###############################################################################
 # Workspace Names
 # These are the labels which define each i3 workspace.
 ###############################################################################
-# set $ws1 "1:"
-# set $ws2 "2:"
-# set $ws3 "3:"
-# set $ws4 "4:"
-# set $ws5 "5:"
-set_from_resource $ws1  i3-wm.workspace.01.name DEV
-set_from_resource $ws2  i3-wm.workspace.02.name WWW
-set_from_resource $ws3  i3-wm.workspace.03.name SYS
-set_from_resource $ws4  i3-wm.workspace.04.name DOC
-set_from_resource $ws5  i3-wm.workspace.05.name GAM
+set_from_resource $ws1  i3-wm.workspace.01.name 1
+set_from_resource $ws2  i3-wm.workspace.02.name 2
+set_from_resource $ws3  i3-wm.workspace.03.name 3
+set_from_resource $ws4  i3-wm.workspace.04.name 4
+set_from_resource $ws5  i3-wm.workspace.05.name 5
 
 ###############################################################################
 # Launcher dialogs
 ###############################################################################
 
 ## Launch // Terminal // <> Enter ##
-bindsym $mod+Return exec alacritty -e bash -c fish
+bindsym $mod+Return exec $terminal -e $shell
 
 ## Launch // Terminal // <> Enter ##
 bindsym $mod+$alt+o exec /home/tusqasi/scripts/ocr
 
 ## Launch // Browser // <><Ctrl> o ##
-bindsym $mod+o exec firefox
+bindsym $mod+o exec $browser
 ## Launch // scrcpt // <><Ctrl> o ##
 bindsym $mod+s exec scrcpy
 
@@ -77,10 +80,10 @@ bindsym $mod+$alt+4 move container to workspace $ws4; workspace $ws4
 bindsym $mod+$alt+5 move container to workspace $ws5; workspace $ws5
 
 ## Navigate // Next Workspace // <><Alt> → ##
-bindsym $mod+Ctrl+l workspace next
+# bindsym $mod+Ctrl+l workspace next
 
 ## Navigate // Previous Workspace // <><Alt> ← ##
-bindsym $mod+Ctrl+h workspace prev
+# bindsym $mod+Ctrl+h workspace prev
 
 ## Navigate // Scratchpad // <><Ctrl> a ##
 bindsym $mod+Ctrl+i scratchpad show
@@ -107,13 +110,13 @@ bindsym XF86MonBrightnessDown exec xbacklight -steps 1 -dec 15 # decrease screen
 
 # Screen shot 
 bindsym Print exec flameshot gui
+bindsym Shift+Print exec gcolor3
 ###############################################################################
 # Window and Workspace Configuration
 ###############################################################################
 
 ## Modify // Window Position // <><Shift> k j h l ##
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
+bindsym $mod+Shift+h move left bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
@@ -130,7 +133,7 @@ bindsym $mod+BackSpace split toggle
 bindsym $mod+f fullscreen toggle
 
 ## Modify // Window Floating Toggle // <><Shift> f ##
-bindsym $mod+Shift+f floating toggle
+bindsym $mod+Ctrl+f floating toggle
 
 ## Modify // Move to Scratchpad // <><Ctrl> s ##
 bindsym $mod+Ctrl+a move to scratchpad
@@ -144,7 +147,7 @@ floating_modifier $mod
 
 hide_edge_borders smart
 
-# focus_follows_mouse no
+focus_follows_mouse no
 
 ###############################################################################
 # Session Management
@@ -159,15 +162,17 @@ bindsym $mod+w [con_id="__focused__"] kill
 bindsym $mod+$alt+q [con_id="__focused__"] exec --no-startup-id kill -9 $(xdotool getwindowfocus getwindowpid)
 
 ## Session // Reload i3 Config // <><Shift> c ##
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r reload
 
 ## Session // Refresh Session // <><Shift> r ##
-set_from_resource $i3-wm.program.refresh_ui i3-wm.program.refresh_ui /usr/bin/i3 refresh
-bindsym $mod+Shift+r exec --no-startup-id $i3-wm.program.refresh_ui
+# set_from_resource $i3-wm.program.refresh_ui i3-wm.program.refresh_ui /usr/bin/i3 refresh
+# bindsym $mod+Shift+r exec --no-startup-id $i3-wm.program.refresh_ui
 
 ## Session // Restart i3 // <><Ctrl> r ##
 bindsym $mod+Ctrl+r restart
 
+## Session // Quit i3 // <><Ctrl> r ##
+bindsym $mod+Ctrl+e exit
 ## Bar Toogle // < > b ##
 # bindsym $mod+b exec polybar-msg cmd toggle
 
@@ -179,10 +184,10 @@ bindsym $mod+Ctrl+r restart
 #bindsym $mod+i exec gnome-control-center 
 
 ## Launch // File Browser // <> e ##
-bindsym $mod+e exec nautilus
+bindsym $mod+e exec $filemanager
 
 ## Launch // Task Manager // <Ctrl><Shift><ESC> ##
-bindsym Ctrl+Shift+Escape exec gnome-system-monitor
+bindsym Ctrl+Shift+Escape exec $monitor
 ###############################################################################
 # Workspace Management
 ###############################################################################
@@ -240,11 +245,9 @@ set_from_resource $i3-wm.gaps.popup_during_fullscreen i3-wm.gaps.popup_during_fu
 popup_during_fullscreen $i3-wm.gaps.popup_during_fullscreen
 
 # window focus follows your mouse movements as the mouse crosses window borders
-set_from_resource $i3-wm.gaps.focus_follows_mouse i3-wm.gaps.focus_follows_mouse no
+set_from_resource $i3-wm
 focus_follows_mouse $i3-wm.gaps.focus_follows_mouse
 
-# set font
-font pango: FantasqueSansMono  13px
 
 # colors
 # class                 border  backgr. text    indicator child_border
@@ -255,7 +258,7 @@ client.urgent           #2f343a #ff5555 #444444 #900000   #900000
 bar {
     status_command i3status
     position top
-    font pango: TerminessTTF NF 17px
+    font pango: Terminus 10px
 }
 
 ###############################################################################
@@ -264,3 +267,23 @@ bar {
 
 exec --no-startup-id exec ~/scripts/startup
 
+# Plasma compatibility improvements
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [class="yakuake"] floating enable
+for_window [class="systemsettings"] floating enable
+for_window [class="plasmashell"] floating enable;
+for_window [class="Plasma"] floating enable; border none
+for_window [title="plasma-desktop"] floating enable; border none
+for_window [title="win7"] floating enable; border none
+for_window [class="krunner"] floating enable; border none
+for_window [class="Kmix"] floating enable; border none
+for_window [class="Klipper"] floating enable; border none
+for_window [class="Plasmoidviewer"] floating enable; border none
+for_window [class="(?i)*nextcloud*"] floating disable
+for_window [class="plasmashell" window_type="notification"] border none, move right 700px, move down 450px
+for_window [class="gcolor3" ] flllo enable
+no_focus [class="plasmashell" window_type="notification"]
+
+for_window [title="Desktop — Plasma"] kill; floating enable; border none
+exec --no-startup-id /usr/lib/pam_kwallet_init
