@@ -5,7 +5,9 @@
 
 -- map the leader key
 local options = { noremap = true }
+
 vim.g.mapleader = " "
+
 vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
 
 -- vim.keymap.set("n", ";", ":", options)
@@ -40,7 +42,6 @@ vim.keymap.set("n", "<Leader>h", "<CMD>lua require('telescope.builtin'). help_ta
 
 -- Show references
 vim.keymap.set("n", "<Leader><Leader>r", "<CMD>lua require('telescope.builtin'). lsp_references()<CR>", options)
-
 -- Edit configs
 -- nvim file search
 vim.keymap.set("n", "<Leader>ne", "<CMD>lua require('functions').find_nvim_configs()<CR>", options)
@@ -48,7 +49,8 @@ vim.keymap.set("n", "<Leader>ne", "<CMD>lua require('functions').find_nvim_confi
 vim.keymap.set("n", "<Leader>nE", "<CMD>lua require('functions').find_in_nvim_configs()<CR>", options)
 -- all others file search
 vim.keymap.set("n", "<Leader>nr", "<CMD>lua require('functions').all_configs()<CR>", options)
-
+-- choose colorscheme
+vim.keymap.set("n", "<Leader>C", "<CMD>lua require('telescope.builtin').colorscheme()<CR>", options)
 -- Yank whole file
 vim.keymap.set("n", "<Leader>c", ':norm ggVG"+y<CR>', options)
 -- vim.keymap.set("n", "<F2>", ";Vifm<CR>", options)
@@ -73,8 +75,15 @@ vim.keymap.set("n", "<leader><leader>i", "<CMD>lua require('functions').packer_s
 vim.keymap.set("n", "<C-/>", "<Nop>", options)
 
 vim.keymap.set("n", "<leader>d", "<CMD>ToggleDiag<CR>", options)
-vim.keymap.set("n", "<leader>gg", "<CMD>Neogit<CR>>", options)
+-- vim.keymap.set("n", "<leader>gg", "<CMD>Neogit<CR>>", options)
 
 -- quickfix list keys
 vim.keymap.set("n", "<leader>j", "<CMD>cnext<CR>>", options)
 vim.keymap.set("n", "<leader>k", "<CMD>cprev<CR>>", options)
+
+--[[
+nnoremap <C-f> :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
+]]

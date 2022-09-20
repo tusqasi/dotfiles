@@ -1,8 +1,11 @@
 -- enable lsp plugin
 require("nvim-lsp-installer").setup({
-	ensure_installed = { "dartls", "pyls", "sumneko_lua", "tsserver" },
-	automatic_installation = true,
+	-- ensure_installed = { "pyls", "sumneko_lua", "tsserver", "clangd" },
+	-- automatic_installation = true,
 })
+-- require("mason-lspconfig").setup({
+-- 	-- ensure_installed = { "pyls", "sumneko_lua", "tsserver", "clangd" },
+-- })
 local nvim_lsp = require("lspconfig")
 
 -- Use an on_attach function to only map the following keys
@@ -38,14 +41,14 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	buf_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-	buf_set_keymap("n", "<space>k", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+	buf_set_keymap("n", "<space>K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	buf_set_keymap("n", "<space><space>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
 	buf_set_keymap("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 	buf_set_keymap("n", "<space>E", "<cmd>lua require('telescope.builtin').diagnostics()<CR>", opts)
-	buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-	buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
+	buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev({severity = vim.diagnostic.severity.ERROR})<CR>", opts)
+	buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next({severity = vim.diagnostic.severity.ERROR})<CR>", opts)
 	-- buf_set_keymap("n", "<space><CR>", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", opts)
 end
 
@@ -62,13 +65,13 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- lua
 
 -- local system_name = "Linux"
-local sumneko_root_path = "/home/tusqasi/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/"
-local sumneko_binary =
-	"/home/tusqasi/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server"
-
+-- local sumneko_root_path = "/home/tusqasi/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/"
+-- local sumneko_binary =
+-- 	"/home/tusqasi/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server"
+--
 local luadev = require("lua-dev").setup({
 	lspconfig = {
-		cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
+		-- cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
 		init_options = { formatting = true },
 		capabilities = capabilities,
 		on_attach = on_attach,
@@ -111,27 +114,27 @@ nvim_lsp.cssls.setup({
 -- }
 
 -- dart
-nvim_lsp.dartls.setup({
-	init_options = {
-		formatting = true,
-		enableSdkFormatter = true,
-	},
-	capabilities = capabilities,
-	on_attach = on_attach,
-})
-require("flutter-tools").setup({
-	lsp = {
-		capabilities = capabilities,
-		on_attach = on_attach,
-	},
-	init_options = {
-		formatting = true,
-		enableSdkFormatter = true,
-	},
-	widget_guides = {
-		enabled = true,
-	},
-})
+-- nvim_lsp.dartls.setup({
+-- 	init_options = {
+-- 		formatting = true,
+-- 		enableSdkFormatter = true,
+-- 	},
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- })
+-- require("flutter-tools").setup({
+-- 	lsp = {
+-- 		capabilities = capabilities,
+-- 		on_attach = on_attach,
+-- 	},
+-- 	init_options = {
+-- 		formatting = true,
+-- 		enableSdkFormatter = true,
+-- 	},
+-- 	widget_guides = {
+-- 		enabled = true,
+-- 	},
+-- })
 -- nvim_lsp.kotlin_language_server.setup {
 --     cmd = {vim.fn.expand("~") .. "/" .. ".local/share/nvim/lsp_servers/kotlin/server/bin/kotlin-language-server"}
 -- }
@@ -189,10 +192,11 @@ nvim_lsp.pylsp.setup({
 -- }
 
 -- clang
--- nvim_lsp.clangd.setup {
---     capabilities = capabilities,
---     on_attach = on_attach
--- }
+nvim_lsp.clangd.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	cmd = { "clangd", "-limit-results=0" }, --Arguments are added automatically from the nvim-lspconfig
+})
 
 -- rust
 -- nvim_lsp.rust_analyzer.setup {
@@ -205,13 +209,36 @@ nvim_lsp.pylsp.setup({
 --   capabilities = capabilities,
 --   on_attach = on_attach
 -- }
--- nvim_lsp.tsserver.setup {
---     capabilities = capabilities,
---     on_attach = on_attach
--- }
+nvim_lsp.tsserver.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 
 -- nvim_lsp.gopls.setup {
 --     cmd = {"/home/tusqasi/.local/share/nvim/lsp_servers/go/gopls"},
 --     capabilities = capabilities,
 --     on_attach = on_attach
 -- }
+
+nvim_lsp.elixirls.setup({
+	-- From https://www.mitchellhanberg.com/how-to-set-up-neovim-for-elixir-development/
+	capabilities = capabilities,
+	on_attach = on_attach,
+	settings = {
+
+		elixirLS = {
+			-- I choose to disable dialyzer for personal reasons, but
+			-- I would suggest you also disable it unless you are well
+			-- aquainted with dialzyer and know how to use it.
+			dialyzerEnabled = false,
+			-- I also choose to turn off the auto dep fetching feature.
+			-- It often get's into a weird state that requires deleting
+			-- the .elixir_ls directory and restarting your editor.
+			fetchDeps = false,
+		},
+	},
+})
+nvim_lsp.grammarly.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+})

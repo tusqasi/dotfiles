@@ -4,9 +4,10 @@ return require("packer").startup(function()
 	use("lewis6991/impatient.nvim")
 
 	-- Bling
-	-- use "gruvbox-community/gruvbox"
-	use("dracula/vim")
-	use("overcache/NeoSolarized")
+	-- use("gruvbox-community/gruvbox")
+	-- use("dracula/vim")
+	-- use("overcache/NeoSolarized")
+	use("RRethy/nvim-base16")
 	use("kyazdani42/nvim-web-devicons")
 	use({
 		"nvim-lualine/lualine.nvim",
@@ -22,28 +23,30 @@ return require("packer").startup(function()
 			require("gitsigns").setup()
 		end,
 	})
-	use({ "xiyaowong/nvim-transparent", config = [[vim.cmd("TransparentEnable")]], event = "VimEnter" })
+	-- use({ "xiyaowong/nvim-transparent", config = [[vim.cmd("TransparentEnable")]], event = "VimEnter" })
 	-- Bling end --
 
 	-- utils
 	-- use "vifm/vifm.vim"
 	-- use "dag/vim-fish"
-	-- use "mattn/emmet-vim"
-	use("tpope/vim-surround")
+	use("mattn/emmet-vim")
+	-- use("tpope/vim-surround")
 	use("tpope/vim-endwise")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
-			require("Comment").setup()
+			require("Comment").setup({
+				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+			})
 		end,
 	})
 	use("preservim/vimux")
 
 	-- movement
 	use("wellle/targets.vim")
-	use("tpope/vim-repeat")
-	use("andymass/vim-matchup")
+	-- use("tpope/vim-repeat")
+	use({ "andymass/vim-matchup", config = function() end })
 	use({
 		"christoomey/vim-tmux-navigator",
 		config = function()
@@ -54,9 +57,18 @@ return require("packer").startup(function()
 	use("sbdchd/neoformat")
 	-- use "github/copilot.vim"
 
+	-- use({
+	-- 	"glacambre/firenvim",
+	-- 	run = function()
+	-- 		vim.fn["firenvim#install"](0)
+	-- 	end,
+	-- })
+
 	-- snippets
 	use("L3MON4D3/LuaSnip")
 	use("rafamadriz/friendly-snippets")
+	use({ "benfowler/telescope-luasnip.nvim" })
+	-- end snippets
 	use({
 		"junegunn/goyo.vim",
 		ft = { "md" },
@@ -64,18 +76,16 @@ return require("packer").startup(function()
 		config = function()
 			vim.api.nvim_exec(
 				[[
-									function! s:goyo_enter()
-										set nolist
-									endfunction
+				function! s:goyo_enter()
+					set nolist
+				endfunction
 
-									function! s:goyo_leave()
-										set list
-
-									endfunction
-
-									autocmd! User GoyoEnter nested call <SID>goyo_enter()
-									autocmd! User GoyoLeave nested call <SID>goyo_leave()
-									]],
+				function! s:goyo_leave()
+					set list
+				endfunction
+				autocmd! User GoyoEnter nested call <SID>goyo_enter()
+				autocmd! User GoyoLeave nested call <SID>goyo_leave()
+				]],
 				true
 			)
 		end,
@@ -88,10 +98,21 @@ return require("packer").startup(function()
 	-- }
 
 	-- git stuff
-	use("TimUntersberger/neogit")
-	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
-	use("rhysd/committia.vim")
-
+	-- use("TimUntersberger/neogit")
+	-- use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+	-- use("rhysd/committia.vim")
+	-- use("tweekmonster/startuptime.vim")
+	-- use("dstein64/vim-startuptime")
+	-- use("mtth/scratch.vim")
+	use({
+		"kylechui/nvim-surround",
+		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end,
+	})
 	-- utils end --
 
 	-- completions
@@ -107,11 +128,19 @@ return require("packer").startup(function()
 	-- use "mfussenegger/nvim-jdtls"
 	use("neovim/nvim-lspconfig")
 	use("williamboman/nvim-lsp-installer")
+	-- use({
+	-- 	"williamboman/mason.nvim",
+	-- 	config = function()
+	-- 		require("mason").setup()
+	-- 	end,
+	-- })
+	-- use({ "williamboman/mason-lspconfig.nvim" })
+
 	use("WhoIsSethDaniel/toggle-lsp-diagnostics.nvim")
 	use("folke/lua-dev.nvim")
-	use({
-		"ray-x/lsp_signature.nvim",
-	})
+	-- use({
+	-- 	"ray-x/lsp_signature.nvim",
+	-- })
 
 	-- treesitter
 	--
@@ -150,23 +179,25 @@ return require("packer").startup(function()
 		end,
 		requires = { "tami5/sqlite.lua" },
 	})
+	-- use({ "nvim-telescope/telescope-symbols.nvim" })
+	-- end telescope thangs
 
 	-- Dart/Flutter
-	use("dart-lang/dart-vim-plugin")
-	use("thosakwe/vim-flutter")
-	use({
-		"akinsho/flutter-tools.nvim",
-		config = function()
-			require("telescope").load_extension("flutter")
-		end,
-	})
+	-- use("dart-lang/dart-vim-plugin")
+	-- use("thosakwe/vim-flutter")
+	-- use({
+	-- 	"akinsho/flutter-tools.nvim",
+	-- 	config = function()
+	-- 		require("telescope").load_extension("flutter")
+	-- 	end,
+	-- })
 
 	-- debugging
-	use("mfussenegger/nvim-dap")
+	-- use("mfussenegger/nvim-dap")
 	-- use "leoluz/nvim-dap-go"
-	use("rcarriga/nvim-dap-ui")
-	use("theHamsta/nvim-dap-virtual-text")
-	use("nvim-telescope/telescope-dap.nvim")
+	-- use("rcarriga/nvim-dap-ui")
+	-- use("theHamsta/nvim-dap-virtual-text")
+	-- use("nvim-telescope/telescope-dap.nvim")
 
 	-- Coconut oiled
 	use({
@@ -181,10 +212,10 @@ return require("packer").startup(function()
 	--         require("telescope").load_extension("refactoring")
 	--     end
 	-- }
-	use({
-		"ThePrimeagen/git-worktree.nvim",
-		config = function()
-			require("telescope").load_extension("git_worktree")
-		end,
-	})
+	-- use({
+	-- 	"ThePrimeagen/git-worktree.nvim",
+	-- 	config = function()
+	-- 		require("telescope").load_extension("git_worktree")
+	-- 	end,
+	-- })
 end)
