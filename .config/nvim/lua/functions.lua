@@ -61,5 +61,16 @@ M.filetype_icon = function()
 	local icon = require("nvim-web-devicons").get_icon(filename, fileext, { default = true })
 	return string.format("%s", icon)
 end
+M.find_config_sys = function()
+	local dirs = {
+		"~/.config/alacritty",
+		"~/.config/nvim",
+		"~/.config/tmux/",
+		"~/.config/zsh",
+		"~/.config/qtile",
+		"~/.config/i3",
+		"~/scripts",
+	}
+end
 
 return M
