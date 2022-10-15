@@ -8,7 +8,7 @@ set_from_resource $alt  i3-wm.alt Mod1
 
 # set font
 font pango: Terminus 17px
-set $browser brave
+set $browser brave --force-device-scale-factor=1.25 
 set $terminal alacritty
 set $shell zsh
 set $monitor ksysgaurd
@@ -43,10 +43,19 @@ bindsym $mod+s exec scrcpy
 bindsym $mod+p  exec ~/scripts/rofi_tmux.py
 
 ## Launch // rofi // <><Shift> Space ##
-bindsym $mod+space exec "rofi -show combi -combi-modi 'drun,run,window' -modi combi"
+bindsym $mod+space exec "rofi -show combi -combi-modi 'drun,run,window,workspace' -modi combi"
+
+## Launch // gitmoji // <><Shift> Space ##
+bindsym $mod+Ctrl+g exec "rofimoji --file ~/scripts/gitmoji.csv --action type copy"
 
 ## Emoji  // < + alt + e>##
-bindsym $mod+$alt+e exec rofimoji
+bindsym $mod+Ctrl+e exec rofimoji
+
+## API docs  // < + D>##
+bindsym $mod+d exec ~/scripts/rofi-zeal
+
+## Clipboard  // < + v>##
+bindsym $mod+v exec ~/scripts/rofi_clipboard.py
 
 ###############################################################################
 # Window and Workspace Navigation
@@ -116,7 +125,8 @@ bindsym Shift+Print exec gcolor3
 ###############################################################################
 
 ## Modify // Window Position // <><Shift> k j h l ##
-bindsym $mod+Shift+h move left bindsym $mod+Shift+j move down
+bindsym $mod+Shift+h move left 
+bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
@@ -172,7 +182,7 @@ bindsym $mod+Shift+r reload
 bindsym $mod+Ctrl+r restart
 
 ## Session // Quit i3 // <><Ctrl> r ##
-bindsym $mod+Ctrl+e exit
+bindsym $mod+Ctrl+Shift+e exit
 ## Bar Toogle // < > b ##
 # bindsym $mod+b exec polybar-msg cmd toggle
 
@@ -239,7 +249,6 @@ set_from_resource $i3-wm.floatingwindow.border.size i3-wm.floatingwindow.border.
 default_border pixel $i3-wm.window.border.size
 default_floating_border pixel $i3-wm.floatingwindow.border.size
 
-
 # Enable popup during fullscreen
 set_from_resource $i3-wm.gaps.popup_during_fullscreen i3-wm.gaps.popup_during_fullscreen smart
 popup_during_fullscreen $i3-wm.gaps.popup_during_fullscreen
@@ -248,27 +257,23 @@ popup_during_fullscreen $i3-wm.gaps.popup_during_fullscreen
 set_from_resource $i3-wm
 focus_follows_mouse $i3-wm.gaps.focus_follows_mouse
 
-
-# colors
-# class                 border  backgr. text    indicator child_border
-client.focused          #50fa7b #6272a4 #cccccc #2e9ef4   #285577
-client.unfocused        #333333 #282a36 #888888 #292d2e   #222222
-client.urgent           #2f343a #ff5555 #444444 #900000   #900000
-
 bar {
-    status_command i3status
-    position top
     font pango: Terminus 10px
+	position top
+
+	status_command bumblebee-status -m nic  \
+        cpu memory amixer battery brightness date time \
+        -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
+	brightness.step=15 \
+	-t gruvbox-powerline
 }
 
 ###############################################################################
 # External programs launched with i3
 ###############################################################################
 
-exec --no-startup-id exec ~/scripts/startup
-
 # Plasma compatibility improvements
-for_window [window_role="pop-up"] floating enable
+# for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
 for_window [class="yakuake"] floating enable
 for_window [class="systemsettings"] floating enable
@@ -287,3 +292,6 @@ no_focus [class="plasmashell" window_type="notification"]
 
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 exec --no-startup-id /usr/lib/pam_kwallet_init
+
+exec --no-startup-id ~/scripts/startup
+exec --no-startup-id lxpoltkit
