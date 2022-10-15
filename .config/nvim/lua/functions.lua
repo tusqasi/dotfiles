@@ -37,12 +37,15 @@ end
 M.all_configs = function()
 	local opts = {
 		search_dirs = {
-			"/home/tusqasi/script/",
-			"/home/tusqasi/.config/qtile",
+			"/home/tusqasi/scripts/",
+			"/home/tusqasi/.config/qtile/",
 			"/home/tusqasi/.config/nvim/",
 			"/home/tusqasi/.config/zsh/",
 			"/home/tusqasi/.config/i3/",
+			"/home/tusqasi/.zshrc",
 		},
+		hidden = true
+
 	}
 	require("telescope.builtin").find_files(opts)
 end
