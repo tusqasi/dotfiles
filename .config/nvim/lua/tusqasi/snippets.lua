@@ -134,6 +134,16 @@ luasnip.add_snippets("elixir", {
 			{ i(1, "mes"), i(2, "do") }
 		)
 	),
+	snippet(
+		"rd",
+		fmt(
+			[[Enum.reduce({}
+			{} , fn {} , {}->
+			{}
+			end)]],
+			{ i(1, "x"), i(2, ", [],"), i(3, "x"), i(4, "acc"), i(5, "stuff") }
+		)
+	),
 })
 luasnip.add_snippets("c", {
 	snippet(

@@ -20,7 +20,7 @@ vim.keymap.set("n", "<Leader>b", "<CMD>lua require('telescope.builtin').buffers(
 vim.keymap.set("n", "<Leader>/", "<CMD>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", options)
 
 -- registers
-vim.keymap.set("n", "<Leader>R", "<CMD>lua require('functions').registers()<CR>", options)
+vim.keymap.set("n", "<Leader>R", "<CMD>lua require('telescope.builtin').registers()<CR>", options)
 
 -- fd
 vim.keymap.set("n", "<Leader>ff", "<CMD>lua require('telescope.builtin').git_files()<CR>", options)
@@ -44,13 +44,15 @@ vim.keymap.set("n", "<Leader>h", "<CMD>lua require('telescope.builtin'). help_ta
 vim.keymap.set("n", "<Leader><Leader>r", "<CMD>lua require('telescope.builtin'). lsp_references()<CR>", options)
 -- Edit configs
 -- nvim file search
-vim.keymap.set("n", "<Leader>ne", "<CMD>lua require('functions').find_nvim_configs()<CR>", options)
+vim.keymap.set("n", "<Leader>nn", "<CMD>lua require('functions').find_nvim_configs()<CR>", options)
 -- nvim grep file
-vim.keymap.set("n", "<Leader>nE", "<CMD>lua require('functions').find_in_nvim_configs()<CR>", options)
--- all others file search
-vim.keymap.set("n", "<Leader>nr", "<CMD>lua require('functions').all_configs()<CR>", options)
--- choose colorscheme
+vim.keymap.set("n", "<Leader>ne", "<CMD>lua require('functions').find_in_nvim_configs()<CR>", options)
+-- choose colorschem
 vim.keymap.set("n", "<Leader>C", "<CMD>lua require('telescope.builtin').colorscheme()<CR>", options)
+-- document symbols
+vim.keymap.set("n", "<Leader>s", "<CMD>lua require('telescope.builtin').lsp_document_symbols()<CR>", options)
+-- edit all config
+vim.keymap.set("n", "<Leader>na", "<CMD>lua require('functions').all_configs()<CR>", options)
 -- Yank whole file
 vim.keymap.set("n", "<Leader>c", ':norm ggVG"+y<CR>', options)
 -- vim.keymap.set("n", "<F2>", ";Vifm<CR>", options)
@@ -81,9 +83,24 @@ vim.keymap.set("n", "<leader>d", "<CMD>ToggleDiag<CR>", options)
 vim.keymap.set("n", "<leader>j", "<CMD>cnext<CR>>", options)
 vim.keymap.set("n", "<leader>k", "<CMD>cprev<CR>>", options)
 
---[[
-nnoremap <C-f> :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-l> :call CocActionAsync('jumpDefinition')<CR>
-]]
+-- greatest remap ever
+vim.keymap.set("x", "<leader>p", '"_dP')
+
+-- next greatest remap ever : asbjornHaland
+vim.keymap.set("n", "<leader>y", '"+y', options)
+vim.keymap.set("v", "<leader>y", '"+y', options)
+vim.keymap.set("n", "<leader>Y", '"+Y', { noremap = false })
+
+vim.keymap.set("n", "<leader>u", "<CMD>UndotreeToggle<CR>", options)
+
+-- vim.keymap.set("n", "<leader>r", "<CMD>lua require'functions'.runner()<CR>", options)
+
+-- make custom formatting on and off
+vim.keymap.set("n", "<leader>f", function()
+	if vim.g.cus_formatting then
+		vim.g.cus_formatting = false
+	else
+		vim.g.cus_formatting = true
+	end
+	print(vim.g.cus_formatting)
+end)

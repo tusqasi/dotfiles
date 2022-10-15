@@ -4,16 +4,21 @@ return require("packer").startup(function()
 	use("lewis6991/impatient.nvim")
 
 	-- Bling
-	-- use("gruvbox-community/gruvbox")
-	-- use("dracula/vim")
-	-- use("overcache/NeoSolarized")
 	use("RRethy/nvim-base16")
+	use {
+	"catppuccin/nvim",
+	as = "catppuccin",
+	config = function()
+		vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
+		require("catppuccin").setup()
+		vim.api.nvim_command "colorscheme catppuccin"
+	end
+}
 	use("kyazdani42/nvim-web-devicons")
 	use({
 		"nvim-lualine/lualine.nvim",
 		requires = { "kyazdani42/nvim-web-devicons", opt = true },
 	})
-	-- use "norcalli/nvim-colorizer.lua"
 	use({
 		"lewis6991/gitsigns.nvim",
 		requires = {
@@ -23,14 +28,18 @@ return require("packer").startup(function()
 			require("gitsigns").setup()
 		end,
 	})
-	-- use({ "xiyaowong/nvim-transparent", config = [[vim.cmd("TransparentEnable")]], event = "VimEnter" })
+	use({
+		"rcarriga/nvim-notify",
+		config = function()
+			require("notify").setup({
+				background_colour = "#000000",
+			})
+		end,
+	})
 	-- Bling end --
 
 	-- utils
-	-- use "vifm/vifm.vim"
-	-- use "dag/vim-fish"
 	use("mattn/emmet-vim")
-	-- use("tpope/vim-surround")
 	use("tpope/vim-endwise")
 	use("JoosepAlviste/nvim-ts-context-commentstring")
 	use({
@@ -45,7 +54,6 @@ return require("packer").startup(function()
 
 	-- movement
 	use("wellle/targets.vim")
-	-- use("tpope/vim-repeat")
 	use({ "andymass/vim-matchup", config = function() end })
 	use({
 		"christoomey/vim-tmux-navigator",
@@ -55,19 +63,10 @@ return require("packer").startup(function()
 	})
 
 	use("sbdchd/neoformat")
-	-- use "github/copilot.vim"
-
-	-- use({
-	-- 	"glacambre/firenvim",
-	-- 	run = function()
-	-- 		vim.fn["firenvim#install"](0)
-	-- 	end,
-	-- })
 
 	-- snippets
 	use("L3MON4D3/LuaSnip")
 	use("rafamadriz/friendly-snippets")
-	use({ "benfowler/telescope-luasnip.nvim" })
 	-- end snippets
 	use({
 		"junegunn/goyo.vim",
@@ -90,12 +89,12 @@ return require("packer").startup(function()
 			)
 		end,
 	})
-	-- use {
-	--     "benfowler/telescope-luasnip.nvim",
-	--     config = function()
-	--         require "telescope".load_extension("luasnip")
-	--     end -- if you wish to lazy-load
-	-- }
+	use({
+		"benfowler/telescope-luasnip.nvim",
+		config = function()
+			require("telescope").load_extension("luasnip")
+		end, -- if you wish to lazy-load
+	})
 
 	-- git stuff
 	-- use("TimUntersberger/neogit")
@@ -112,6 +111,11 @@ return require("packer").startup(function()
 				-- Configuration here, or leave empty to use defaults
 			})
 		end,
+	})
+	use({ "mbbill/undotree" })
+	use({
+		"nvim-telescope/telescope-fzf-native.nvim",
+		run = "make",
 	})
 	-- utils end --
 
@@ -137,7 +141,7 @@ return require("packer").startup(function()
 	-- use({ "williamboman/mason-lspconfig.nvim" })
 
 	use("WhoIsSethDaniel/toggle-lsp-diagnostics.nvim")
-	use("folke/lua-dev.nvim")
+	use("folke/neodev.nvim")
 	-- use({
 	-- 	"ray-x/lsp_signature.nvim",
 	-- })
@@ -157,6 +161,8 @@ return require("packer").startup(function()
 	-- telescope thangs
 	use({
 		"nvim-telescope/telescope.nvim",
+		-- "tusqasi/telescope.nvim",
+		-- branch = "register-sort-patch",
 		requires = { "nvim-lua/plenary.nvim" },
 	})
 	-- extensions

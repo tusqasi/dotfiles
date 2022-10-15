@@ -41,7 +41,7 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	buf_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-	buf_set_keymap("n", "<space>K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+	buf_set_keymap("n", "<space><space>K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	buf_set_keymap("n", "<space><space>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
@@ -54,7 +54,9 @@ end
 
 -- used for cmp completions
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+-- deprecated
+-- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- lsp configs below
 -- [[ info on lsp stuff
@@ -69,7 +71,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- local sumneko_binary =
 -- 	"/home/tusqasi/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server"
 --
-local luadev = require("lua-dev").setup({
+local neodev = require("neodev").setup({
 	lspconfig = {
 		-- cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
 		init_options = { formatting = true },
@@ -88,7 +90,7 @@ local luadev = require("lua-dev").setup({
 		},
 	},
 })
-nvim_lsp.sumneko_lua.setup(luadev)
+nvim_lsp.sumneko_lua.setup(neodev)
 nvim_lsp.cssls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -160,6 +162,7 @@ nvim_lsp.cssls.setup({
 nvim_lsp.pylsp.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
+	cmd = {'/home/tusqasi/.pyenv/versions/3.10.5/bin/pylsp'},
 	settings = {
 		pylsp = {
 			-- configurationSources = { "flake8" },
@@ -186,10 +189,10 @@ nvim_lsp.pylsp.setup({
 })
 
 -- jedi
--- nvim_lsp.jedi_language_server.setup {
---     capabilities = capabilities,
---     on_attach = on_attach
--- }
+-- nvim_lsp.jedi_language_server.setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = on_attach,
+-- })
 
 -- clang
 nvim_lsp.clangd.setup({
@@ -238,7 +241,8 @@ nvim_lsp.elixirls.setup({
 		},
 	},
 })
-nvim_lsp.grammarly.setup({
+nvim_lsp.bashls.setup({
+	-- From https://www.mitchellhanberg.com/how-to-set-up-neovim-for-elixir-development/
 	capabilities = capabilities,
 	on_attach = on_attach,
 })
