@@ -43,6 +43,13 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
+		["<C-q>"] = cmp.mapping(function(fallback)
+			if luasnip.jumpable(-1) then
+				luasnip.jump(-1)
+			else
+				fallback()
+			end
+		end, { "i", "s" }),
 		["<CR>"] = cmp.mapping.confirm({
 			behavior = cmp.ConfirmBehavior.Insert,
 			select = true,
@@ -50,10 +57,11 @@ cmp.setup({
 	},
 	-- sources are in order
 	sources = {
+		{ name = "copilot", group_index = 2 },
 
-		{ name = "luasnip", keyword_length = 2 },
 		{ name = "nvim_lsp", keyword_length = 2 },
 		{ name = "path", keyword_length = 2 },
+		{ name = "luasnip", keyword_length = 2 },
 	},
 })
 

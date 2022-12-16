@@ -125,6 +125,7 @@ luasnip.add_snippets("typescriptreact", {
 })
 
 luasnip.add_snippets("elixir", {
+	snippet("slp", fmt([[|>String.split("{}")]], { i(1, [[\n]]) })),
 	snippet(
 		"rec",
 		fmt(
@@ -137,11 +138,22 @@ luasnip.add_snippets("elixir", {
 	snippet(
 		"rd",
 		fmt(
-			[[Enum.reduce({}
-			{} , fn {} , {}->
+			[[Enum.reduce({},
+			{} ,
+			fn {} , {} ->
 			{}
 			end)]],
-			{ i(1, "x"), i(2, ", [],"), i(3, "x"), i(4, "acc"), i(5, "stuff") }
+			{ i(1, "x"), i(2, "[]"), i(3, "x"), i(4, "acc"), i(5, "#code here") }
+		)
+	),
+	snippet(">in", fmt([[|> IO.inspect({})]], { i(1) })),
+	snippet(
+		"mp",
+		fmt(
+			[[Enum.map(fn {} -> 
+			{}
+			end)]],
+			{ i(1, "x"), i(2) }
 		)
 	),
 })

@@ -1,7 +1,7 @@
 -- enable lsp plugin
 require("nvim-lsp-installer").setup({
 	-- ensure_installed = { "pyls", "sumneko_lua", "tsserver", "clangd" },
-	-- automatic_installation = true,
+	automatic_installation = false,
 })
 -- require("mason-lspconfig").setup({
 -- 	-- ensure_installed = { "pyls", "sumneko_lua", "tsserver", "clangd" },
@@ -41,7 +41,7 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
 	buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
 	buf_set_keymap("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>", opts)
-	buf_set_keymap("n", "<space><space>K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
+	buf_set_keymap("n", "<space>K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
 	buf_set_keymap("n", "<space><space>k", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
 	buf_set_keymap("n", "<space>rn", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
 	buf_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
@@ -49,6 +49,8 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<space>E", "<cmd>lua require('telescope.builtin').diagnostics()<CR>", opts)
 	buf_set_keymap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev({severity = vim.diagnostic.severity.ERROR})<CR>", opts)
 	buf_set_keymap("n", "]d", "<cmd>lua vim.diagnostic.goto_next({severity = vim.diagnostic.severity.ERROR})<CR>", opts)
+	buf_set_keymap("n", "<space>j", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
+	buf_set_keymap("n", "<space>k", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 	-- buf_set_keymap("n", "<space><CR>", "<cmd>lua vim.lsp.buf.format({async = true})<CR>", opts)
 end
 
@@ -71,7 +73,10 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- local sumneko_binary =
 -- 	"/home/tusqasi/.local/share/nvim/lsp_servers/sumneko_lua/extension/server/bin/lua-language-server"
 --
-local neodev = require("neodev").setup({
+require("neodev").setup({})
+nvim_lsp.sumneko_lua.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
 	lspconfig = {
 		-- cmd = { sumneko_binary, "-E", sumneko_root_path .. "/main.lua" },
 		init_options = { formatting = true },
@@ -90,7 +95,6 @@ local neodev = require("neodev").setup({
 		},
 	},
 })
-nvim_lsp.sumneko_lua.setup(neodev)
 nvim_lsp.cssls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
@@ -159,40 +163,41 @@ nvim_lsp.cssls.setup({
 --     on_attach = on_attach
 -- }
 -- pylsp
-nvim_lsp.pylsp.setup({
-	capabilities = capabilities,
-	on_attach = on_attach,
-	cmd = {'/home/tusqasi/.pyenv/versions/3.10.5/bin/pylsp'},
-	settings = {
-		pylsp = {
-			-- configurationSources = { "flake8" },
-			plugins = {
-				jedi_completion = { enabled = true },
-				jedi_hover = { enabled = true },
-				jedi_references = { enabled = true },
-				jedi_signature_help = { enabled = true },
-				jedi_symbols = { enabled = true, all_scopes = true },
-				pycodestyle = { enabled = false },
-				black = { enable = true },
-				flake8 = { enabled = false },
-				mypy = { enabled = true },
-				isort = { enabled = true },
-				yapf = { enabled = false },
-				pylint = { enabled = false },
-				pydocstyle = { enabled = false },
-				mccabe = { enabled = false },
-				preload = { enabled = false },
-				rope_completion = { enabled = true },
-			},
-		},
-	},
-})
-
--- jedi
--- nvim_lsp.jedi_language_server.setup({
+-- nvim_lsp.pylsp.setup({
 -- 	capabilities = capabilities,
 -- 	on_attach = on_attach,
+-- 	cmd = { "/home/tusqasi/.pyenv/versions/3.10.5/bin/pylsp" },
+-- 	settings = {
+-- 		pylsp = {
+-- 			-- configurationSources = { "flake8" },
+-- 			plugins = {
+-- 				jedi_completion = { enabled = true },
+-- 				jedi_hover = { enabled = true },
+-- 				jedi_references = { enabled = true },
+-- 				jedi_signature_help = { enabled = true },
+-- 				jedi_symbols = { enabled = true, all_scopes = true },
+-- 				pycodestyle = { enabled = false },
+-- 				black = { enable = true },
+-- 				flake8 = { enabled = false },
+-- 				mypy = { enabled = true },
+-- 				isort = { enabled = true },
+-- 				yapf = { enabled = false },
+-- 				pylint = { enabled = false },
+-- 				pydocstyle = { enabled = false },
+-- 				mccabe = { enabled = false },
+-- 				preload = { enabled = false },
+-- 				rope_completion = { enabled = true },
+-- 			},
+-- 		},
+-- 	},
 -- })
+
+-- jedi
+nvim_lsp.jedi_language_server.setup({
+	-- cmd={"/home/tusqasi/.asdf/installs/python/3.10.8/lib/python3.10"},
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
 
 -- clang
 nvim_lsp.clangd.setup({
@@ -224,25 +229,29 @@ nvim_lsp.tsserver.setup({
 -- }
 
 nvim_lsp.elixirls.setup({
-	-- From https://www.mitchellhanberg.com/how-to-set-up-neovim-for-elixir-development/
+	cmd = { vim.fn.expand("~/.local/share/nvim/lsp_servers/elixirls/elixir-ls-git/release/language_server.sh") },
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = {
-
 		elixirLS = {
-			-- I choose to disable dialyzer for personal reasons, but
-			-- I would suggest you also disable it unless you are well
-			-- aquainted with dialzyer and know how to use it.
 			dialyzerEnabled = false,
-			-- I also choose to turn off the auto dep fetching feature.
-			-- It often get's into a weird state that requires deleting
-			-- the .elixir_ls directory and restarting your editor.
 			fetchDeps = false,
 		},
 	},
 })
 nvim_lsp.bashls.setup({
-	-- From https://www.mitchellhanberg.com/how-to-set-up-neovim-for-elixir-development/
+	capabilities = capabilities,
+	on_attach = on_attach,
+})
+nvim_lsp.rust_analyzer.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	["rust-analyzer"] = {
+		checkOnSave_command = "clippy",
+	},
+})
+
+nvim_lsp.svls.setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 })

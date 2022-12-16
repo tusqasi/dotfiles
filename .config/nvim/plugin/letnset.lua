@@ -121,3 +121,6 @@ vim.g.matchup_matchpref = {
 	tsx = { tagnameonly = 1 },
 	html = { tagnameonly = 1 },
 }
+
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4

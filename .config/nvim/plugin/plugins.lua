@@ -1,19 +1,19 @@
-return require("packer").startup(function()
+return require("packer").startup(function(use)
 	-- System
 	use("wbthomason/packer.nvim")
 	use("lewis6991/impatient.nvim")
 
 	-- Bling
-	use("RRethy/nvim-base16")
-	use {
-	"catppuccin/nvim",
-	as = "catppuccin",
-	config = function()
-		vim.g.catppuccin_flavour = "mocha" -- latte, frappe, macchiato, mocha
-		require("catppuccin").setup()
-		vim.api.nvim_command "colorscheme catppuccin"
-	end
-}
+	-- use("RRethy/nvim-base16")
+	use({ "shaunsingh/solarized.nvim" })
+	use({
+		"catppuccin/nvim",
+		as = "catppuccin",
+		config = function()
+			vim.g.catppuccin_flavour = "latte" -- latte, frappe, macchiato, mocha
+			require("catppuccin").setup()
+		end,
+	})
 	use("kyazdani42/nvim-web-devicons")
 	use({
 		"nvim-lualine/lualine.nvim",
@@ -50,7 +50,7 @@ return require("packer").startup(function()
 			})
 		end,
 	})
-	use("preservim/vimux")
+	-- use("preservim/vimux")
 
 	-- movement
 	use("wellle/targets.vim")
@@ -97,12 +97,9 @@ return require("packer").startup(function()
 	})
 
 	-- git stuff
-	-- use("TimUntersberger/neogit")
-	-- use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+	use("TimUntersberger/neogit")
+	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 	-- use("rhysd/committia.vim")
-	-- use("tweekmonster/startuptime.vim")
-	-- use("dstein64/vim-startuptime")
-	-- use("mtth/scratch.vim")
 	use({
 		"kylechui/nvim-surround",
 		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -117,6 +114,13 @@ return require("packer").startup(function()
 		"nvim-telescope/telescope-fzf-native.nvim",
 		run = "make",
 	})
+	use({
+		"mizlan/iswap.nvim",
+		config = function()
+			require("iswap").setup()
+		end,
+	})
+	use({ "tommcdo/vim-lion" })
 	-- utils end --
 
 	-- completions
@@ -142,10 +146,19 @@ return require("packer").startup(function()
 
 	use("WhoIsSethDaniel/toggle-lsp-diagnostics.nvim")
 	use("folke/neodev.nvim")
-	-- use({
-	-- 	"ray-x/lsp_signature.nvim",
-	-- })
-
+	use({
+		"ray-x/lsp_signature.nvim",
+		config = function()
+			local config = {
+				floating_window = true,
+				transperency = 100,
+			}
+			require("lsp_signature").setup(config)
+			vim.keymap.set({ "i", "v", "s" }, "<Space>F", function()
+				require("lsp_signature").toggle_float_win()
+			end, { silent = true, noremap = true, desc = "toggle signature" })
+		end,
+	})
 	-- treesitter
 	--
 	use({
@@ -156,7 +169,7 @@ return require("packer").startup(function()
 	})
 
 	use("nvim-treesitter/nvim-treesitter-textobjects")
-	-- use "nvim-treesitter/playground"
+	-- use("nvim-treesitter/playground")
 
 	-- telescope thangs
 	use({

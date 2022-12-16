@@ -6,16 +6,17 @@ if Ok then
 end
 
 require("impatient")
+require("tusqasi.disable_builtin")
+require("tusqasi.globals")
 require("tusqasi.cmp")
 require("tusqasi.comments")
 require("tusqasi.emmet")
-require("tusqasi.treesitter")
-require "tusqasi.disable_builtin"
 require("tusqasi.formatting")
-require "tusqasi.globals"
+require("tusqasi.formatting")
 require("tusqasi.lsp")
 require("tusqasi.luasnip")
 require("tusqasi.snippets")
 require("tusqasi.statusline")
 require("tusqasi.telescope")
 require("tusqasi.text-obj")
+require("tusqasi.treesitter")

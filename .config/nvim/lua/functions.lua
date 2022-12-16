@@ -3,7 +3,7 @@ M = {}
 M.find_nvim_configs = function()
 	local opts = {
 		cwd = vim.g.nvim_dir,
-		find_files = "rg"
+		find_files = "rg",
 	}
 	require("telescope.builtin").find_files(opts)
 end
@@ -17,11 +17,11 @@ M.find_in_nvim_configs = function()
 	require("telescope.builtin").live_grep(opts)
 end
 
-M.packer_sync = function()
-	print("Sourcing nvim/plugin/plugins.lua")
-	vim.cmd("source " .. vim.g.nvim_dir .. "/plugin/plugins.lua")
+M.sync_plugins = function()
+	local path = vim.g.nvim_dir .. "/plugin/plugins.lua"
+	vim.cmd("silent source" .. path)
 	require("packer").sync()
-	require("notify")("Updating plugins")
+	require("notify")("Syncing plugins")
 end
 
 M.filetype_icon = function()
@@ -44,8 +44,7 @@ M.all_configs = function()
 			"/home/tusqasi/.config/i3/",
 			"/home/tusqasi/.zshrc",
 		},
-		hidden = true
-
+		hidden = true,
 	}
 	require("telescope.builtin").find_files(opts)
 end
