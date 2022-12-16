@@ -42,17 +42,22 @@ vim.keymap.set("n", "<Leader>h", "<CMD>lua require('telescope.builtin'). help_ta
 
 -- Show references
 vim.keymap.set("n", "<Leader><Leader>r", "<CMD>lua require('telescope.builtin'). lsp_references()<CR>", options)
--- Edit configs
--- nvim file search
+
+-- Find nvim files
 vim.keymap.set("n", "<Leader>nn", "<CMD>lua require('functions').find_nvim_configs()<CR>", options)
--- nvim grep file
+
+-- grep nvim files
 vim.keymap.set("n", "<Leader>ne", "<CMD>lua require('functions').find_in_nvim_configs()<CR>", options)
--- choose colorschem
-vim.keymap.set("n", "<Leader>C", "<CMD>lua require('telescope.builtin').colorscheme()<CR>", options)
--- document symbols
-vim.keymap.set("n", "<Leader>s", "<CMD>lua require('telescope.builtin').lsp_document_symbols()<CR>", options)
--- edit all config
+
+-- edit all configs
 vim.keymap.set("n", "<Leader>na", "<CMD>lua require('functions').all_configs()<CR>", options)
+
+-- Choose colorschem
+vim.keymap.set("n", "<Leader>C", "<CMD>lua require('telescope.builtin').colorscheme()<CR>", options)
+
+-- Find document symbols
+vim.keymap.set("n", "<Leader>s", "<CMD>lua require('telescope.builtin').lsp_document_symbols()<CR>", options)
+
 -- Yank whole file
 vim.keymap.set("n", "<Leader>c", ':norm ggVG"+y<CR>', options)
 -- vim.keymap.set("n", "<F2>", ";Vifm<CR>", options)
@@ -72,7 +77,7 @@ vim.keymap.set("n", "<F1>", "<NOP>", options)
 vim.keymap.set("n", "<leader><leader>ss", "<CMD> lua require('tusqasi.snippets')<CR>", options)
 vim.keymap.set("n", "<leader><leader>sk", "<CMD>luafile ~/.config/nvim/plugin/keymaps.lua<CR>", options)
 vim.keymap.set("n", "<leader><leader>x", "<CMD>source %<CR>", options)
-vim.keymap.set("n", "<leader><leader>i", "<CMD>lua require('functions').packer_sync()<CR>", options)
+vim.keymap.set("n", "<leader><leader>i", "<CMD>lua require('functions').sync_plugins()<CR>", options)
 
 vim.keymap.set("n", "<C-/>", "<Nop>", options)
 
@@ -92,15 +97,3 @@ vim.keymap.set("v", "<leader>y", '"+y', options)
 vim.keymap.set("n", "<leader>Y", '"+Y', { noremap = false })
 
 vim.keymap.set("n", "<leader>u", "<CMD>UndotreeToggle<CR>", options)
-
--- vim.keymap.set("n", "<leader>r", "<CMD>lua require'functions'.runner()<CR>", options)
-
--- make custom formatting on and off
-vim.keymap.set("n", "<leader>f", function()
-	if vim.g.cus_formatting then
-		vim.g.cus_formatting = false
-	else
-		vim.g.cus_formatting = true
-	end
-	print(vim.g.cus_formatting)
-end)
