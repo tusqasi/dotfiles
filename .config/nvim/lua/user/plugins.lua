@@ -37,7 +37,7 @@ return require("packer").startup(function(use)
 	-- 		return require("tmux").setup()
 	-- 	end,
 	-- })
-	use({"christoomey/vim-tmux-navigator"})
+	use({ "christoomey/vim-tmux-navigator" })
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
@@ -94,6 +94,46 @@ return require("packer").startup(function(use)
 			vim.g.startuptime_tries = 10
 		end,
 	})
+	use {
+		"ray-x/lsp_signature.nvim",
+		config = function()
+			local cfg = {} -- add your config here
+			require "lsp_signature".setup(cfg)
+		end
+	}
+	use({ "NLKNguyen/papercolor-theme" })
+	use({ "nvim-treesitter/nvim-treesitter-context",
+		config = function()
+			require "treesitter-context".setup(
+				{
+					max_lines = 1,
+					patterns = {
+						elixir = {
+							"anonymous_function",
+							"arguments",
+							"block",
+							"do_block",
+						}
+					},
+				}
+			)
+		end })
+
+	use({
+		"mattn/emmet-vim",
+		ft = { "js", "jsx", "ts", "tsx", "html", "css", "vue" }
+	})
+
+	use({
+		"kylechui/nvim-surround",
+		tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+		config = function()
+			require("nvim-surround").setup({
+				-- Configuration here, or leave empty to use defaults
+			})
+		end
+	})
+	use({"tpope/vim-eunuch"})
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then

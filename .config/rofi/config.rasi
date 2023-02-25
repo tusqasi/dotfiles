@@ -1,7 +1,19 @@
-configuration {
-	show-icons: true;
-	dpi: 200;
-	modi:"combi,window,run,dmenu";
-	/* run-command: "fish -C {cmd}"; */
+configuration{
+    modi: "run,drun,window";
+    icon-theme: "Oranchelo";
+    show-icons: true;
+    terminal: "alacritty";
+    drun-display-format: "{icon} {name}";
+    location: 0;
+    disable-history: false;
+    hide-scrollbar: true;
+    display-drun: "   Apps ";
+    display-run: "   Run ";
+    display-window: " 﩯  Window";
+    display-Network: " 󰤨  Network";
+    //sidebar-mode: true;
 }
-@theme "/home/tusqasi/.config/rofi/themes/arc-dark-transperent.rasi"
+
+//@theme "catppuccin-mocha"
+
+@theme "/home/tusqasi/.config/rofi/themes/catppuccin-latte.rasi"

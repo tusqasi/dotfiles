@@ -32,4 +32,9 @@ vim.g.mapleader = ' '
 -- IDK
 vim.o.completeopt = "menuone,noselect"
 
+-- Annoying myself
+vim.o.cursorline = true
+vim.o.cursorcolumn = true
+vim.o.colorcolumn  = '80'
 
+vim.g.user_emmet_leader_key = ','

@@ -1,38 +1,38 @@
-alias act="source .venv/bin/activate"
-alias b="bat"
-alias batman="bat -l man -p"
-alias c="clear"
+# Config management
 alias cfg="/usr/bin/git --git-dir=/home/tusqasi/.cfg/ --work-tree=/home/tusqasi"
 alias cfgg="/usr/bin/git --git-dir=/home/tusqasi/.cfg/ --work-tree=/home/tusqasi gui"
 alias cfgp="/usr/bin/git --git-dir=/home/tusqasi/.cfg/ --work-tree=/home/tusqasi push"
 alias config="/usr/bin/git --git-dir=/home/tusqasi/.cfg/ --work-tree=/home/tusqasi"
+alias e="~/scripts/edit_configs.sh"
+alias gg="git gui"
+
+# Package manager
+alias rmp="sudo pacman -R"
+alias inst="sudo pacman -Syu"
+
+# Utils
 alias cp="cp -i"
 alias df="df -h"
-alias e="~/scripts/edit_configs.sh"
-alias es="/home/tusqasi/scripts/edit_configs.sh s"
-alias free="free -m"
-alias gg="git gui"
-alias inst="sudo pacman -S"
 alias l="exa --icons"
 alias la="exa -hla --icons"
 alias mkdir="mkdir -pv"
-alias mkenv="pyenv virtualenv"
 alias mv="mv -i"
+alias rm="rm -I --preserve-root"
+alias rs="rsync -azvhprP"
+alias wget="wget -c"
+
+# Shorthand
+alias c="clear"
 alias n="nvim"
-alias nup="z neovim;git pull;sudo make install CMAKE_BUILD_TYPE=Release;cd -"
 alias p="ping google.com"
 alias q="exit"
-alias rm="rm -I --preserve-root"
-alias rmd="rm -Ird --preserve-root"
-alias rmp="sudo pacman -R"
-alias rpkg="sudo pacman -R"
-alias rs="rsync -azvhprP"
 alias s="sudo"
 alias sn="sudoedit"
-alias update="sudo pacman -Syu"
-alias updt="sudo pacman -Syu"
 alias v="vifm ./"
-alias ve="python -m venv .venv"
-alias pyfrz="pip freeze >> requirements .txt"
-alias vl="vifm /home/tusqasi/.local/share/"
-alias wget="wget -c"
+
+
+# Neovim
+alias nup="z neovim;git checkout master;git pull --all;sudo make install CMAKE_BUILD_TYPE=Release;cd -"
+
+# Elixir
+alias ism="iex -S mix"

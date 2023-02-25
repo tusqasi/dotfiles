@@ -15,8 +15,9 @@ local SourceAndSyncPlugin = function()
 end
 local options = { silent = true }
 
+vim.keymap.set("n", "<Leader><Leader>i", SourceAndSyncPlugin, options)
+vim.keymap.set("n", "<Space>", "<Nop>", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<Leader>i", SourceAndSyncPlugin, options)
 
 -- Keep things center and nicce while navigating
 vim.keymap.set("n", "J", "mzJ`z")
@@ -54,5 +55,21 @@ vim.keymap.set("n", "<Leader>;", "<CMD>lua require('telescope.builtin').builtin(
 -- Buffers
 vim.keymap.set("n", "<Leader>b", "<CMD>lua require('telescope.builtin').buffers()<CR>", options)
 
+-- Fuzzy file find
+vim.keymap.set("n", "<Leader>ff", "<CMD>lua require('telescope.builtin').find_files()<CR>", options)
+
+-- git find
+vim.keymap.set("n", "<Leader>gg", "<CMD>lua require('telescope.builtin').git_files()<CR>", options)
+
+-- Find in nvim configs
+
+
+-- Copy whole file
+vim.keymap.set("n", "<Leader>c", [[:norm ggVG"+y<CR>zz]], options)
 
 vim.keymap.set("n", "<Leader>o", AutoSaveNFormatToggle, options)
+
+
+-- Telescope document symbols 
+vim.keymap.set("n", "<Leader>s", "<CMD>Telescope lsp_document_symbols<CR>", options)
+

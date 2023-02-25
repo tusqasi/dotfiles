@@ -11,7 +11,6 @@
    Modified: Mon Feb 12 2018 06:05:38 PST -0800
    ========================================================================== */
 
-* {
     /* Theme settings */
     highlight: bold italic;
     scrollbar: true;

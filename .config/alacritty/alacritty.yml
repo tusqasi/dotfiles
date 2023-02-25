@@ -1,9 +1,9 @@
-import:
+# import:
   # uncomment the flavour you want below:
-  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
-#  - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
+  # - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
 env:
   TERM: xterm-256color
 window:
@@ -25,7 +25,7 @@ window:
     x: 10
     y: 10
 
-  opacity: 0.99
+  # opacity: 1
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -42,8 +42,10 @@ scrolling:
 font:
   normal:
     family: JetBrainsMono Nerd Font
+    # family: Monocraft
+    #family: CozetteVector
   # Font size
-  size: 7.0
+  size: 8.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -293,4 +295,4 @@ schemes:
       cyan: "#5A8887"
       white: "#ae4814"
 
-# colors: *gruvbox-dark
+colors: *solarized-light
