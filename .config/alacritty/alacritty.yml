@@ -295,4 +295,4 @@ schemes:
       cyan: "#5A8887"
       white: "#ae4814"
 
-colors: *solarized-light
+colors: *isotope

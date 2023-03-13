@@ -11,6 +11,22 @@ end
 
 local packer_bootstrap = ensure_packer()
 
+
+function on_attach(client, bufnr)
+	local opts = { buffer = bufnr, remap = false }
+
+	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+	-- vim.keymap.set("n", "<leader>s", function() vim.lsp.buf.workspace_symbol() end, opts)
+	vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, opts)
+	vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+	vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+	vim.keymap.set("n", "<leader>a", function() vim.lsp.buf.code_action() end, opts)
+	vim.keymap.set("n", "<leader>rr", function() vim.lsp.buf.references() end, opts)
+	vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
+	vim.keymap.set("i", "C-f", function() vim.lsp.buf.signature_help() end, opts)
+end
+
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
@@ -20,23 +36,11 @@ return require("packer").startup(function(use)
 		run = ":TSUpdate",
 	})
 	use({ "nvim-treesitter/nvim-treesitter-textobjects" })
-	-- use({ "nvim-treesitter/nvim-treesitter-context" })
 	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 
-	-- colorscheme
-	use({
-		"rose-pine/neovim",
-		as = "rose-pine",
-	})
 
 	-- very nice
 	use({ "mbbill/undotree" })
-	-- use({
-	-- 	"aserowy/tmux.nvim",
-	-- 	config = function()
-	-- 		return require("tmux").setup()
-	-- 	end,
-	-- })
 	use({ "christoomey/vim-tmux-navigator" })
 	use({
 		"numToStr/Comment.nvim",
@@ -48,6 +52,20 @@ return require("packer").startup(function(use)
 	})
 
 	-- lsp
+	use({
+		"akinsho/flutter-tools.nvim",
+		config = function()
+			require "flutter-tools".setup(
+				{
+					fvm = true,
+					lsp = {
+						on_attach = on_attach,
+					}
+				}
+
+			)
+		end
+	})
 	use({
 		"VonHeikemen/lsp-zero.nvim",
 		requires = {
@@ -81,11 +99,17 @@ return require("packer").startup(function(use)
 	use({
 		"nvim-telescope/telescope.nvim", -- 🔭
 		requires = { { "nvim-lua/plenary.nvim" } },
+		config = function()
+			require("telescope").load_extension("flutter")
+		end
 	})
 
-	use({ "folke/neodev.nvim", config = function()
-		require("neodev").setup({})
-	end })
+	use({
+		"folke/neodev.nvim",
+		config = function()
+			require("neodev").setup({})
+		end
+	})
 
 	use({
 		"dstein64/vim-startuptime",
@@ -102,7 +126,8 @@ return require("packer").startup(function(use)
 		end
 	}
 	use({ "NLKNguyen/papercolor-theme" })
-	use({ "nvim-treesitter/nvim-treesitter-context",
+	use({
+		"nvim-treesitter/nvim-treesitter-context",
 		config = function()
 			require "treesitter-context".setup(
 				{
@@ -117,7 +142,10 @@ return require("packer").startup(function(use)
 					},
 				}
 			)
-		end })
+		end
+	})
+
+	use({ 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' })
 
 	use({
 		"mattn/emmet-vim",
@@ -133,7 +161,7 @@ return require("packer").startup(function(use)
 			})
 		end
 	})
-	use({"tpope/vim-eunuch"})
+	use({ "tpope/vim-eunuch" })
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then

@@ -6,7 +6,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # Use powerline
-USE_POWERLINE="true"
+# USE_POWERLINE="true"
 # Source manjaro-zsh-configuration
 if [[ -e /usr/share/zsh/manjaro-zsh-config ]]; then
   source /usr/share/zsh/manjaro-zsh-config
@@ -22,13 +22,15 @@ fi
 
 source ~/.config/zsh/abbreviations.zsh
 source ~/.config/zsh/zsh-fzf-history-search/zsh-fzf-history-search.zsh
+# source ~/.config/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_STRATEGY=(history)
 source /usr/share/z/z.sh
 
 # export PYENV_ROOT="$HOME/.pyenv"
 # command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
 # eval "$(pyenv init -)"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 source $HOME/.asdf/asdf.sh
 # append completions to fpath
@@ -42,10 +44,15 @@ export EDITOR=nvim
 
 
 # bun completions
-[ -s "/home/tusqasi/.bun/_bun" ] && source "/home/tusqasi/.bun/_bun"
+# [ -s "/home/tusqasi/.bun/_bun" ] && source "/home/tusqasi/.bun/_bun"
 
 # bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+# export BUN_INSTALL="$HOME/.bun"
+# export PATH="$BUN_INSTALL/bin:$PATH"
 
+
+# instal quartuc
 export QSYS_ROOTDIR="/home/tusqasi/intelFPGA_lite/22.1std/quartus/sopc_builder/bin"
+
+# starship
+# eval "$(starship init zsh)"

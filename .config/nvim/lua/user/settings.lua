@@ -23,18 +23,24 @@ vim.opt.tabstop = 4
 vim.opt.number = true
 vim.opt.relativenumber = true
 
--- Make the gutter stable
+-- Make the gutter stable, always two columns for gutter
 vim.opt.signcolumn = "yes:2"
 
--- Leader key
+-- Leader key = space
 vim.g.mapleader = ' '
 
--- IDK
+-- IDK, why not?
 vim.o.completeopt = "menuone,noselect"
 
 -- Annoying myself
 vim.o.cursorline = true
 vim.o.cursorcolumn = true
 vim.o.colorcolumn  = '80'
+
+-- Folds 
+vim.o.foldlevelstart = 3
+vim.o.foldenable = false
+vim.o.foldmethod="expr"
+vim.o.foldexpr= "nvim_treesitter#foldexpr()"
 
 vim.g.user_emmet_leader_key = ','
