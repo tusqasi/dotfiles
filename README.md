@@ -27,8 +27,8 @@ I use [tmux](https://gitlab.com/tusqasi/my_all_dot_files/-/tree/master/.config/t
 ## Programs I use
 - Firefox
 - [asdf-vm](https://asdf-vm.com) (🔨 Many Programming tools version manager. It manages my python, elixir, erlang, java, and node)
-- [FVM](https://fvm.app)  (![Flutter](https://shields.io/badge/-0553B1?logo=flutter&style=for-the-badge)Flutter Version Management)
-- [neovim](https://http://neovim.io/)  (![Neovim](https://shields.io/badge/-fff?logo=neovim&style=for-the-badge)  Just a text editor)
+- ![Flutter](https://shields.io/badge/-0553B1?logo=flutter&style=flat) [FVM](https://fvm.app)  (Flutter Version Management)
+- ![Neovim](https://shields.io/badge/-fff?logo=neovim&style=flat) [neovim](https://http://neovim.io/)  (  Just a text editor)
 - [tldr](https://tldr.sh/) (⌨️ TLDR of commands)
-- [zoxide](https://github.com/ajeetdsouza/zoxide) (🔥 Blazingly fast cd)
+- [zoxide](https://github.com/ajeetdsouza/zoxide) ( Blazingly fast cd)
 - [scrcpy](https://github.com/Genymobile/scrcpy) (📱 View your mobile screen on your computer)
