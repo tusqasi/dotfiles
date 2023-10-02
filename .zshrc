@@ -50,9 +50,28 @@ export EDITOR=nvim
 # export BUN_INSTALL="$HOME/.bun"
 # export PATH="$BUN_INSTALL/bin:$PATH"
 
-
+path+=("$HOME/.cargo/bin")
 # instal quartuc
 export QSYS_ROOTDIR="/home/tusqasi/intelFPGA_lite/22.1std/quartus/sopc_builder/bin"
 
 # starship
 # eval "$(starship init zsh)"
+
+# pnpm
+export PNPM_HOME="/home/tusqasi/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+export FLYCTL_INSTALL="/home/tusqasi/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+
+# bob
+path+=("$HOME/.local/share/bob/nvim-bin")
+
+[[ ! -r /home/tusqasi/.opam/opam-init/init.zsh ]] || source /home/tusqasi/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+
