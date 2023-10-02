@@ -28,6 +28,7 @@ require 'nvim-treesitter.configs'.setup {
 				["af"] = "@function.outer",
 				["if"] = "@function.inner",
 				["ac"] = "@class.outer",
+				["ia"] = "@parameter.inner",
 				["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
 			},
 		},
