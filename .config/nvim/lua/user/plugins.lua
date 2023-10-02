@@ -12,20 +12,6 @@ end
 local packer_bootstrap = ensure_packer()
 
 
-function on_attach(client, bufnr)
-	local opts = { buffer = bufnr, remap = false }
-
-	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-	-- vim.keymap.set("n", "<leader>s", function() vim.lsp.buf.workspace_symbol() end, opts)
-	vim.keymap.set("n", "gl", function() vim.diagnostic.open_float() end, opts)
-	vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-	vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-	vim.keymap.set("n", "<leader>a", function() vim.lsp.buf.code_action() end, opts)
-	vim.keymap.set("n", "<leader>rr", function() vim.lsp.buf.references() end, opts)
-	vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
-	vim.keymap.set("i", "C-f", function() vim.lsp.buf.signature_help() end, opts)
-end
 
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
@@ -36,36 +22,38 @@ return require("packer").startup(function(use)
 		run = ":TSUpdate",
 	})
 	use({ "nvim-treesitter/nvim-treesitter-textobjects" })
+	-- use({ "https://github.com/nvim-treesitter/playground" })
 	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 
 
 	-- very nice
 	use({ "mbbill/undotree" })
 	use({ "christoomey/vim-tmux-navigator" })
+	use({ "preservim/vimux" })
 	use({
 		"numToStr/Comment.nvim",
 		config = function()
 			require("Comment").setup({
-				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+				-- pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 			})
 		end,
 	})
 
 	-- lsp
-	use({
-		"akinsho/flutter-tools.nvim",
-		config = function()
-			require "flutter-tools".setup(
-				{
-					fvm = true,
-					lsp = {
-						on_attach = on_attach,
-					}
-				}
-
-			)
-		end
-	})
+	-- use({
+	-- 	"akinsho/flutter-tools.nvim",
+	-- 	config = function()
+	-- 		require "flutter-tools".setup(
+	-- 			{
+	-- 				fvm = true,
+	-- 				lsp = {
+	-- 					on_attach = vim.g.lsp_on_attach,
+	-- 				}
+	-- 			}
+	--
+	-- 		)
+	-- 	end
+	-- })
 	use({
 		"VonHeikemen/lsp-zero.nvim",
 		requires = {
@@ -94,13 +82,26 @@ return require("packer").startup(function(use)
 		"ThePrimeagen/harpoon", -- 🥥
 		config = function()
 			require("telescope").load_extension("harpoon")
+			require("harpoon").setup({ tabline = false, })
 		end,
 	})
+	use {
+		"ThePrimeagen/refactoring.nvim",
+		requires = {
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-treesitter/nvim-treesitter" }
+		},
+
+	}
+	use({ 'nvim-telescope/telescope-ui-select.nvim' })
+
 	use({
 		"nvim-telescope/telescope.nvim", -- 🔭
+		tag = '0.1.2',
 		requires = { { "nvim-lua/plenary.nvim" } },
 		config = function()
-			require("telescope").load_extension("flutter")
+			-- require("telescope").load_extension("flutter")
+			require("telescope").load_extension("ui-select")
 		end
 	})
 
@@ -111,13 +112,13 @@ return require("packer").startup(function(use)
 		end
 	})
 
-	use({
-		"dstein64/vim-startuptime",
-		cmd = "StartupTime",
-		config = function()
-			vim.g.startuptime_tries = 10
-		end,
-	})
+	-- use({
+	-- 	"dstein64/vim-startuptime",
+	-- 	cmd = "StartupTime",
+	-- 	config = function()
+	-- 		vim.g.startuptime_tries = 10
+	-- 	end,
+	-- })
 	use {
 		"ray-x/lsp_signature.nvim",
 		config = function()
@@ -125,7 +126,9 @@ return require("packer").startup(function(use)
 			require "lsp_signature".setup(cfg)
 		end
 	}
-	use({ "NLKNguyen/papercolor-theme" })
+	-- use({ "NLKNguyen/papercolor-theme" })
+	use({ "ellisonleao/gruvbox.nvim" })
+
 	use({
 		"nvim-treesitter/nvim-treesitter-context",
 		config = function()
@@ -145,11 +148,26 @@ return require("packer").startup(function(use)
 		end
 	})
 
-	use({ 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' })
+	use({
+		'NeogitOrg/neogit',
+		requires = 'nvim-lua/plenary.nvim',
+		dependencies = {
+			"sindrets/diffview.nvim",
+		},
+		config = function()
+			local neogit = require('neogit')
+
+			neogit.setup {
+				integrations = {
+					diffview = true
+				},
+			}
+		end
+	})
 
 	use({
 		"mattn/emmet-vim",
-		ft = { "js", "jsx", "ts", "tsx", "html", "css", "vue" }
+		ft = { "javascript", "jsx", "ts", "tsx", "html", "css", "vue", "heex" }
 	})
 
 	use({
@@ -161,7 +179,52 @@ return require("packer").startup(function(use)
 			})
 		end
 	})
-	use({ "tpope/vim-eunuch" })
+	-- use({ "tpope/vim-eunuch" })
+	use({
+		"ThePrimeagen/git-worktree.nvim",
+		config = function()
+			require("telescope").load_extension("git_worktree")
+		end
+	})
+	-- use({
+	-- 	'nvim-lualine/lualine.nvim',
+	-- 	requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+	-- 	-- config = function()
+	-- 	-- end,
+	-- })
+	-- use({
+	-- 	'stevearc/aerial.nvim',
+	-- 	config = function()
+	-- 		require('aerial').setup()
+	-- 		require('telescope').load_extension('aerial')
+	-- 	end
+	-- })
+	-- use({ "lervag/vimtex" })
+	-- use({ "github/copilot.vim" })
+	-- use {
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	cmd = "Copilot",
+	-- 	event = "InsertEnter",
+	-- 	config = function()
+	-- 		require("copilot").setup({})
+	-- 	end,
+	-- }
+	-- use {
+	-- 	"zbirenbaum/copilot-cmp",
+	-- 	after = { "copilot.lua" },
+	-- 	config = function()
+	-- 		require("copilot_cmp").setup()
+	-- 	end
+	-- }
+	-- use({ "airblade/vim-gitgutter" })
+	use({
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require('gitsigns').setup()
+		end
+	})
+	-- use({"junegunn/goyo.vim"})
+	use({ "folke/zen-mode.nvim" })
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
 	if packer_bootstrap then
