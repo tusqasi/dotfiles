@@ -1,2 +1,2 @@
-vim.cmd.colorscheme('PaperColor')
+vim.cmd.colorscheme('gruvbox')
 vim.o.background = 'dark'
