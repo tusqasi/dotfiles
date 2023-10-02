@@ -40,12 +40,12 @@ scrolling:
 
 # Font configuration
 font:
-  normal:
-    family: JetBrainsMono Nerd Font
+  # normal:
+    # family: JetBrainsMono Nerd Font
     # family: Monocraft
     #family: CozetteVector
   # Font size
-  size: 8.0
+  size: 9
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -118,7 +118,7 @@ schemes:
       cyan: "#93a1a1" # base1
       white: "#fdf6e3" # base3
 
-  isotope-dark: &isotope
+  isotope: &isotope
     primary:
       background: "0x000000"
       foreground: "0xd0d0d0"
