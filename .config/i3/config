@@ -7,8 +7,8 @@ set_from_resource $mod  i3-wm.mod Mod4
 set_from_resource $alt  i3-wm.alt Mod1
 
 # set font
-font pango: Terminus 17px
-set $browser brave --force-device-scale-factor=1.25 
+# font pango: Terminus 17px
+set $browser firefox
 set $terminal alacritty
 set $shell zsh
 set $monitor ksysgaurd
@@ -29,29 +29,30 @@ set_from_resource $ws5  i3-wm.workspace.05.name 5
 ###############################################################################
 
 ## Launch // Terminal // <> Enter ##
-bindsym $mod+Return exec $terminal -e $shell
+bindsym $mod+Return exec $terminal -e $shell -c "tmux new-session -A -s 'sys'"
 
 ## Launch // Terminal // <> Enter ##
 bindsym $mod+$alt+o exec /home/tusqasi/scripts/ocr
 
 ## Launch // Browser // <><Ctrl> o ##
 bindsym $mod+o exec $browser
+
 ## Launch // scrcpt // <><Ctrl> o ##
 bindsym $mod+s exec scrcpy
 
 ## Launch Tmux session chooser // < +p >
 bindsym $mod+p  exec ~/scripts/rofi_tmux.py
 
-## Launch // rofi // <><Shift> Space ##
+## Launch // rofi // < > Space ##
 bindsym $mod+space exec "rofi -show combi -combi-modi 'drun,run,window,workspace' -modi combi"
 
-## Launch // gitmoji // <><Shift> Space ##
-bindsym $mod+Ctrl+g exec "rofimoji --file ~/scripts/gitmoji.csv --action type copy"
+## Launch // gitmoji // < ><Shift> Space ##
+bindsym $mod+Shift+g exec "rofimoji --file ~/scripts/gitmoji.csv --action type copy"
 
-## Emoji  // < + alt + e>##
-bindsym $mod+Ctrl+e exec rofimoji
+## Emoji  // < + shift + e>##
+bindsym $mod+Shift+e exec rofimoji
 
-## API docs  // < + D>##
+## API docs  // <  + D>##
 bindsym $mod+d exec ~/scripts/rofi-zeal
 
 ## Clipboard  // < + v>##
@@ -152,6 +153,7 @@ bindsym $mod+Ctrl+a move to scratchpad
 bindsym $mod+Shift+t focus mode_toggle
 
 bindsym $mod+t layout toggle tabbed split 
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -163,10 +165,8 @@ focus_follows_mouse no
 # Session Management
 ###############################################################################
 
-## Session // Exit App // <><Shift> q ##
+## Session // Exit App ##
 bindsym $mod+w [con_id="__focused__"] kill
-
-# bindsym Ctrl+q [con_id="__focused__"] kill
 
 ## Session // Terminate App // <><Alt> q ##
 bindsym $mod+$alt+q [con_id="__focused__"] exec --no-startup-id kill -9 $(xdotool getwindowfocus getwindowpid)
@@ -183,8 +183,6 @@ bindsym $mod+Ctrl+r restart
 
 ## Session // Quit i3 // <><Ctrl> r ##
 bindsym $mod+Ctrl+Shift+e exit
-## Bar Toogle // < > b ##
-# bindsym $mod+b exec polybar-msg cmd toggle
 
 ###############################################################################
 # System Management
@@ -198,6 +196,7 @@ bindsym $mod+e exec $filemanager
 
 ## Launch // Task Manager // <Ctrl><Shift><ESC> ##
 bindsym Ctrl+Shift+Escape exec $monitor
+
 ###############################################################################
 # Workspace Management
 ###############################################################################
@@ -258,14 +257,9 @@ set_from_resource $i3-wm
 focus_follows_mouse $i3-wm.gaps.focus_follows_mouse
 
 bar {
-    font pango: Terminus 10px
+	status_command i3status
+    font pango: Firacode 10px
 	position top
-
-	status_command bumblebee-status -m nic  \
-        cpu memory amixer battery brightness date time \
-        -p time.format="%H:%M CW %V" date.format="%a, %b %d %Y" \
-	brightness.step=15 \
-	-t gruvbox-powerline
 }
 
 ###############################################################################
@@ -293,5 +287,5 @@ no_focus [class="plasmashell" window_type="notification"]
 for_window [title="Desktop — Plasma"] kill; floating enable; border none
 exec --no-startup-id /usr/lib/pam_kwallet_init
 
-exec --no-startup-id ~/scripts/startup
-exec --no-startup-id lxpoltkit
+exec --no-startup-id lxpolkit
+exec --no-startup-id ~/scripts/startup.sh
