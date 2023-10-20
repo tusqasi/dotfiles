@@ -29,6 +29,7 @@ alias q="exit"
 alias s="sudo"
 alias sn="sudoedit"
 alias v="vifm ./"
+alias mkds="python -m venv .venv;python -m pip install numpy pandas matplotlib;source ./.venv/bin/activate"
 
 
 # Neovim

@@ -26,9 +26,9 @@ source ~/.config/zsh/zsh-fzf-history-search/zsh-fzf-history-search.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history)
 source /usr/share/z/z.sh
 
-# export PYENV_ROOT="$HOME/.pyenv"
-# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -74,4 +74,4 @@ path+=("$HOME/.local/share/bob/nvim-bin")
 
 [[ ! -r /home/tusqasi/.opam/opam-init/init.zsh ]] || source /home/tusqasi/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
 
-
+export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_file_bytes 2048000"
