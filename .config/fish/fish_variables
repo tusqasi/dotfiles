@@ -4,6 +4,7 @@ SETUVAR --export DENO_INSTALL:/home/tusqasi/\x2econfig/deno
 SETUVAR EDITOR:/usr/local/bin/nvim
 SETUVAR --export FLUTTER_HOME:/opt/flutter
 SETUVAR --export --path GOPATH:/home/tusqasi/\x2elocal/share/go/
+SETUVAR INVERT_NUM:0
 SETUVAR --export MANPAGER:sh\x20\x2dc\x20\x27col\x20\x2dbx\x20\x7c\x20bat\x20\x2dl\x20man\x20\x2dp\x27
 SETUVAR NVIM_DIR:/home/tusqasi/\x2econfig/nvim
 SETUVAR --export PYENV_ROOT:/home/tusqasi/\x2epyenv
@@ -137,4 +138,4 @@ SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
 SETUVAR fish_user_path:/home/tusqasi/\x2easdf/shims\x1e/opt/asdf\x2dvm/bin\x1e/home/tusqasi/\x2ebin/\x1e/home/tusqasi/scripts/\x1e/home/tusqasi/\x2elocal/bin/\x1e/opt/flutter/bin/\x1e/home/tusqasi/\x2egem/ruby/3\x2e0\x2e0/bin/\x1e/usr/local/sbin\x1e/usr/local/bin\x1e/usr/bin\x1e/home/tusqasi/Downloads/VSCode\x2dlinux\x2dx64/bin/\x1e/home/tusqasi/\x2elocal/share/gem/ruby/3\x2e0\x2e0/bin\x1e/opt/cuda/bin\x1e/opt/cuda/nsight_compute\x1e/opt/cuda/nsight_systems/bin\x1e/usr/lib/jvm/default/bin\x1e/usr/bin/site_perl\x1e/usr/bin/vendor_perl\x1e/usr/bin/core_perl
-SETUVAR fish_user_paths:/home/tusqasi/\x2epyenv/bin\x1e/home/tusqasi/\x2easdf/shims\x1e/opt/asdf\x2dvm/bin\x1e/opt/cuda/bin\x1e/opt/cuda/nsight_compute\x1e/opt/cuda/nsight_systems/bin\x1e/usr/bin\x1e/usr/bin/core_perl\x1e/usr/bin/site_perl\x1e/usr/bin/vendor_perl\x1e/usr/lib/jvm/default/bin\x1e/usr/local/bin\x1e/usr/local/sbin\x1e/home/tusqasi/Downloads/VSCode\x2dlinux\x2dx64/bin/\x1e/home/tusqasi/\x2ebin\x1e/home/tusqasi/\x2elocal/bin/\x1e/home/tusqasi/scripts/\x1e/opt/flutter/bin/\x1e/home/tusqasi/bin
+SETUVAR fish_user_paths:/home/tusqasi/\x2epyenv/bin\x1e/home/tusqasi/\x2easdf/shims\x1e/opt/asdf\x2dvm/bin\x1e/opt/cuda/bin\x1e/opt/cuda/nsight_compute\x1e/opt/cuda/nsight_systems/bin\x1e/usr/bin\x1e/usr/bin/core_perl\x1e/usr/bin/site_perl\x1e/usr/bin/vendor_perl\x1e/usr/lib/jvm/default/bin\x1e/usr/local/bin\x1e/usr/local/sbin\x1e/home/tusqasi/Downloads/VSCode\x2dlinux\x2dx64/bin/\x1e/home/tusqasi/\x2ebin\x1e/home/tusqasi/\x2elocal/bin/\x1e/home/tusqasi/scripts/\x1e/opt/flutter/bin/\x1e/home/tusqasi/bin\x1e/home/tusqasi/\x2efzf/bin
