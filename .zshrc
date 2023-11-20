@@ -26,9 +26,9 @@ source ~/.config/zsh/zsh-fzf-history-search/zsh-fzf-history-search.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history)
 source /usr/share/z/z.sh
 
-export PYENV_ROOT="$HOME/.pyenv"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 # [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
