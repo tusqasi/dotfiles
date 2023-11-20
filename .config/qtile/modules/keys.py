@@ -249,13 +249,13 @@ keys = [
         desc="open file_manager",
     ),
     Key(
-        [mod, alt],
+        [mod, "shift"],
         "e",
         lazy.spawn("rofimoji --action type copy"),
         desc="select emoji",
     ),
     Key(
-        [mod, alt],
+        [mod, "shift"],
         "g",
         lazy.spawn("rofimoji --file ~/scripts/gitmoji.csv --action type copy"),
         desc="select gitmoji",
@@ -279,25 +279,13 @@ keys = [
         desc="task manager",
     ),
     Key(
-        [mod, alt],
-        "y",
-        lazy.spawn("/home/tusqasi/scripts/play_clipboard_youtube.sh"),
-        desc="run mpv with current clipboadr youtube link",
-    ),
-    Key(
         [mod],
-        "c",
+        "v",
         lazy.spawn("/home/tusqasi/scripts/rofi_clipboard.py"),
         desc="Clipboard rofi program",
     ),
     # Launch stuff end #
     # power stuff
-    Key(
-        [mod, alt],
-        "p",
-        lazy.spawn("python -m rofi_rbw.rofi_rbw"),
-        desc="Bitwarden rofi",
-    ),
     # Layout
     Key(
         [mod],
@@ -391,12 +379,12 @@ keys = [
     ),
 ]
 inverted = [
-    "exclam",
-    "at",
-    "numbersign",
-    "dollar",
-    "percent",
-    "caret",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
 ]
 for i, ((name, kwargs), inv) in enumerate(zip(group_names, inverted), 1):
     keys.append(
