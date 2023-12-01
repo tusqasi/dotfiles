@@ -7,7 +7,7 @@ local function AutoSaveNFormat()
 	end
 end
 
-vim.api.nvim_create_autocmd({ "InsertLeave" }, {
+vim.api.nvim_create_autocmd({ "InsertLeave" ,"TextChanged"}, {
 	callback = AutoSaveNFormat,
 	pattern = "*.*",
 	group = group,

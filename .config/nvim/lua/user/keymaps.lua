@@ -56,7 +56,12 @@ vim.keymap.set("n", "<Leader>fb", "<CMD>Explore<CR>")
 
 -- Telescope
 -- Better search
-vim.keymap.set("n", "<Leader>/", "<CMD>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", {})
+local function better_search()
+	--[[ print('sdfs') ]]
+	require('telescope.builtin').live_grep({})
+
+end
+vim.keymap.set("n", "<Leader>/", better_search, {})
 
 -- All builtins
 vim.keymap.set("n", "<Leader>;", "<CMD>lua require('telescope.builtin').builtin()<CR>", options)
@@ -84,9 +89,6 @@ vim.keymap.set("n", "<Leader>o", AutoSaveNFormatToggle, options)
 -- Telescope document symbols
 vim.keymap.set("n", "<Leader>s", "<CMD>Telescope lsp_document_symbols<CR>", options)
 
--- Telescope Live grep
-vim.keymap.set("n", "<Leader>/", "<CMD>Telescope live_grep<CR>", options)
-
 -- Telescope help
 vim.keymap.set("n", "<Leader><Leader>h", "<CMD>Telescope help_tags<CR>", options)
 
@@ -97,7 +99,7 @@ vim.keymap.set("n", "<Leader><Leader><Leader>", "<CMD>Telescope resume<CR>", opt
 vim.keymap.set("n", "<leader>m", "<CMD>lua require('harpoon.mark').add_file()<CR>", options)
 vim.keymap.set("n", "<leader>M", "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>", options)
 
-for i = 1, 6, 1 do
+for i = 1, 9, 1 do
 	vim.keymap.set(
 		"n", "<leader>" .. i,
 		string.format("<CMD>lua require('harpoon.ui').nav_file(%s)<CR>", i),
