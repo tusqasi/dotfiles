@@ -4,7 +4,8 @@ lsp.preset('recommended')
 
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-local cmp_mappings = lsp.defaults.cmp_mappings({
+local default_maps = cmp.mapping.preset.insert();
+local cmp_mappings = {
 	["<C-e>"] = cmp.mapping(function(fallback)
 		if luasnip.expand_or_jumpable() then
 			luasnip.expand_or_jump()
@@ -24,7 +25,10 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 		select = true,
 	}),
 	["<C-Space>"] = cmp.mapping.complete(),
-})
+	["<C-N>"] = default_maps["<C-N>"],
+	["<C-P>"] = default_maps["<C-P>"]
+
+}
 
 lsp.setup_nvim_cmp({
 	mapping = cmp_mappings,
