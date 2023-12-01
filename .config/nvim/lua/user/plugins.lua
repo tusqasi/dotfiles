@@ -13,17 +13,34 @@ local packer_bootstrap = ensure_packer()
 
 
 
+
 return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- treesitter
-	use({
-		"nvim-treesitter/nvim-treesitter",
-		run = ":TSUpdate",
-	})
+	-- use({
+	-- 	"nvim-treesitter/nvim-treesitter",
+	-- 	run = ":TSUpdate",
+	-- })
 	use({ "nvim-treesitter/nvim-treesitter-textobjects" })
-	-- use({ "https://github.com/nvim-treesitter/playground" })
-	use({ "JoosepAlviste/nvim-ts-context-commentstring" })
+	use({ "https://github.com/nvim-treesitter/playground" })
+	use({
+		"JoosepAlviste/nvim-ts-context-commentstring",
+		config = function()
+			require('ts_context_commentstring').setup {
+				enable_autocmd = false,
+				-- max_lines = 1,
+				-- patterns = {
+				-- 	elixir = {
+				-- 		"anonymous_function",
+				-- 		"arguments",
+				-- 		"block",
+				-- 		"do_block",
+				-- 	}
+				-- },
+			}
+		end
+	})
 
 
 	-- very nice
@@ -34,7 +51,7 @@ return require("packer").startup(function(use)
 		"numToStr/Comment.nvim",
 		config = function()
 			require("Comment").setup({
-				-- pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+				pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
 			})
 		end,
 	})
@@ -93,7 +110,7 @@ return require("packer").startup(function(use)
 		},
 
 	}
-	use({ 'nvim-telescope/telescope-ui-select.nvim' })
+	-- use({ 'nvim-telescope/telescope-ui-select.nvim' })
 
 	use({
 		"nvim-telescope/telescope.nvim", -- 🔭
@@ -101,7 +118,7 @@ return require("packer").startup(function(use)
 		requires = { { "nvim-lua/plenary.nvim" } },
 		config = function()
 			-- require("telescope").load_extension("flutter")
-			require("telescope").load_extension("ui-select")
+			-- require("telescope").load_extension("ui-select")
 		end
 	})
 

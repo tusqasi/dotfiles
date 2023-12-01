@@ -1,15 +1,15 @@
 require 'nvim-treesitter.configs'.setup {
-	ensure_installed = { "c", "lua", "elixir", "css", "javascript", "typescript", "html" },
+	ensure_installed = { "c", "lua", "elixir", "css", "javascript", "typescript", "html", "python" },
 	sync_install = false,
 	auto_install = true,
 	highlight = {
 		enable = true,
 		additional_vim_regex_highlighting = false,
 	},
-	context_commentstring = {
-		enable = true,
-		enable_autocmd = false,
-	},
+	-- context_commentstring = {
+	-- 	enable = true,
+	-- 	enable_autocmd = false,
+	-- },
 	incremental_selection = {
 		enable = true,
 		keymaps = {
@@ -30,6 +30,8 @@ require 'nvim-treesitter.configs'.setup {
 				["ac"] = "@class.outer",
 				["ia"] = "@parameter.inner",
 				["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+				["i'"]  = "@string",
+				["a'"]  = "@string",
 			},
 		},
 		swap = {
