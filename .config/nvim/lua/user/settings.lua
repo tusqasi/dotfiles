@@ -47,3 +47,6 @@ vim.g.user_emmet_leader_key = ','
 
 -- Statusline
 vim.g.showmode = false
+
+-- Block Cursor
+vim.opt["guicursor"] = ""

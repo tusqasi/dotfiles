@@ -59,7 +59,6 @@ vim.keymap.set("n", "<Leader>fb", "<CMD>Explore<CR>")
 local function better_search()
 	--[[ print('sdfs') ]]
 	require('telescope.builtin').live_grep({})
-
 end
 vim.keymap.set("n", "<Leader>/", better_search, {})
 
@@ -96,14 +95,16 @@ vim.keymap.set("n", "<Leader><Leader>h", "<CMD>Telescope help_tags<CR>", options
 vim.keymap.set("n", "<Leader><Leader><Leader>", "<CMD>Telescope resume<CR>", options)
 
 -- Harpoon
-vim.keymap.set("n", "<leader>m", "<CMD>lua require('harpoon.mark').add_file()<CR>", options)
-vim.keymap.set("n", "<leader>M", "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>", options)
+local harpoon = require "harpoon"
+vim.keymap.set("n", "<leader>m", function() harpoon:list():append() end, options)
+vim.keymap.set("n", "<leader>M", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, options)
 
 for i = 1, 9, 1 do
 	vim.keymap.set(
 		"n", "<leader>" .. i,
-		string.format("<CMD>lua require('harpoon.ui').nav_file(%s)<CR>", i),
-		options)
+		function()
+			harpoon:list():select(i)
+		end, options)
 end
 
 -- Git worktree
@@ -116,4 +117,4 @@ vim.keymap.set("n", "<leader>gc", "<CMD>lua require('telescope').extensions.git_
 -- vim.keymap.set("n", "<leader><leader>o", ":AerialToggle<CR>", options)
 
 -- Git worktree
-vim.keymap.set("n", "<leader>z", "<CMD>:ZenMode<CR>" ,options)
+vim.keymap.set("n", "<leader>z", "<CMD>:ZenMode<CR>", options)

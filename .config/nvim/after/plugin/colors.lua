@@ -1,2 +1,2 @@
-vim.cmd.colorscheme('wildcharm')
-vim.o.background = 'dark'
+vim.cmd.colorscheme('gruvbox')
+vim.o.background = 'light'

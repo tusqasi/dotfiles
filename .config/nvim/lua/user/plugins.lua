@@ -57,6 +57,7 @@ return require("packer").startup(function(use)
 	})
 
 	-- lsp
+	use({"mfussenegger/nvim-dap"})
 	-- use({
 	-- 	"akinsho/flutter-tools.nvim",
 	-- 	config = function()
@@ -97,9 +98,10 @@ return require("packer").startup(function(use)
 	-- very niiiice
 	use({
 		"ThePrimeagen/harpoon", -- 🥥
+		branch = "harpoon2",
 		config = function()
-			require("telescope").load_extension("harpoon")
-			require("harpoon").setup({ tabline = false, })
+			-- require("telescope").load_extension("harpoon")
+			require("harpoon"):setup()
 		end,
 	})
 	use {
@@ -184,7 +186,7 @@ return require("packer").startup(function(use)
 
 	use({
 		"mattn/emmet-vim",
-		ft = { "javascript", "jsx", "ts", "tsx", "html", "css", "vue", "heex" }
+		ft = { "javascript", "jsx", "ts", "typescriptreact", "tsx", "html", "css", "vue", "heex"	 }
 	})
 
 	use({
