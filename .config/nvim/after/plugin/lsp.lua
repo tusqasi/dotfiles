@@ -5,6 +5,7 @@ lsp.preset('recommended')
 local cmp = require("cmp")
 local luasnip = require("luasnip")
 local default_maps = cmp.mapping.preset.insert();
+local cmp_action = require('lsp-zero').cmp_action()
 local cmp_mappings = {
 	["<C-e>"] = cmp.mapping(function(fallback)
 		if luasnip.expand_or_jumpable() then
@@ -29,13 +30,12 @@ local cmp_mappings = {
 	["<C-P>"] = default_maps["<C-P>"]
 
 }
-
-lsp.setup_nvim_cmp({
+cmp.setup({
 	mapping = cmp_mappings,
-	-- sources =
-	-- 	lsp.defaults.cmp_sources({
-	-- { name = "copilot", group_index = 2 },
-	-- 	})
+	sources = {
+      {name = 'nvim_lsp'},
+      {name = 'buffer'},
+	},
 })
 
 lsp.on_attach(vim.g.lsp_on_attach)
