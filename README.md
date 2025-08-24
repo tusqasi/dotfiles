@@ -2,6 +2,12 @@
  
 This repo contains all the configuration necessary to bootstrap a new installation and acts as a place to backup the configurations.
 
+
+
+git clone --bare git@github.com:tusqasi/dotfiles.git .dotfiles
+
+/usr/bin/git --git-dir=/home/tusqasi/.dofiles/ --work-tree=/home/tusqasi checkout master
+
 ## Programs Tracked
 
 ### Editing
