@@ -139,7 +139,7 @@ ex ()
   fi
 }
 
-export QSYS_ROOTDIR="/home/tusqasi/intelFPGA_lite/22.1std/quartus/sopc_builder/bin"
+# export QSYS_ROOTDIR="/home/tusqasi/intelFPGA_lite/22.1std/quartus/sopc_builder/bin"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 eval "$(zoxide init bash)"
@@ -147,8 +147,8 @@ eval "$(zoxide init bash)"
 PATH=$PATH:~/.local/share/bob/nvim-bin 
 
 
-source ~/.asdf/asdf.sh
-PATH=$ASDF_DIR/completions:$PATH
+# source ~/.asdf/asdf.sh
+# PATH=$ASDF_DIR/completions:$PATH
 PATH=$PATH:~/.cargo/bin
 
 
@@ -162,10 +162,12 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
-export FLYCTL_INSTALL="/home/tusqasi/.fly"
-PATH=$FLYCTL_INSTALL/bin:$PATH
+# export FLYCTL_INSTALL="/home/tusqasi/.fly"
+# PATH=$FLYCTL_INSTALL/bin:$PATH
 
-export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_file_bytes 2048000"
+# export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_file_bytes 2048000"
 
-source ~/.config/zsh/abbreviations.zsh
-source ~/.config/bash/mix-power-complete.bash
+# source ~/.config/zsh/abbreviations.zsh
+# source ~/.config/bash/mix-power-complete.bash
+
+alias config="/usr/bin/git --git-dir=/home/tusqasi/.dotfiles/ --work-tree=/home/tusqasi"

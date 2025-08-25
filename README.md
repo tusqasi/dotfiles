@@ -6,7 +6,7 @@ This repo contains all the configuration necessary to bootstrap a new installati
 
 git clone --bare git@github.com:tusqasi/dotfiles.git .dotfiles
 
-/usr/bin/git --git-dir=/home/tusqasi/.dofiles/ --work-tree=/home/tusqasi checkout master
+/usr/bin/git --git-dir=/home/tusqasi/.dotfiles/ --work-tree=/home/tusqasi checkout master
 
 ## Programs Tracked
 
