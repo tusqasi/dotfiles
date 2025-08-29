@@ -139,20 +139,16 @@ ex ()
   fi
 }
 
-# export QSYS_ROOTDIR="/home/tusqasi/intelFPGA_lite/22.1std/quartus/sopc_builder/bin"
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+# [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 eval "$(zoxide init bash)"
 
 PATH=$PATH:~/.local/share/bob/nvim-bin 
 
 
-# source ~/.asdf/asdf.sh
-# PATH=$ASDF_DIR/completions:$PATH
 PATH=$PATH:~/.cargo/bin
 
 
-export SUDOEDIT=nvim
+export SUDO_EDITOR=nvim
 export EDITOR=nvim
 
 # pnpm
@@ -165,9 +161,8 @@ esac
 # export FLYCTL_INSTALL="/home/tusqasi/.fly"
 # PATH=$FLYCTL_INSTALL/bin:$PATH
 
-# export ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_file_bytes 2048000"
-
-# source ~/.config/zsh/abbreviations.zsh
-# source ~/.config/bash/mix-power-complete.bash
 
 alias config="/usr/bin/git --git-dir=/home/tusqasi/.dotfiles/ --work-tree=/home/tusqasi"
+alias e="~/scripts/edit_configs.sh"
+
+PATH=$PATH:~/scripts/
